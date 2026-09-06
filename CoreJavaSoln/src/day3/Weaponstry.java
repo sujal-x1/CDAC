@@ -1,6 +1,7 @@
 package day3;
- abstract class Weapons{
-	abstract void attack();
+   class Weapons{
+	  void attack() {
+	}
 }
 class sword extends Weapons{
 	void attack() {
@@ -29,11 +30,15 @@ class phantom extends Weapons {
 
 public class Weaponstry {
 	static void perform(Weapons ref) {
+		if(ref instanceof gun) {
+			gun ob=(gun)ref;
+			ob.reload();
+		}
 		ref.attack();
 	}
 	public static void main(String[] args) {
-		sword s = new sword();
-		perform(s);
+		
+		perform(new gun());
 	}
 
 }
