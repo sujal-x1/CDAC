@@ -1,4 +1,4 @@
-package day3;
+/*package day3;
    class Weapons{
 	  void attack() {
 	}
@@ -42,3 +42,4 @@ public class Weaponstry {
 	}
 
 }
+*/
