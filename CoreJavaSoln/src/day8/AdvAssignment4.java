@@ -7,7 +7,7 @@ public class AdvAssignment4 implements Runnable{
 		Condition c=lock.newCondition();
 		public void run()
 		{
-			System.out.println();d
+			System.out.println();
 			lock.lock();
 			perform();
 			lock.unlock();
