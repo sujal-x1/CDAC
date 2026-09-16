@@ -18,7 +18,7 @@ public class Assign9 implements Serializable {
     public static void main(String[] args) {
 
         HashMap<Integer, String> student = new HashMap<>();
-
+        
         student.put(22, "Sujal");
         student.put(20, "Ujal");
         student.put(32, "Jal");
