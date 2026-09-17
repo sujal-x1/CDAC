@@ -49,7 +49,7 @@ public class Assign9 implements Serializable {
             // Display using Iterator
             Iterator<Map.Entry<Integer, String>> itr =
                     student2.entrySet().iterator();
-
+            
             while (itr.hasNext()) {
 
                 Map.Entry<Integer, String> entry = itr.next();
@@ -60,7 +60,8 @@ public class Assign9 implements Serializable {
                 );
             }
 
-        } catch (IOException | ClassNotFoundException e) {
+        }
+        catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
     }
