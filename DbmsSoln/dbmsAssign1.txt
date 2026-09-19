@@ -1,0 +1,144 @@
+-- questions are added below
+Q1.
+mysql> select * from emp where salary between 500 and 1300;
++------+-------+--------+--------+
+| eid  | ename | salary | deptid |
++------+-------+--------+--------+
+|    1 | a     |   1000 |      1 |
+|    2 | b     |   1023 |      2 |
+|    8 | h     |    523 |      2 |
+|   10 | j     |    627 |      1 |
+|   11 | k     |    978 |      3 |
+|   13 | m     |    746 |      1 |
+|   16 | p     |    821 |      3 |
+|   18 | r     |    546 |      3 |
+|   19 | s     |    717 |      2 |
+|   20 | t     |    817 |      2 |
+|   21 | u     |    888 |      3 |
+|   29 | a3    |    653 |      3 |
+|   34 | a8    |    845 |      1 |
+|   36 | b1    |   1212 |      1 |
+|   37 | b2    |   1242 |      2 |
+|   40 | b5    |    555 |      1 |
++------+-------+--------+--------+
+16 rows in set (0.00 sec)
+
+Q2.
+mysql> select eid,ename from emp join dept where dept.deptid=1 and emp.deptid=1;
++------+-------+
+| eid  | ename |
++------+-------+
+|    1 | a     |
+|    5 | e     |
+|    7 | g     |
+|    9 | i     |
+|   10 | j     |
+|   12 | l     |
+|   13 | m     |
+|   14 | n     |
+|   17 | q     |
+|   22 | v     |
+|   24 | x     |
+|   26 | z     |
+|   27 | a1    |
+|   28 | a2    |
+|   30 | a4    |
+|   32 | a6    |
+|   34 | a8    |
+|   36 | b1    |
+|   40 | b5    |
+|   42 | b7    |
+|   44 | b9    |
++------+-------+
+21 rows in set (0.00 sec)
+
+Q3.
+mysql> select deptname,count(emp.eid) from dept left join emp on dept.deptid = emp.deptid group by deptname;
++----------+----------------+
+| deptname | count(emp.eid) |
++----------+----------------+
+| HR       |             21 |
+| IT       |             10 |
+| Finance  |             14 |
+| OPR      |              0 |
++----------+----------------+
+4 rows in set (0.00 sec)
+
+Q4.
+mysql> select ename,dept.deptname,salary from emp join dept on dept.deptid=emp.deptid where emp.salary = (select max(salary) from emp);
++-------+----------+--------+
+| ename | deptname | salary |
++-------+----------+--------+
+| x     | HR       |  28222 |
++-------+----------+--------+
+1 row in set (0.00 sec)
+
+Q5.
+mysql> SELECT ename, dept.deptname, salary
+    -> FROM emp
+    -> JOIN dept ON dept.deptid = emp.deptid
+    -> WHERE emp.salary = (SELECT MIN(salary) FROM emp);
++-------+----------+--------+
+| ename | deptname | salary |
++-------+----------+--------+
+| a5    | IT       |      3 |
++-------+----------+--------+
+1 row in set (0.00 sec)
+
+Q6.
+
+ mysql> select ename ,dept.deptname from emp join dept on emp.deptid= dept.deptid where emp.salary order by salary desc limit 1 offset 1;
++-------+----------+
+| ename | deptname |
++-------+----------+
+| w     | Finance  |
++-------+----------+
+1 row in set (0.00 sec)
+
+Q7.
+mysql> select ename,salary,dept.deptid from emp join dept on emp.deptid = dept.deptid order by salary desc limit 5;
++-------+--------+--------+
+| ename | salary | deptid |
++-------+--------+--------+
+| x     |  28222 |      1 |
+| w     |  20001 |      3 |
+| y     |  19212 |      3 |
+| z     |  12111 |      1 |
+| a2    |   9238 |      1 |
++-------+--------+--------+
+5 rows in set (0.00 sec)
+
+Q8
+Q9.
+mysql> select deptname,avg(emp.salary) from emp join dept on emp.deptid = dept.deptid group by dept.deptname;
++----------+-----------------+
+| deptname | avg(emp.salary) |
++----------+-----------------+
+| HR       |       3855.8571 |
+| IT       |       1540.7000 |
+| Finance  |       3814.2143 |
++----------+-----------------+
+3 rows in set (0.00 sec)
+
+Q10.
+mysql> select deptname , min(emp.salary),max(emp.salary) from dept join emp on dept.deptid= emp.deptid group by dept.deptname;
++----------+-----------------+-----------------+
+| deptname | min(emp.salary) | max(emp.salary) |
++----------+-----------------+-----------------+
+| HR       |              16 |           28222 |
+| IT       |               3 |            4532 |
+| Finance  |              23 |           20001 |
++----------+-----------------+-----------------+
+3 rows in set (0.00 sec)
+
+
+1. Display the name of all employees whose salary is between 500 and 1300
+2. Display the name of all employees who are in HR dept
+3. Display the name of all the dept and count of all the employees in that dept.
+4. Display the name , deptname and  salary of the employee whose salary is highest.
+5. Display the name , deptname and  salary of the employee whose salary is lowest.
+6. Display the name , deptname of employee whose salary is second highest.
+7. display the name, deptname of top five earning employees.
+8. Display the deptname, name of top 5 earning employees from each dept.
+9. Display the avg salary of each dept.
+10.Display the min and max salary of each dept.

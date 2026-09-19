@@ -3,7 +3,7 @@ package practicallearning;
 public class TwinPrime {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
+
 		int range=100;
 		for(int i=2;i<range;i++) {
 			boolean isPrime=true;

@@ -63,10 +63,8 @@ public class PracArrSer {
 		ListIterator itr = list2.listIterator();
 		while(itr.hasNext()) 
 			System.out.println(itr.next());
-		
-		
-
-	} catch (FileNotFoundException e) {
+		}
+	catch (FileNotFoundException e) {
 		e.printStackTrace();
 	} catch (IOException e) {
 		// TODO Auto-generated catch block
