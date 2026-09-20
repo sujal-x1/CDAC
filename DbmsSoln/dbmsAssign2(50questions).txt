@@ -1,0 +1,320 @@
+-- first 50 Questions assignment day 2 DBMS;
+
+Q1.
+mysql> select * from salespeople;
++------+---------+-----------+------+
+| SNUM | SNAME   | CITY      | COMM |
++------+---------+-----------+------+
+| 1001 | Peel    | London    | 0.12 |
+| 1002 | Serres  | San Jose  | 0.13 |
+| 1003 | AxelRod | New York  | 0.10 |
+| 1004 | Motika  | London    | 0.11 |
+| 1005 | Fran    | London    | 0.26 |
+| 1007 | Rifkin  | Barcelona | 0.15 |
++------+---------+-----------+------+
+6 rows in set (0.00 sec)
+
+Q2.
+mysql> select * from customers where rating = 100;
++------+---------+--------+--------+------+
+| CNUM | CNAME   | CITY   | RATING | SNUM |
++------+---------+--------+--------+------+
+| 2001 | Hoffman | London |    100 | 1001 |
+| 2006 | Clemens | London |    100 | 1001 |
+| 2007 | Pereira | Rome   |    100 | 1004 |
++------+---------+--------+--------+------+
+3 rows in set (0.00 sec)
+
+Q3.
+mysql> select * from customers where city is null;
+Empty set (0.00 sec)
+
+Q4.
+mysql> SELECT s.sname, o.odate, o.amt
+    -> FROM salespeople s
+    -> JOIN orders o ON s.snum = o.snum
+    -> WHERE o.amt = (select max(o2.amt) from orders o2 where o2.snum = s.snum);
++---------+------------+---------+
+| sname   | odate      | amt     |
++---------+------------+---------+
+| Motika  | 1996-10-03 | 1900.10 |
+| Serres  | 1996-10-03 | 5160.45 |
+| Rifkin  | 1996-10-03 | 1098.16 |
+| AxelRod | 1996-10-04 | 1713.23 |
+| Peel    | 1996-10-06 | 9891.88 |
++---------+------------+---------+
+5 rows in set (0.00 sec)
+
+Q5.
+mysql> select * from orders order by cnum desc;
++------+---------+------------+------+------+
+| ONUM | AMT     | ODATE      | CNUM | SNUM |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1996-10-03 | 2008 | 1007 |
+| 3006 | 1098.16 | 1996-10-03 | 2008 | 1007 |
+| 3002 | 1900.10 | 1996-10-03 | 2007 | 1004 |
+| 3008 | 4723.00 | 1996-10-05 | 2006 | 1001 |
+| 3011 | 9891.88 | 1996-10-06 | 2006 | 1001 |
+| 3010 | 1309.95 | 1996-10-06 | 2004 | 1002 |
+| 3005 | 5160.45 | 1996-10-03 | 2003 | 1002 |
+| 3007 |   75.75 | 1996-10-04 | 2002 | 1003 |
+| 3009 | 1713.23 | 1996-10-04 | 2002 | 1003 |
+| 3003 |  767.19 | 1996-10-03 | 2001 | 1001 |
++------+---------+------------+------+------+
+10 rows in set (0.00 sec)
+
+
+Q6.
+mysql>  select distinct s.sname from
+    ->          salespeople s join
+    ->       orders o on s.snum = o.snum ;
++---------+
+| sname   |
++---------+
+| Rifkin  |
+| Motika  |
+| Peel    |
+| Serres  |
+| AxelRod |
++---------+
+5 rows in set (0.00 sec)
+
+
+7.
+mysql> select c.cname , s.sname from
+    -> customers c join salespeople s
+    -> on s.snum = c.snum;
++----------+---------+
+| cname    | sname   |
++----------+---------+
+| Hoffman  | Peel    |
+| Giovanni | AxelRod |
+| Liu      | Serres  |
+| Grass    | Serres  |
+| Clemens  | Peel    |
+| Pereira  | Motika  |
+| Cisneros | Rifkin  |
++----------+---------+
+7 rows in set (0.00 sec)
+
+
+Q8.
+mysql> SELECT s.sname, s.snum
+    -> FROM salespeople s
+    -> WHERE (
+    ->     SELECT COUNT(*)
+    -> from customers c
+    -> where c.snum = s.snum)>=1;
++---------+------+
+| sname   | snum |
++---------+------+
+| Peel    | 1001 |
+| Serres  | 1002 |
+| AxelRod | 1003 |
+| Motika  | 1004 |
+| Rifkin  | 1007 |
++---------+------+
+5 rows in set (0.00 sec)
+
+Q9.
+mysql> SELECT s.sname, COUNT(s.snum)
+    -> FROM salespeople s
+    -> JOIN orders o ON s.snum = o.snum
+    -> GROUP BY s.sname;
++---------+---------------+
+| sname   | COUNT(s.snum) |
++---------+---------------+
+| Rifkin  |             2 |
+| Motika  |             1 |
+| Peel    |             3 |
+| Serres  |             2 |
+| AxelRod |             2 |
++---------+---------------+
+5 rows in set (0.00 sec)
+
+10.
+select * from customers where exists(select 1  from customers where city = 'san jose');
+
+
+11.
+mysql> select s.sname,c.cname from salespeople s join customers c on s.city = c.city;
++--------+----------+
+| sname  | cname    |
++--------+----------+
+| Fran   | Hoffman  |
+| Motika | Hoffman  |
+| Peel   | Hoffman  |
+| Serres | Liu      |
+| Fran   | Clemens  |
+| Motika | Clemens  |
+| Peel   | Clemens  |
+| Serres | Cisneros |
++--------+----------+
+8 rows in set (0.00 sec)
+
+12.
+mysql> select s.sname,c.cname from salespeople s join customers c on s.city = c.city;
++--------+----------+
+| sname  | cname    |
++--------+----------+
+| Fran   | Hoffman  |
+| Motika | Hoffman  |
+| Peel   | Hoffman  |
+| Serres | Liu      |
+| Fran   | Clemens  |
+| Motika | Clemens  |
+| Peel   | Clemens  |
+| Serres | Cisneros |
++--------+----------+
+8 rows in set (0.00 sec)
+13.
+
+mysql> select c.cname from customers c where c.city ='san jose' and c.rating >200;
++----------+
+| cname    |
++----------+
+| Cisneros |
++----------+
+1 row in set (0.00 sec)
+
+14.
+mysql> select s.sname, s.comm from salespeople s where s.city='london';
++--------+------+
+| sname  | comm |
++--------+------+
+| Peel   | 0.12 |
+| Motika | 0.11 |
+| Fran   | 0.26 |
++--------+------+
+3 rows in set (0.00 sec)
+
+15.
+mysql> select onum from orders join salespeople on salespeople.snum= orders.snum where sname ='motika';
++------+
+| onum |
++------+
+| 3002 |
++------+
+1 row in set (0.00 sec)
+
+16.
+mysql> select c.cname from customers c join orders o on c.snum = o.snum WHERE o.odate LIKE '1996-10-03%';
++----------+
+| cname    |
++----------+
+| Hoffman  |
+| Liu      |
+| Grass    |
+| Clemens  |
+| Pereira  |
+| Cisneros |
+| Cisneros |
++----------+
+7 rows in set (0.00 sec)
+
+17.
+mysql> SELECT odate, SUM(amt) AS total_amount, MAX(amt) AS max_amount FROM orders GROUP BY odate HAVING SUM(amt) >= MAX(amt) + 2000;
++------------+--------------+------------+
+| odate      | total_amount | max_amount |
++------------+--------------+------------+
+| 1996-10-03 |      8944.59 |    5160.45 |
++------------+--------------+------------+
+1 row in set (0.00 sec)
+
+18.
+mysql> select * from orders where amt> (select min(amt) from orders where odate ='1996-10-06');
++------+---------+------------+------+------+
+| ONUM | AMT     | ODATE      | CNUM | SNUM |
++------+---------+------------+------+------+
+| 3002 | 1900.10 | 1996-10-03 | 2007 | 1004 |
+| 3005 | 5160.45 | 1996-10-03 | 2003 | 1002 |
+| 3008 | 4723.00 | 1996-10-05 | 2006 | 1001 |
+| 3009 | 1713.23 | 1996-10-04 | 2002 | 1003 |
+| 3011 | 9891.88 | 1996-10-06 | 2006 | 1001 |
++------+---------+------------+------+------+
+5 rows in set (0.00 sec)
+
+19.
+SELECT s.sname, s.snum
+FROM salespeople s
+WHERE EXISTS (
+    SELECT 1
+    FROM customers c
+    WHERE c.snum = s.snum
+      AND c.rating = 300
+);
+
+20.
+SELECT c1.cname AS customer1,
+       c2.cname AS customer2,
+       c1.rating
+FROM customers c1
+JOIN customers c2
+    ON c1.rating = c2.rating
+   AND c1.cnum < c2.cnum;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

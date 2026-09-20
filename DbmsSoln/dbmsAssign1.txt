@@ -108,7 +108,12 @@ mysql> select ename,salary,dept.deptid from emp join dept on emp.deptid = dept.d
 +-------+--------+--------+
 5 rows in set (0.00 sec)
 
-Q8
+Q8.
+select e1.eid , e1.name ,e1.salary,deptname,count(e2.eid) cnt
+from  emp e1 , emp e2 , dept d where e1.deptid = e2.deptid 
+and e1.deptid = d.deptid and e1.salary <=e2.salary
+group by e1.eid , e1.ename, e1.salary,deptname having count(e2.eid)<=5
+order by deptname , salary  desc
 Q9.
 mysql> select deptname,avg(emp.salary) from emp join dept on emp.deptid = dept.deptid group by dept.deptname;
 +----------+-----------------+
