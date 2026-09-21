@@ -253,7 +253,354 @@ JOIN customers c2
     ON c1.rating = c2.rating
    AND c1.cnum < c2.cnum;
 
+21.
+mysql> select c.cname,c.cnum , c.snum from customers c where c.cnum >(select s.snum from salespeople s where s.sname='serres')+1000;
++----------+------+------+
+| cname    | cnum | snum |
++----------+------+------+
+| Liu      | 2003 | 1002 |
+| Grass    | 2004 | 1002 |
+| Clemens  | 2006 | 1001 |
+| Pereira  | 2007 | 1004 |
+| Cisneros | 2008 | 1007 |
++----------+------+------+
+5 rows in set (0.00 sec)
 
+22.
+mysql> select s.sname , concat(s.comm*100 ,'%') from salespeople s ;
++---------+-------------------------+
+| sname   | concat(s.comm*100 ,'%') |
++---------+-------------------------+
+| Peel    | 12.00%                  |
+| Serres  | 13.00%                  |
+| AxelRod | 10.00%                  |
+| Motika  | 11.00%                  |
+| Fran    | 26.00%                  |
+| Rifkin  | 15.00%                  |
++---------+-------------------------+
+6 rows in set (0.00 sec)
+
+23.
+mysql> select s.sname , max(o.amt),o.odate from salespeople s join orders o on s.snum = o.snum group by s.sname, o.odate having max(o.amt)>3000 ;
++--------+------------+------------+
+| sname  | max(o.amt) | odate      |
++--------+------------+------------+
+| Serres |    5160.45 | 1996-10-03 |
+| Peel   |    4723.00 | 1996-10-05 |
+| Peel   |    9891.88 | 1996-10-06 |
++--------+------------+------------+
+3 rows in set (0.00 sec)
+
+24.
+mysql> select s.sname , max(o.amt) from salespeople s join orders o on s.snum = o.snum where o.odate like '%10-03' group by s.sname,o.odate;
++--------+------------+
+| sname  | max(o.amt) |
++--------+------------+
+| Rifkin |    1098.16 |
+| Motika |    1900.10 |
+| Peel   |     767.19 |
+| Serres |    5160.45 |
++--------+------------+
+4 rows in set (0.00 sec)
+
+mysql> select s.sname , max(o.amt) from salespeople s join orders o on s.snum = o.snum where o.odate like '%10-03-%' group by s.sname,o.odate;
+Empty set (0.00 sec)
+
+25.
+mysql> select c.cname ,c.city  from customers c where c.city in (select c1.city from customers c1 join salespeople s  on c1.snum=s.snum where s.sname in ('serres'));
++----------+----------+
+| cname    | city     |
++----------+----------+
+| Liu      | San Jose |
+| Grass    | Berlin   |
+| Cisneros | San Jose |
++----------+----------+
+3 rows in set (0.00 sec)
+
+26.
+mysql> select cname,rating from customers where rating>200;
++----------+--------+
+| cname    | rating |
++----------+--------+
+| Grass    |    300 |
+| Cisneros |    300 |
++----------+--------+
+2 rows in set (0.00 sec)
+
+27.
+
+mysql> select count(distinct s.sname) from salespeople s join orders o on s.snum = o.snum where s.snum = o.snum;
++-------------------------+
+| count(distinct s.sname) |
++-------------------------+
+|                       5 |
++-------------------------+
+1 row in set (0.01 sec)
+
+28.
+mysql> select c.cname ,s.sname ,s.comm from customers c join salespeople s on c.snum = s.snum where s.comm > 0.12;
++----------+--------+------+
+| cname    | sname  | comm |
++----------+--------+------+
+| Liu      | Serres | 0.13 |
+| Grass    | Serres | 0.13 |
+| Cisneros | Rifkin | 0.15 |
++----------+--------+------+
+3 rows in set (0.00 sec)
+
+29.
+mysql> select s.sname from salespeople s where exists (select 2 from salespeople s1 join customers c1 on s1.snum = c1.snum );
++---------+
+| sname   |
++---------+
+| Peel    |
+| Serres  |
+| AxelRod |
+| Motika  |
+| Fran    |
+| Rifkin  |
++---------+
+6 rows in set (0.00 sec)
+
+30.
+mysql> select distinct s.sname  from salespeople s join customers c on s.city = c.city ;
++--------+
+| sname  |
++--------+
+| Fran   |
+| Motika |
+| Peel   |
+| Serres |
++--------+
+4 rows in set (0.00 sec)
+
+31.
+mysql> select s.sname from salespeople s where s.sname like ('%P__l%');
++-------+
+| sname |
++-------+
+| Peel  |
++-------+
+1 row in set (0.00 sec)
+
+32.
+mysql> select * from orders where cnum in (select cnum from customers where cname='cisneros');
++------+---------+------------+------+------+
+| ONUM | AMT     | ODATE      | CNUM | SNUM |
++------+---------+------------+------+------+
+| 3001 |   18.69 | 1996-10-03 | 2008 | 1007 |
+| 3006 | 1098.16 | 1996-10-03 | 2008 | 1007 |
++------+---------+------------+------+------+
+2 rows in set (0.00 sec)
+
+33.
+mysql> select max(o.amt) ,s.sname from orders o join salespeople s on o.snum = s.snum where s.sname in ('serres','rifkin') group by s.sname;
++------------+--------+
+| max(o.amt) | sname  |
++------------+--------+
+|    1098.16 | Rifkin |
+|    5160.45 | Serres |
++------------+--------+
+2 rows in set (0.00 sec)
+
+34.
+mysql> select snum ,sname,comm,city from salespeople;
++------+---------+------+-----------+
+| snum | sname   | comm | city      |
++------+---------+------+-----------+
+| 1001 | Peel    | 0.12 | London    |
+| 1002 | Serres  | 0.13 | San Jose  |
+| 1003 | AxelRod | 0.10 | New York  |
+| 1004 | Motika  | 0.11 | London    |
+| 1005 | Fran    | 0.26 | London    |
+| 1007 | Rifkin  | 0.15 | Barcelona |
++------+---------+------+-----------+
+6 rows in set (0.00 sec)
+
+35.
+mysql> select c.cname from customers c where c.cname between 'a'and'g';
++----------+
+| cname    |
++----------+
+| Clemens  |
+| Cisneros |
++----------+
+2 rows in set (0.00 sec)
+
+36.
+mysql> select * from customers c1 cross join customers c2;
++------+----------+----------+--------+------+------+----------+----------+--------+------+
+| CNUM | CNAME    | CITY     | RATING | SNUM | CNUM | CNAME    | CITY     | RATING | SNUM |
++------+----------+----------+--------+------+------+----------+----------+--------+------+
+| 2008 | Cisneros | San Jose |    300 | 1007 | 2001 | Hoffman  | London   |    100 | 1001 |
+| 2007 | Pereira  | Rome     |    100 | 1004 | 2001 | Hoffman  | London   |    100 | 1001 |
+| 2006 | Clemens  | London   |    100 | 1001 | 2001 | Hoffman  | London   |    100 | 1001 |
+| 2004 | Grass    | Berlin   |    300 | 1002 | 2001 | Hoffman  | London   |    100 | 1001 |
+| 2003 | Liu      | San Jose |    200 | 1002 | 2001 | Hoffman  | London   |    100 | 1001 |
+| 2002 | Giovanni | Rome     |    200 | 1003 | 2001 | Hoffman  | London   |    100 | 1001 |
+| 2001 | Hoffman  | London   |    100 | 1001 | 2001 | Hoffman  | London   |    100 | 1001 |
+| 2008 | Cisneros | San Jose |    300 | 1007 | 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2007 | Pereira  | Rome     |    100 | 1004 | 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2006 | Clemens  | London   |    100 | 1001 | 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2004 | Grass    | Berlin   |    300 | 1002 | 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2003 | Liu      | San Jose |    200 | 1002 | 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2002 | Giovanni | Rome     |    200 | 1003 | 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2001 | Hoffman  | London   |    100 | 1001 | 2002 | Giovanni | Rome     |    200 | 1003 |
+| 2008 | Cisneros | San Jose |    300 | 1007 | 2003 | Liu      | San Jose |    200 | 1002 |
+| 2007 | Pereira  | Rome     |    100 | 1004 | 2003 | Liu      | San Jose |    200 | 1002 |
+| 2006 | Clemens  | London   |    100 | 1001 | 2003 | Liu      | San Jose |    200 | 1002 |
+| 2004 | Grass    | Berlin   |    300 | 1002 | 2003 | Liu      | San Jose |    200 | 1002 |
+| 2003 | Liu      | San Jose |    200 | 1002 | 2003 | Liu      | San Jose |    200 | 1002 |
+| 2002 | Giovanni | Rome     |    200 | 1003 | 2003 | Liu      | San Jose |    200 | 1002 |
+| 2001 | Hoffman  | London   |    100 | 1001 | 2003 | Liu      | San Jose |    200 | 1002 |
+| 2008 | Cisneros | San Jose |    300 | 1007 | 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2007 | Pereira  | Rome     |    100 | 1004 | 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2006 | Clemens  | London   |    100 | 1001 | 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2004 | Grass    | Berlin   |    300 | 1002 | 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2003 | Liu      | San Jose |    200 | 1002 | 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2002 | Giovanni | Rome     |    200 | 1003 | 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2001 | Hoffman  | London   |    100 | 1001 | 2004 | Grass    | Berlin   |    300 | 1002 |
+| 2008 | Cisneros | San Jose |    300 | 1007 | 2006 | Clemens  | London   |    100 | 1001 |
+| 2007 | Pereira  | Rome     |    100 | 1004 | 2006 | Clemens  | London   |    100 | 1001 |
+| 2006 | Clemens  | London   |    100 | 1001 | 2006 | Clemens  | London   |    100 | 1001 |
+| 2004 | Grass    | Berlin   |    300 | 1002 | 2006 | Clemens  | London   |    100 | 1001 |
+| 2003 | Liu      | San Jose |    200 | 1002 | 2006 | Clemens  | London   |    100 | 1001 |
+| 2002 | Giovanni | Rome     |    200 | 1003 | 2006 | Clemens  | London   |    100 | 1001 |
+| 2001 | Hoffman  | London   |    100 | 1001 | 2006 | Clemens  | London   |    100 | 1001 |
+| 2008 | Cisneros | San Jose |    300 | 1007 | 2007 | Pereira  | Rome     |    100 | 1004 |
+| 2007 | Pereira  | Rome     |    100 | 1004 | 2007 | Pereira  | Rome     |    100 | 1004 |
+| 2006 | Clemens  | London   |    100 | 1001 | 2007 | Pereira  | Rome     |    100 | 1004 |
+| 2004 | Grass    | Berlin   |    300 | 1002 | 2007 | Pereira  | Rome     |    100 | 1004 |
+| 2003 | Liu      | San Jose |    200 | 1002 | 2007 | Pereira  | Rome     |    100 | 1004 |
+| 2002 | Giovanni | Rome     |    200 | 1003 | 2007 | Pereira  | Rome     |    100 | 1004 |
+| 2001 | Hoffman  | London   |    100 | 1001 | 2007 | Pereira  | Rome     |    100 | 1004 |
+| 2008 | Cisneros | San Jose |    300 | 1007 | 2008 | Cisneros | San Jose |    300 | 1007 |
+| 2007 | Pereira  | Rome     |    100 | 1004 | 2008 | Cisneros | San Jose |    300 | 1007 |
+| 2006 | Clemens  | London   |    100 | 1001 | 2008 | Cisneros | San Jose |    300 | 1007 |
+| 2004 | Grass    | Berlin   |    300 | 1002 | 2008 | Cisneros | San Jose |    300 | 1007 |
+| 2003 | Liu      | San Jose |    200 | 1002 | 2008 | Cisneros | San Jose |    300 | 1007 |
+| 2002 | Giovanni | Rome     |    200 | 1003 | 2008 | Cisneros | San Jose |    300 | 1007 |
+| 2001 | Hoffman  | London   |    100 | 1001 | 2008 | Cisneros | San Jose |    300 | 1007 |
++------+----------+----------+--------+------+------+----------+----------+--------+------+
+49 rows in set (0.00 sec)
+
+37.
+mysql> SELECT o.amt
+    -> FROM orders o
+    -> WHERE o.odate = '1996-10-04'
+    ->   AND o.amt > (
+    ->       SELECT AVG(o2.amt)
+    ->       FROM orders o2
+    ->       WHERE o2.odate = '1996-10-04');
++---------+
+| amt     |
++---------+
+| 1713.23 |
++---------+
+1 row in set (0.00 sec)
+
+38.
+mysql> SELECT c.cname, c.cnum
+    -> FROM customers c
+    -> WHERE c.rating = (
+    ->     SELECT MAX(c2.rating)
+    ->     FROM customers c2
+    ->     WHERE c2.city = c.city
+    -> );
++----------+------+
+| cname    | cnum |
++----------+------+
+| Hoffman  | 2001 |
+| Giovanni | 2002 |
+| Grass    | 2004 |
+| Clemens  | 2006 |
+| Cisneros | 2008 |
++----------+------+
+5 rows in set (0.00 sec)
+
+39.
+mysql> select o.odate , sum(o.amt) as total_amount
+    -> from orders o
+    -> group by o.odate
+    -> order by o.odate desc;
++------------+--------------+
+| odate      | total_amount |
++------------+--------------+
+| 1996-10-06 |     11201.83 |
+| 1996-10-05 |      4723.00 |
+| 1996-10-04 |      1788.98 |
+| 1996-10-03 |      8944.59 |
++------------+--------------+
+4 rows in set (0.00 sec)
+
+40.
+mysql> select o.amt from orders o where o.amt< any(select o1.amt from orders o1 join customers c1 on o1.snum= c1.snum where c1.city = 'san jose');
+
++---------+
+
+| amt     |
+
++---------+
+
+|   18.69 |
+
+| 1900.10 |
+
+|  767.19 |
+
+| 1098.16 |
+
+|   75.75 |
+
+| 4723.00 |
+
+| 1713.23 |
+
+| 1309.95 |
+
++---------+
+
+8 rows in set (0.00 sec)
+
+
+42.
+mysql> select onum from orders where amt >(select avg(amt) from orders);
++------+
+| onum |
++------+
+| 3005 |
+| 3008 |
+| 3011 |
++------+
+3 rows in set (0.00 sec)
+
+43.
+mysql> select city , max(rating) as maxrating from customers group by city;
++----------+-----------+
+| city     | maxrating |
++----------+-----------+
+| London   |       100 |
+| Rome     |       200 |
+| San Jose |       300 |
+| Berlin   |       300 |
++----------+-----------+
+4 rows in set (0.00 sec)
+
+44.
+
+
+
+
+
+Q.33
+mysql> select max(o.amt),s.sname from orders o join salespeople s on o.snum = s.snum where s.sname in ('rifkin' , 'serres') group by s.sname;
++------------+--------+
+| max(o.amt) | sname  |
++------------+--------+
+|    1098.16 | Rifkin |
+|    5160.45 | Serres |
++------------+--------+
+2 rows in set (0.00 sec)
 
 
 
