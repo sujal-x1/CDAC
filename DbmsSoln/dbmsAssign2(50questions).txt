@@ -587,20 +587,112 @@ mysql> select city , max(rating) as maxrating from customers group by city;
 4 rows in set (0.00 sec)
 
 44.
+mysql> select o.amt , s.sname , s.comm ,c.rating from orders o join salespeople s on s.snum = o.snum join customers c on c.cnum = o.cnum where c.rating>100;
++---------+---------+------+--------+
+| amt     | sname   | comm | rating |
++---------+---------+------+--------+
+|   18.69 | Rifkin  | 0.15 |    300 |
+| 5160.45 | Serres  | 0.13 |    200 |
+| 1098.16 | Rifkin  | 0.15 |    300 |
+|   75.75 | AxelRod | 0.10 |    200 |
+| 1713.23 | AxelRod | 0.10 |    200 |
+| 1309.95 | Serres  | 0.13 |    300 |
++---------+---------+------+--------+
+6 rows in set (0.00 sec)
 
+45.
+mysql> select * from salespeople s cross join salespeople d order by s.snum desc;
++------+---------+-----------+------+------+---------+-----------+------+
+| SNUM | SNAME   | CITY      | COMM | SNUM | SNAME   | CITY      | COMM |
++------+---------+-----------+------+------+---------+-----------+------+
+| 1007 | Rifkin  | Barcelona | 0.15 | 1001 | Peel    | London    | 0.12 |
+| 1007 | Rifkin  | Barcelona | 0.15 | 1002 | Serres  | San Jose  | 0.13 |
+| 1007 | Rifkin  | Barcelona | 0.15 | 1004 | Motika  | London    | 0.11 |
+| 1007 | Rifkin  | Barcelona | 0.15 | 1003 | AxelRod | New York  | 0.10 |
+| 1007 | Rifkin  | Barcelona | 0.15 | 1005 | Fran    | London    | 0.26 |
+| 1007 | Rifkin  | Barcelona | 0.15 | 1007 | Rifkin  | Barcelona | 0.15 |
+| 1005 | Fran    | London    | 0.26 | 1001 | Peel    | London    | 0.12 |
+| 1005 | Fran    | London    | 0.26 | 1002 | Serres  | San Jose  | 0.13 |
+| 1005 | Fran    | London    | 0.26 | 1003 | AxelRod | New York  | 0.10 |
+| 1005 | Fran    | London    | 0.26 | 1004 | Motika  | London    | 0.11 |
+| 1005 | Fran    | London    | 0.26 | 1005 | Fran    | London    | 0.26 |
+| 1005 | Fran    | London    | 0.26 | 1007 | Rifkin  | Barcelona | 0.15 |
+| 1004 | Motika  | London    | 0.11 | 1001 | Peel    | London    | 0.12 |
+| 1004 | Motika  | London    | 0.11 | 1002 | Serres  | San Jose  | 0.13 |
+| 1004 | Motika  | London    | 0.11 | 1003 | AxelRod | New York  | 0.10 |
+| 1004 | Motika  | London    | 0.11 | 1005 | Fran    | London    | 0.26 |
+| 1004 | Motika  | London    | 0.11 | 1004 | Motika  | London    | 0.11 |
+| 1004 | Motika  | London    | 0.11 | 1007 | Rifkin  | Barcelona | 0.15 |
+| 1003 | AxelRod | New York  | 0.10 | 1001 | Peel    | London    | 0.12 |
+| 1003 | AxelRod | New York  | 0.10 | 1002 | Serres  | San Jose  | 0.13 |
+| 1003 | AxelRod | New York  | 0.10 | 1003 | AxelRod | New York  | 0.10 |
+| 1003 | AxelRod | New York  | 0.10 | 1004 | Motika  | London    | 0.11 |
+| 1003 | AxelRod | New York  | 0.10 | 1005 | Fran    | London    | 0.26 |
+| 1003 | AxelRod | New York  | 0.10 | 1007 | Rifkin  | Barcelona | 0.15 |
+| 1002 | Serres  | San Jose  | 0.13 | 1001 | Peel    | London    | 0.12 |
+| 1002 | Serres  | San Jose  | 0.13 | 1002 | Serres  | San Jose  | 0.13 |
+| 1002 | Serres  | San Jose  | 0.13 | 1003 | AxelRod | New York  | 0.10 |
+| 1002 | Serres  | San Jose  | 0.13 | 1004 | Motika  | London    | 0.11 |
+| 1002 | Serres  | San Jose  | 0.13 | 1005 | Fran    | London    | 0.26 |
+| 1002 | Serres  | San Jose  | 0.13 | 1007 | Rifkin  | Barcelona | 0.15 |
+| 1001 | Peel    | London    | 0.12 | 1001 | Peel    | London    | 0.12 |
+| 1001 | Peel    | London    | 0.12 | 1002 | Serres  | San Jose  | 0.13 |
+| 1001 | Peel    | London    | 0.12 | 1003 | AxelRod | New York  | 0.10 |
+| 1001 | Peel    | London    | 0.12 | 1004 | Motika  | London    | 0.11 |
+| 1001 | Peel    | London    | 0.12 | 1005 | Fran    | London    | 0.26 |
+| 1001 | Peel    | London    | 0.12 | 1007 | Rifkin  | Barcelona | 0.15 |
++------+---------+-----------+------+------+---------+-----------+------+
+36 rows in set (0.00 sec)
 
+46.
+mysql> select s.sname from salespeople s where s.city in ('barcelona','london');
++--------+
+| sname  |
++--------+
+| Peel   |
+| Motika |
+| Fran   |
+| Rifkin |
++--------+
+4 rows in set (0.00 sec)
 
+47.
+mysql> select s.sname from salespeople s where s.city in ('barcelona','london');
++--------+
+| sname  |
++--------+
+| Peel   |
+| Motika |
+| Fran   |
+| Rifkin |
++--------+
+4 rows in set (0.00 sec)
+48.
+mysql> select s.sname from salespeople s where ( select count(*) from customers where s.snum=snum )=1;
++---------+
+| sname   |
++---------+
+| AxelRod |
+| Motika  |
+| Rifkin  |
++---------+
+3 rows in set (0.00 sec)
 
-
-Q.33
-mysql> select max(o.amt),s.sname from orders o join salespeople s on o.snum = s.snum where s.sname in ('rifkin' , 'serres') group by s.sname;
-+------------+--------+
-| max(o.amt) | sname  |
-+------------+--------+
-|    1098.16 | Rifkin |
-|    5160.45 | Serres |
-+------------+--------+
+49.
+mysql> select distinct c.cname ,c1.cname from customers c join customers c1 on c1.snum = c.snum where c.cnum < c1.cnum ;
++---------+---------+
+| cname   | cname   |
++---------+---------+
+| Hoffman | Clemens |
+| Liu     | Grass   |
++---------+---------+
 2 rows in set (0.00 sec)
+
+
+50.
+
+
+
 
 
 
