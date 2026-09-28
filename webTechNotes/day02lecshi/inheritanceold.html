@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use script"
+        function person(nm,age){
+            if (this instanceof person){
+                this.name=nm;
+                this.age=age;
+                this.speak=function(){return"hello"}
+                alert(this.constructor)
+                return this
+            }
+            else
+            throw new TypeError("check this is not a function");
+            }
+            person.prototype.display=function(){return"parent classmethod data";}
+            person.prototype.toString=function(){
+                return this.name+ " "+this.age
+        }
+    </script>
+</body>
+</html>

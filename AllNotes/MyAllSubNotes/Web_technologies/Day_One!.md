@@ -260,3 +260,4 @@ gives:
 ```
 
 Here `...person` copies the properties from `person` into the new object.
+**lamda expression vs lamda statement

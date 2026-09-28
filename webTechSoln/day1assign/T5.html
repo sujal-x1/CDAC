@@ -1,0 +1,33 @@
+<!-- Q5. Print all prime number between 1 to 50 using java script function -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <script>
+        "use strict"
+        function prime(){
+            const range=20;
+            for(let i=2;i<=range;i++){
+                let isPrime=true;
+
+                for(let j=2;j<i;j++){
+                    if(i%j==0){
+                     isPrime=false;
+                    break;
+                    }
+                }
+                if(isPrime){
+                    document.write(i + " is a prime number<br>")
+                }
+            }
+        }
+
+        prime();
+    </script>
+    
+ </body>
+ </html>

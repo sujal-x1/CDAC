@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function person(nm,mks){
+            this.name=nm;
+            this.marks=mks;
+        }
+        var ob=new person("mona",80);
+        document.write(ob)
+        document.write(ob.constructor)
+        document.write("<hr/>")
+        var cpy=ob;
+        document.write(ob.name + " "+ob["name"])
+        document.write(cpy.name + " "+cpy["name"])
+        cpy.name="geeta"
+        document.write("<hr/>")
+        for(let pp in ob)
+        document.write(pp+" "+ ob[pp])
+        document.write(ob instanceof person)
+        document.write(ob instanceof Object)
+        
+    </script>
+
+</body>
+</html>

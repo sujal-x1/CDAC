@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let arr=new Array()
+        arr[0]=1
+        arr[1]='sj'
+        arr[2]='g'
+        arr[3]=20.5
+        //alert(arr.length)
+        for (let i=0;i<arr.length;i++)
+        document.write("<br>"+arr[i])
+        document.write("<hr>")
+
+          document.write("<br>"+arr)
+          document.write("<hr>")
+          for (let list of arr)
+          document.write("<br>"+list)
+        for(let x in arr)
+        document.write(arr[x]);
+    </script>
+</body>
+</html>
