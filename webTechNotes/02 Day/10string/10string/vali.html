@@ -1,0 +1,39 @@
+<html>
+<head>
+<script>
+function check()
+{var flag=1;
+var a=document.frm.nm.value.length;
+var b=document.frm.nm.value;
+alert(a)
+if(a==0||isNaN(b))
+{flag=0;
+alert("enter data");
+document.frm.nm.focus();
+}
+if(flag==0)
+
+return false
+
+else
+{
+document.frm.submit();
+}
+}
+</script>
+
+
+</head>
+<body>
+
+<form name="frm" action="a.html">
+<input type="text" name="nm">
+<input type="button" name="btn" onclick="check()" >
+
+
+</form>
+
+
+
+</body>
+</html>

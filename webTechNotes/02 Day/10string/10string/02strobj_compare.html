@@ -1,0 +1,32 @@
+<script>
+var a=new String("abc");
+var b=new String("abc");
+
+document.write(a==b);//false
+var c=b;
+document.write(c==b);//true
+document.write(a===b);//false
+document.write("<hr/>");
+document.write(a.valueOf()==b.valueOf());//true
+
+var x="abc";
+var y="abc";
+document.write("<hr/>");
+
+document.write(x==y);//true
+
+document.write("<hr/>");
+document.write(x.valueOf()==y.valueOf());//true
+document.write("be alert !!!!!!!!!!!!!!!!!!!!!!");
+
+/*str="";
+for(i=0;i<1000000;i++)
+{  
+  str=str+i;
+
+}*/
+//document.write(str);
+document.write(a===x);//false
+document.write(a==x);//true
+
+</script>

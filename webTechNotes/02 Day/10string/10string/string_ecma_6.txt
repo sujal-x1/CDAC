@@ -1,0 +1,21 @@
+ECMAScript 6 adds three new methods whose purpose is to identify strings inside of other strings:
+
+contains() - returns true if the given text is found anywhere within the string or false if not.
+startsWith() - returns true if the given text is found at the beginning of the string or false if not.
+endsWith() - returns true if the given text is found at the end of the string or false if not.
+Each of these methods accepts two arguments: the text to search for and an optional location from which to start the search. When the second argument is omitted, contains() and startsWith() start search from the beginning of the string while endsWith() starts from the end. In effect, the second argument results in less of the string being searched. Here are some examples:
+
+var msg = "Hello world!";
+
+console.log(msg.startsWith("Hello"));       // true
+console.log(msg.endsWith("!"));             // true
+console.log(msg.contains("o"));             // true
+
+console.log(msg.startsWith("o"));           // false
+console.log(msg.endsWith("world!"));        // true
+console.log(msg.contains("x"));             // false
+
+console.log(msg.startsWith("o", 4));        // true
+console.log(msg.endsWith("o", 8));          // true
+console.log(msg.contains("o", 8));          // false
+These three methods make it much easier to identify substrings without needing to worry about identifying their exact position.

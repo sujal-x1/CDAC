@@ -98,7 +98,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300
+    "width": 200
   },
   "right": {
     "id": "d598bafd65a8a464",
@@ -206,7 +206,9 @@
   "active": "c3241a272399edd4",
   "lastOpenFiles": [
     "Web_technologies/Day_One!.md",
+    "vidnotes/notes bout learnin js from this vid.md",
     "Web_technologies/Day_Two.md",
+    "vidnotes",
     "Welcome.md",
     "Web_technologies"
   ]

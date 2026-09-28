@@ -1,0 +1,61 @@
+<!-- Q2. Create function student with member
+roll number name m1,m2,total,percentage create
+2 object and display roll number and percentage. -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+<script>
+
+    function student() {
+        this.roll = 0;
+        this.name = "";
+        this.m1 = 0;
+        this.m2 = 0;
+        this.total = 0;
+        this.percentage = 0;
+    }
+
+    // First object
+    let s1 = new student();
+
+    s1.roll = 1;
+    s1.name = "Naa";
+    s1.m1 = 80;
+    s1.m2 = 90;
+
+    s1.total = s1.m1 + s1.m2;
+    s1.percentage = s1.total / 2;
+
+
+    // Second object
+    let s2 = new student();
+
+    s2.roll = 2;
+    s2.name = "Raj";
+    s2.m1 = 70;
+    s2.m2 = 85;
+
+    s2.total = s2.m1 + s2.m2;
+    s2.percentage = s2.total / 2;
+
+
+    // Display
+    document.write("Roll Number: " + s1.roll);
+    document.write("<br>Percentage: " + s1.percentage + "%");
+
+    document.write("<br><br>");
+
+    document.write("Roll Number: " + s2.roll);
+    document.write("<br>Percentage: " + s2.percentage + "%");
+
+</script>
+
+</body>
+</html>

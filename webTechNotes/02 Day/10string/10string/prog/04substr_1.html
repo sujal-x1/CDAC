@@ -1,0 +1,60 @@
+<html>
+<body>
+
+substr(start, length)<br/>
+
+Parameters<br/>
+
+start:
+
+	Location at which to begin extracting characters.<br/>
+
+length:
+
+	(Optional) The number of characters to extract<br/>
+
+Description:
+start is a character index. The index of the first character is 0, and the index of the last character is 1 less than the length of the string. substr begins extracting characters at start and collects length number of characters.<br/>
+
+<br/>If start is positive and is the length of the string or longer, substr returns no characters.
+
+<br/>If start is negative, substr uses it as a character index from the end of the string. If start is negative and abs(start) is larger than the length of the string, substr uses 0 is the start index.
+
+<br/>If length is 0 or negative, substr returns no characters. If length is omitted, start extracts characters to the end of the string.
+<hr/>
+Example
+Consider the following script:
+<hr/>
+<SCRIPT LANGUAGE="JavaScript1.2">
+
+str = "abcdefghij"
+document.writeln("str= ", str)
+document.write("<hr/>")
+document.writeln("(1,2): ", str.substr(1,2))
+document.write("<hr/>")
+document.writeln("(-2,2): ", str.substr(-2,2))
+document.write("<hr/>")
+document.writeln("(1): ", str.substr(1))
+document.write("<hr/>")
+document.writeln("(-20, 2): ", str.substr(1,20))
+document.write("<hr/>")
+document.writeln("(20, 2): ", str.substr(20,2))
+
+</SCRIPT>
+<hr/>
+
+<h1>output</h1>
+This script displays:
+
+(1,2): bc
+<hr/>
+(-2,2): ij
+<hr/>
+(1): bcdefghij
+<hr/>
+(-20, 2): bcdefghij
+<hr/>
+(20, 2): 
+<hr/>
+</body>
+</html>

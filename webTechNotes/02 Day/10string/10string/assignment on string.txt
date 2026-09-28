@@ -1,0 +1,25 @@
+Q1-accept name as
+name  middlename surname 
+eg. 
+subhash chandra Bose
+ 
+it should print 
+S.C.Bose
+
+Q2-Accept name and reverse it
+	eg. VITA
+		ATIV
+Q3 Accept 5 digit no. reverse it and print the sum of the number.
+
+Q4 Accept string and reverse it and find out wether reverse and original string are same or not.
+
+Q5 aceept string java 
+display following output
+j
+ja
+jav
+java
+Q6. Accept emailId of 5 people. store all usename and site name differently eg.vita_t@yahoo.com the vita_t and yahoo.com should be stored seperatly and then display in a table userID 	site name
+
+Q7.Accept email Id from use check wether it is valid ID
+

@@ -1,0 +1,15 @@
+repeat()
+
+ECMAScript 6 also adds a repeat() method to strings. This method accepts a single argument, which is the number of times to repeat the string, and returns a new string that has the original string repeated the specified number of times. For example:
+
+console.log("x".repeat(3));         // "xxx"
+console.log("hello".repeat(2));     // "hellohello"
+console.log("abc".repeat(4));       // "abcabcabcabc"
+This method is really a convenience function above all else, which can be especially useful when dealing with text manipulation. One example where this functionality comes in useful is with code formatting utilities where you need to create indentation levels:
+
+// indent using a specified number of spaces
+var indent = " ".repeat(size),
+    indentLevel = 0;
+
+// whenever you increase the indent
+var newIndent = indent.repeat(++indentLevel);

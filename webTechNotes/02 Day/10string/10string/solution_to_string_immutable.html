@@ -1,0 +1,37 @@
+<script>
+function StringBuilder() {
+  this._array = [];
+  this._index = 0;
+}
+
+StringBuilder.prototype.append = function (str) {
+    this._array[this._index] = str;
+    this._index++;
+}
+
+StringBuilder.prototype.toString = function () {
+  return this._array.join('');
+}
+
+
+
+
+s="";
+
+str=new StringBuilder();
+
+s="m";
+
+for(i=0;i<=1000000;i++)
+{
+str.append(s+i);
+
+
+}
+
+document.write("ans="+str);
+document.write("<hr/>");
+
+
+
+</script>

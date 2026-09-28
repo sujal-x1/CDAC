@@ -1,0 +1,27 @@
+// Q1 Create function employee with member ID name salary create 2 object and display Id and name.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <script>
+    function employee(name,id,sal){
+        this.name=name;
+        this.id=id;
+        this.salary=sal;
+    }
+document.write("<br>")
+   let e1= new employee("suj",1,123121)
+
+    let e2= new employee("you",2,121)
+    let e3= new employee("guj",4,1231)
+    document.write("emp1"+e1.id+" "+e1.name+" "+e1.salary)
+    document.write("<br>")
+
+    document.write("emp2"+e2.id+" "+e2.name+" "+e2.salary)
+   </script> 
+</body>
+</html>

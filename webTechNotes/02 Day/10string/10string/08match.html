@@ -1,0 +1,16 @@
+
+<html>
+<script type="text/javascript">
+var str="Center Vita Center"
+document.write(str.match("Center")+"<br/>")
+document.write(str.match("center")+"<br/>")
+document.write("The match() method searches for a specified value in a string. \
+if matching string not found it return null<br/>");
+let robj=/center/
+console.log(robj.constructor);//ƒ RegExp() { [native code] }
+console.log(robj.__proto__)
+document.write(str.match(/center/ig))
+document.write("<hr/>");
+var s=str.match(/center/ig);
+document.write(s[0]);
+</script>

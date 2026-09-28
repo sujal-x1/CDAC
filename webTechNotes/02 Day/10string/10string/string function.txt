@@ -1,0 +1,492 @@
+String methods
+
+text="hello"
+
+text.big()
+small()
+bold()
+
+italic()
+
+blink()(does not work in IE)
+
+fixed()
+
+strike()
+
+fontcolor("red")
+
+fontsize(16)
+
+toLowerCase()
+
+toUpperCase()
+
+sub()
+
+sup()
+Link("http://www.yahoo.com")
+
+
+
+
+
+
+
+
+
+
+
+
+stringObject.charAt(index) 
+
+
+index- Required. A number representing a position in the string 
+--------------------------------------------------------------------------------
+
+Tips and Notes
+Note: The first character in the string is at position 0.
+--------------------------------------------------------------------------------
+Example
+In the string "Hello world!", we will return the character at position 1:
+
+<script type="text/javascript">
+
+var str="Hello world!";
+document.write(str.charAt(1));</script> 
+
+The output of the code above will be:
+
+e 
+
+
+
+
+
+
+
+
+
+
+
+The split() method is used to split a string into an array of strings.
+
+Syntax
+stringObject.split(separator, howmany) 
+
+ 
+separator- Required. Specifies the character, regular expression, or substring that is used to determine where to split the string 
+
+howmany - Optional. Specify how many times split should occur. Must be a numeric value 
+
+
+--------------------------------------------------------------------------------
+Note: If an empty string ("") is used as the separator, the string is split between each character.
+--------------------------------------------------------------------------------
+
+Example
+In this example we will split up a string in different ways:
+
+<script type="text/javascript">
+var str="How are you doing today?";
+document.write(str.split(" ") + "<br />");
+document.write(str.split("") + "<br />");
+document.write(str.split(" ",3));
+</script> 
+
+The output of the code above will be:
+
+How,are,you,doing,today?
+
+H,o,w, ,a,r,e, ,y,o,u, ,d,o,i,n,g, ,t,o,d,a,y,?
+How,are,you 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The match() method searches for a specified value in a string.
+
+es for a specified value in a string. if matching string not found it return null
+
+
+
+This method is similar to indexOf() and lastIndexOf(), but it returns the specified value, instead of the position of the string.
+
+Syntax
+stringObject.match(searchvalue) 
+
+Parameter Description 
+searchvalue Required. Specifies a string value to search for 
+
+
+--------------------------------------------------------------------------------
+Note: The match() method is case sensitive!
+Note: This method returns null if the string value to search for never occurs.
+--------------------------------------------------------------------------------
+Example
+In this example we will do different searches within a "Hello world!" string:
+
+<script type="text/javascript">
+var str="Hello world!";
+document.write(str.match("world") + "<br />");
+document.write(str.match("World") + "<br />");
+document.write(str.match("worlld") + "<br />");
+document.write(str.match("world!"));
+</script> 
+
+The output of the code above will be:
+
+world
+null
+null
+world! 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The search() method is used to search a string for a specified value.
+
+search() is case sensitive.
+
+Note: The search() method returns the position of the specified value in the string. If no match was found it returns -1.
+
+
+--------------------------------------------------------------------------------
+<script type="text/javascript">
+var str="Visit VITA!";
+document.write(str.search(/V/i));
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The indexOf(): method returns the position of the first occurrence of a specified string value in a string.
+
+
+Syntax
+stringObject.indexOf(searchvalue,fromindex) 
+
+Parameter Description 
+searchvalue Required. Specifies a string value to search for 
+fromindex Optional. Specifies where to start the search 
+
+
+
+
+Note: The indexOf() method is case sensitive!
+
+Note: This method returns -1 if the string value to search for never occurs.
+
+
+--------------------------------------------------------------------------------
+
+
+
+<script type="text/javascript">
+var str="hi how world!";
+
+st.indexOf("w")
+output 5
+
+
+st.lastIndexOf("w")
+output 7
+The lastIndexOf() method returns the position of the last occurrence of a specified string value, searching backwards from the specified position in a string. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The replace() :method is used to replace some characters with some other characters in a string.
+
+Syntax
+stringObject.replace(findstring,newstring) 
+
+Parameter Description 
+findstring Required. Specifies a string value to find. To perform a global search add a 'g' flag to this parameter and to perform a case-insensitive search add an 'i' flag 
+newstring Required. Specifies the string to replace the found value from findstring 
+
+
+--------------------------------------------------------------------------------
+Note: The replace() method is case sensitive.
+--------------------------------------------------------------------------------
+
+Example 1 - Standard Replace
+In the following example we will replace the word DAC with VITA:
+
+<script type="text/javascript">
+var str="Visit CDAC!";
+document.write(str.replace(/cdac/i, "VITA"));
+</script> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The concat() method is used to join two or more strings.
+
+Syntax
+stringObject.concat(stringX,stringX,...,stringX)  
+
+Parameter Description 
+stringX Required. One or more string objects to be joined to a string 
+
+
+--------------------------------------------------------------------------------
+
+
+var str1="Hello ";
+var str2="world!";
+var str3=str1.concat(str2);
+document.write(str1.concat(str2)+" </br>	  "+str3);
+document.write("</br>"+str1+ " </br>"+str2);
+
+
+
+
+
+
+ Syntax
+
+substring(indexA, indexB)
+
+Parameters
+
+indexA
+
+	An integer between 0 and 1 less than the length of the string.
+
+indexB
+
+	An integer between 0 and 1 less than the length of the string.
+
+Description
+substring extracts characters from indexA up to but not including indexB. In particular:
+
+    If indexA is less than 0, indexA is treated as if it were 0.
+
+    If indexB is greater than stringName.length, indexB is treated as if it were stringName.length.
+
+    If indexA equals indexB, substring returns an empty string.
+
+    If indexB is omitted, indexA extracts characters to the end of the string.
+
+Using LANGUAGE="JavaScript1.2" in the SCRIPT tag,
+
+    If indexA is greater than indexB, JavaScript produces a runtime error (out of memory).
+
+Without LANGUAGE="JavaScript1.2",
+
+    If indexA is greater than indexB, JavaScript returns a substring beginning with indexB and ending with indexA - 1. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+The substring() method extracts the characters in a string between two specified indices.
+
+Syntax
+stringObject.substring(start,stop)  
+
+
+Parameter Description 
+start Required. Where to start the extraction. Must be a numeric value 
+stop Optional. Where to stop the extraction. Must be a numeric value 
+
+
+
+
+
+
+<script type="text/javascript">
+
+var str="Hello world!";
+document.write(str.substring(3));
+
+</script>  
+
+The output of the code above will be:
+
+lo world!  
+
+
+<script type="text/javascript">
+
+var str="Hello world!";
+document.write(str.substring(3,7));
+
+</script>  
+
+The output of the code above will be:
+
+lo w  
+

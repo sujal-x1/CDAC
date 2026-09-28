@@ -1,0 +1,58 @@
+<!-- Q4. Create class Account with member ID, 
+ name ,balance. Write method deposit and withdraw. Create 2 object and 
+ display Id and Balance. Do transaction deposit
+  and withdraw -->
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Account</title>
+</head>
+<body>
+
+<script>
+
+    function Account(id, name, balance) {
+
+        this.id = id;
+        this.name = name;
+        this.balance = balance;
+
+        this.deposit = function(amount) {
+            this.balance = this.balance + amount;
+        };
+
+        this.withdraw = function(amount) {
+            if (amount <= this.balance) {
+                this.balance = this.balance - amount;
+            } else {
+                document.write("Insufficient balance<br>");
+            }
+        };
+    }
+
+
+    let a1 = new Account(1, "Naa", 5000);
+    let a2 = new Account(2, "Raj", 3000);
+
+
+    a1.deposit(1000);
+    a1.withdraw(500);
+
+    a2.deposit(2000);
+    a2.withdraw(1000);
+
+
+    document.write("Account 1<br>");
+    document.write("ID: " + a1.id + "<br>");
+    document.write("Balance: " + a1.balance + "<br><br>");
+
+    document.write("Account 2<br>");
+    document.write("ID: " + a2.id + "<br>");
+    document.write("Balance: " + a2.balance);
+
+</script>
+
+</body>
+</html>
