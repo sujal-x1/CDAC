@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Web_technologies/Day_One!.md",
+                "file": "Web_technologies/Day_4.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Day_One!"
+              "title": "Day_4"
             }
           },
           {
@@ -27,16 +27,15 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Web_technologies/Day_Two.md",
+                "file": "Web_technologies/Day_3.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Day_Two"
+              "title": "Day_3"
             }
           }
-        ],
-        "currentTab": 1
+        ]
       }
     ],
     "direction": "vertical"
@@ -203,11 +202,13 @@
       "bases:Create new base": false
     }
   },
-  "active": "c3241a272399edd4",
+  "active": "89bdb1203ae20ab9",
   "lastOpenFiles": [
+    "Web_technologies/Day_3.md",
+    "Web_technologies/Day_4.md",
     "Web_technologies/Day_One!.md",
+    "Web_technologies/Day_2.md",
     "vidnotes/notes bout learnin js from this vid.md",
-    "Web_technologies/Day_Two.md",
     "vidnotes",
     "Welcome.md",
     "Web_technologies"

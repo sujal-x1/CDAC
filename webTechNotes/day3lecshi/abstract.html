@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abstract Class Example</title>
+</head>
+
+<body>
+
+<script>
+
+class Account {
+
+    constructor(fname, lname, amt) {
+
+        alert(new.target);
+
+        if (new.target === Account) {
+            throw new TypeError(
+                "Cannot construct Abstract instances directly"
+            );
+        }
+
+        this.firstname = fname;
+        this.lastname = lname;
+        this.balance = amt;
+    }
+
+
+    // SETTER
+    set firstname(value) {
+        this._fnm = value;
+    }
+
+    // GETTER
+    get firstname() {
+        return this._fnm;
+    }
+
+
+    // SETTER
+    set balance(value) {
+        this._bal = value;
+    }
+
+    // GETTER
+    get balance() {
+        return this._bal;
+    }
+
+
+    // SETTER
+    set lastname(value) {
+        this._lnm = value;
+    }
+
+    // GETTER
+    get lastname() {
+        return this._lnm;
+    }
+
+
+    deposit(amt) {
+        this.balance += amt;
+    }
+
+
+    toString() {
+        return this.firstname + " " +
+               this.lastname + " " +
+               this.balance;
+    }
+}
+
+
+// CHILD CLASS
+
+class Savingaccount extends Account {
+
+    constructor(acctype, fname, lname, amt) {
+
+        super(fname, lname, amt);
+
+        this.type = acctype;
+    }
+
+
+    withdraw(amt) {
+
+        const minbal = 1000;
+
+        if (amt > (this.balance - minbal)) {
+            throw new TypeError("Minimum balance must be 1000");
+        }
+
+        this.balance -= amt;
+    }
+}
+
+
+// CREATE OBJECT
+
+let obj = new Savingaccount(
+    "Saving",
+    "Raj",
+    "Sharma",
+    5000
+);
+
+console.log(obj.toString());
+
+obj.deposit(500);
+
+console.log(obj.toString());
+
+obj.withdraw(2000);
+
+console.log(obj.toString());
+
+</script>
+
+</body>
+</html>

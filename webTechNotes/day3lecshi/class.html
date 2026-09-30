@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        
+            let obj = new person("Raj", 25)
+               function person(nm,ag)
+            {
+                this.name=nm;
+                this.age=ag;
+                this.dojob=function(){
+                    document.write("do-=== job hello<br>")
+                }
+            }
+            obj.dojob()
+            document.write("<hr>")
+            for (let prop in obj){
+                if(typeof obj[prop]=='function')
+                obj[prop]();
+            document.write(prop+" "+obj[prop])
+        
+            document.write("<hr>")
+            }
+        
+    </script>
+</body>
+</html>

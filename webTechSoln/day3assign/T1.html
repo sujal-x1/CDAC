@@ -1,0 +1,34 @@
+<!-- - **create 2 button with a value , welcome and goodbye when you click on
+  welcome display message , "welcome to js
+ ", when you click goodbye , msg "see you again". -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button value="welcome" onclick="showMessage(this.value)">
+        Welcome
+    </button>
+    <button value="goodbye" onclick="showMessage(this.value)">
+        Goodbye
+    </button>
+
+    <script>
+                function showMessage(value) {
+            let message;
+
+            if (value === "welcome") {
+                message = "Welcome to JS";
+            } 
+            else if (value === "goodbye") {
+                message = "See you again";
+            }
+
+            window.open("", "_blank").document.write(message);
+        }
+    </script>
+</body>
+</html>

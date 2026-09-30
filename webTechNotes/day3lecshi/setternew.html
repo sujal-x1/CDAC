@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Getter Setter Example</title>
+</head>
+
+<body>
+
+<script>
+'use strict';
+
+class Account {
+
+    // CONSTRUCTOR
+    constructor(name, amt) {
+        this.Aname = name;       // calls SETTER
+        this.Abalance = amt;     // calls SETTER
+    }
+
+    // =========================
+    // GETTER for Aname
+    // =========================
+    get Aname() {
+        return this._name;
+    }
+
+
+    // =========================
+    // SETTER for Aname
+    // =========================
+    set Aname(value) {
+        this._name = value;
+    }
+
+
+    // =========================
+    // GETTER for Abalance
+    // =========================
+    get Abalance() {
+        return this._balance;
+    }
+
+
+    // =========================
+    // SETTER for Abalance
+    // =========================
+    set Abalance(value) {
+        this._balance = value;
+    }
+
+
+    // DEPOSIT METHOD
+    deposit(amt) {
+        this.Abalance = this.Abalance + amt;
+
+        //      ↑              ↑
+        //    SETTER         GETTER
+    }
+
+
+    // toString METHOD
+    toString() {
+        return this.Aname + " " + this.Abalance;
+
+        //      ↑                 ↑
+        //    GETTER            GETTER
+    }
+}
+
+
+// ==================================
+// CREATE OBJECT
+// ==================================
+
+let obj1 = new Account("raj", 20000);
+
+
+// Constructor did:
+//
+// this.Aname = "raj"
+//        ↓
+// set Aname("raj")
+//        ↓
+// this._name = "raj"
+//
+// this.Abalance = 20000
+//        ↓
+// set Abalance(20000)
+//        ↓
+// this._balance = 20000
+
+
+console.log(obj1);
+
+
+// ==================================
+// toString()
+// ==================================
+
+document.write(obj1);
+
+// toString() runs automatically
+//
+// this.Aname
+//      ↓
+// get Aname()
+//      ↓
+// "raj"
+//
+// this.Abalance
+//      ↓
+// get Abalance()
+//      ↓
+// 20000
+//
+// Result:
+// raj 20000
+
+
+// ==================================
+// CHANGE NAME
+// ==================================
+
+obj1.Aname = "geeta";
+
+// This calls:
+//
+// set Aname("geeta")
+//        ↓
+// this._name = "geeta"
+
+
+console.log(obj1);
+
+document.write("<br>" + obj1);
+
+
+// ==================================
+// GET NAME
+// ==================================
+
+document.write("<br>" + obj1.Aname);
+
+// obj1.Aname
+//      ↓
+// get Aname()
+//      ↓
+// returns "geeta"
+
+
+// ==================================
+// DEPOSIT
+// ==================================
+
+obj1.deposit(200);
+
+// Inside deposit:
+//
+// this.Abalance
+//      ↓
+// GETTER
+//      ↓
+// 20000
+//
+// 20000 + 200
+//      ↓
+// 20200
+//
+// this.Abalance = 20200
+//      ↓
+// SETTER
+//      ↓
+// this._balance = 20200
+
+
+document.write("<br>" + obj1);
+</script>
+
+</body>
+</html>

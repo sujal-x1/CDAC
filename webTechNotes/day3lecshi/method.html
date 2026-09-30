@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        const module ={
+            x:42,
+            getX:function(){
+                return this.x
+            }
+        };
+        const unboundedGetX = module.getX;
+        console.log(unboundedGetX());
+
+        const boundGetX=unboundedGetX.bind(module)
+        console.log(boundGetX())
+        
+        console.log(module.getX.call(module))
+    </script>
+</body>
+</html>

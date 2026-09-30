@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        "use strict"
+        class Account{
+            #firstname;#lastname;
+            #balance;#id;
+            static #aid=0;
+            constructor(fname,lname,amt){
+                this.firstname=fname
+                this.lastname=lname;
+                this._cbalance=amt;
+                this.#id=++Account.#aid;
+            }
+            set firstname(value){this.#firstname=value;}
+            }
+            
+    </script>
+</body>
+</html>

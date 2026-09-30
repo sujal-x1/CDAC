@@ -1,0 +1,49 @@
+<!-- 
+ create a class acc having mem var id, name ,
+  bal create a meth depo and withdraw which will 
+  increase and deduct balance , write 
+ to string meth to write name and balance , 
+ create 3 acc of class and do the transaction  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class account {
+
+        constructor(id, name, bal) {
+            this.id = id;
+            this.name = name;
+            this.balance = bal;
+        }
+             withdraw(amount){
+                if(amount<=this.balance)
+            this.balance = this.balance - amount;
+            else 
+            console.log("insufficient balance")
+            }
+
+             deposit(amount){
+            this.balance = this.balance + amount;
+            }
+
+             toString(){
+                return this.name+" "+ this.balance
+            }
+        }
+
+        let ac1 = new account(1,"A",200)
+        let ac2 = new account(2,"b",2200)
+        let ac3 = new account(3,"c",20340)
+
+    console.log((ac1.toString()))
+    ac1.withdraw(998998989  )
+    console.log((ac1.toString()))
+        </script>
+</body>
+</html>
