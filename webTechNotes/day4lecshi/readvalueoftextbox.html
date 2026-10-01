@@ -1,0 +1,18 @@
+<html><head><script>
+    function readtext(){
+        let a = document.getElementById("nm1")
+        let b = document.getElementById("nm2")
+        b.value=a.value
+        console.log(a)
+    }
+
+</script></head><body>
+    <p id="pp">hello</p>
+    <form name="frm">
+        <input type="text" id = "nm1"/>
+        <input type="button" value="read" onclick="readtext()">
+        <input type="text" id = "nm2"/>
+</form>        
+</body>
+
+</html>

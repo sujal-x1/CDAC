@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Web_technologies/Day_4.md",
+                "file": "Web_technologies/Day_5.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "Day_4"
+              "title": "Day_5"
             }
           },
           {
@@ -204,8 +204,11 @@
   },
   "active": "89bdb1203ae20ab9",
   "lastOpenFiles": [
-    "Web_technologies/Day_3.md",
+    "Web_technologies/ViVa.md",
+    "Web_technologies/Day_5.md",
     "Web_technologies/Day_4.md",
+    "Web_technologies/Viva",
+    "Web_technologies/Day_3.md",
     "Web_technologies/Day_One!.md",
     "Web_technologies/Day_2.md",
     "vidnotes/notes bout learnin js from this vid.md",

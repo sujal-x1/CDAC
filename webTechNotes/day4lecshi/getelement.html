@@ -1,0 +1,22 @@
+<html><head><script type="text/javascript">
+    function callme()
+    {
+        let s=document.getElementById("pr")
+        alert(s);
+        alert(s.nodeName)
+        alert(s.childNodes[0].nodeValue)
+        alert(s.childNodes[0].nodeName)
+        alert(s.childNodes[0].nodeType)
+        alert(s.innerHTML)
+        console.log(s.childNodes[2].nodeValue);
+
+    }
+    
+</script>
+</head><body>
+
+</body>
+<p onmouseover="callme()" id="pr">Welcome<b> to world of </b>DOM</p>
+
+
+</html>

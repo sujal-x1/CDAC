@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Image Swap</title>
+</head>
+
+<body>
+
+<script>
+    function callme() {
+        // alert(document.images.length);
+        document.getElementById("im").src = "x.jpeg";
+    }
+
+    function backimg() {
+        document.getElementById("im").src = "p.jpeg";
+    }
+</script>
+
+<img src="p.jpeg"
+     id="im"
+     onmouseover="callme()"
+     onmouseout="backimg()">
+
+<img src="x.jpeg">
+
+</body>
+</html>
