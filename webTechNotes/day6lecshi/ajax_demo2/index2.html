@@ -1,0 +1,51 @@
+<html>   <head>    <title>An Ajax and json demo</title> 
+    <script>
+        function getData(dataSource, divID) 
+      { 
+	   var  xhr = new XMLHttpRequest();
+     console.log(xhr)
+        if(xhr) {
+          var obj = document.getElementById(divID); 
+          xhr.open("GET", dataSource); 
+          xhr.send(); 
+          xhr.onreadystatechange = function() 
+          {
+            if (xhr.readyState == 4 && xhr.status == 200) { 
+                let Ad ="";
+             let ao =JSON.parse( xhr.responseText); 
+               for(let a1 of ao)
+               {
+                for(let data in a1)
+                Ad+=" "+data+"="+a1[data];
+                Ad+="<hr/>";
+
+               }
+               obj.innerHTML=Ad;
+				obj.innerHTML +=xhr.getAllResponseHeaders()
+
+            } 
+          } 
+       
+        }
+        obj.innerHTML=("Async.............")
+      }
+    </script>
+  </head> 
+  <body>
+    <H1>An Ajax and PHP demo</H1>
+    <form>
+      <input type = "button" value = "Fetch the message" 
+        onclick = "getData('https://localhost:7067/api/Employee', 'targetDiv')"> 
+    </form>
+    <div id="targetDiv">
+      <p>The fetched message will appear here.</p> 
+    </div> 
+<h1>current page</h1>
+<h1>current page</h1>
+<h1>current page</h1>
+<h1>current page</h1>
+<h1>current page</h1>
+<h1>current page</h1>
+<h1>current page</h1>
+  </body> 
+</html>

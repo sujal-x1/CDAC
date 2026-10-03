@@ -1,0 +1,46 @@
+ whats is difference between function as class and class key word
+How to implement inheritance  in Es5
+How to implement inheritance  in Es6
+How to call parent class constructor in ES5 and ES
+Does JS support method overloading?
+How to imlement Method overriding in JS
+Do we have constructor over loading in JS
+What is top level class>
+what is clousre
+what is big fat arrow  in JS, Where have you used it
+difference between rest and spread
+what is arguments key word
+how to make object immutable
+state method in Object class
+How to make class abstract
+what is instanceof does
+why we need getter setter in JS , list down predefine getter setter
+All exception are derived from which class
+what is difference between console.log , document.write‌,innerHTML
+what is bind method?
+can we change getter setter name?
+By default member of class are_____
+what  hasOwnPropery return and use of it?
+how to delare private variable in JS
+How to indicate that variable is protected
+Can we have static private method?
+can I have static varibale in JS  [es8]
+what is generator method and yield key word
+how to incluse .js file in html
+when onclick event get fire
+how to redirect user to another page.
+how to open a file in new window
+difference between aleart and prompt
+use of confirm and what is its return value[Ok cancel]
+How to convert string to int/ float
+what is the use of + operator
+which method is  used to delay the execution of task
+which method to be used to do the job after few milisecond.
+what is the use of eval.
+List down all method of window class
+
+
+
+
+
+

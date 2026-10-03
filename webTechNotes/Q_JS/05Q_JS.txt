@@ -1,0 +1,26 @@
+Which is the fastest selctor in DOM==> getElementById
+What is DOM
+How to get collection of all classes given in  a perticular tag==> classList
+How to add css class dynamicaly to a perticular tag==>classList.add(),
+How to remove css class dynamicaly to a perticular tag==>==>classList.remove(),
+How to replace one css class with another to a perticular tag==>classList.replace(),
+How to repace content of a perticualr tag ==>innerHTML
+How to toggle the CSS class ==>classList.toggle()
+How to change HTML Attribute dynamicaly==>setAttribute(,)
+How to read HTML Attribute dynamicaly==>getAttribute()
+nodeName of Document, text, element ==>#Document, #text, tagname
+How to read value vita using DOM
+<p id="pr">welcome to <b> VITA</b></p>==>getElementById("pr").childNodes[1].childNodes[0].nodeVale
+How to read value of textbox with id="INP"==>getElementById("INP").value
+which key helps you to check wether checkbox or radio is selected? checked
+which key helps you to check which option is selected ==>selected
+How to get index of selected data==>selectedIndex
+[images, forms, elements]
+nodeType==>tag=1 attribute 2 text=3 comment 8 document 9
+how to select tag ==>getElementsByTagName
+how to select by class==>getElementsByClassName
+querySelector  querySelectorAll
+what is event
+how to know on which tag event got fire ==>event.target 
+
+

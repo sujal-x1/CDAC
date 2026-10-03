@@ -1,0 +1,29 @@
+<!-- 3. create  a dropdown list displaying  state on change of it  display selected state in a textbox. -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>fruit select kro : </label>
+    <select id="fruit" onchange="showFruit()">
+        <option>A</option>
+        <option>b</option>
+        <option>c</option>
+    </select>
+    <br>
+    <br>
+    <label>THE TEXT BOX</label>
+    <input id="t1" type="text" readonly></input>
+    <script>
+        function showFruit(){
+        var result=document.getElementById("fruit").value
+        document.getElementById("t1").value=result
+        // document.getElementById("fruit").value
+        }
+       
+    </script>
+</body>
+</html>

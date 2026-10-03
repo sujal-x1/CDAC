@@ -1,0 +1,14 @@
+what is difference between call and apply
+how to declare instance method in class.
+When you print object inernaly it will call which method
+what is difference between of and in key word
+what is difference betwee push unshift
+what is difference betwee pop shift
+what is difference between find and filter and at
+what is spalice and slice
+How to convert array to string
+explain three different ways to create object in JS
+Why Js is called Client side
+explain call back  and self invoking IIFE function
+which algorithem is used in sort method
+

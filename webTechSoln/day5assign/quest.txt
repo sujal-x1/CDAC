@@ -1,0 +1,10 @@
+Date : 01/10/26
+Assignment Questions
+
+1. Create three textbox and two radio button [+ ,*] On click of radio button result of operation should be displayed in third text box give basic validation.
+2. create 3 check box displaying book name and price, as per selection of user,  display total amount of book purchased in a disabled text box.
+3. create  a dropdown list displaying  state on change of it  display selected state in a textbox.
+4. create 3 textbox and a dropdown list displaying mathematical operation. On click of button it should display result in 3rd text box
+5. Using JavaScript Create banner, include 4 images. Images should rotate after time gap of 1 second.
+6. Create a web page for entering all personal details Information should containName, Date of Birth (use select drop down list), Gender, Address, Ps. No. , batch No. and Date of Joining (use select drop down list) Validate this form
+7. Display digital clock

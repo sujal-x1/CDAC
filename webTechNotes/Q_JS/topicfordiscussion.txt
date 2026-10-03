@@ -1,0 +1,12 @@
+Anonymous and arrow Function 
+
+closures
+
+callback function
+
+Inheritance
+
+use of following terms
+class, extend , prototype, call,
+ apply, this. __proto__
+of, in, var, let, const

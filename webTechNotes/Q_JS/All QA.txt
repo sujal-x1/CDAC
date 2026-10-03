@@ -1,0 +1,71 @@
+Why do we call javascript as dynamic language ?
+2. How does javascript determine data types ?
+3. What is typeof functions?
+4. How to check data type in javascript ?
+5. What are different datatypes in Javascript ?
+6. Explain Undefined Data types ?
+7. What is Null ?
+8. Differentiate between Null and Undefined ?
+9. Explain Hoisting ?
+10. Are Javascript initialization hoisted ?
+11. What are global variables ?
+12. What are the issues with Global variables ?
+13. What happens when you declare variable with out VAR ?
+14. What is Use Strict ?
+15. How to force developers to use Var keyword ?
+16. How can we handle Global Variables ?
+17. How can we avoid Global variables ?
+18. What are Closures ?
+19. Why do we need Closures ?
+20. Explain IIFE ?
+21. What is the use of IIFE ?
+22. What is name collision in global scope ?
+23. IIFE vs Normal Function ?
+24. What are design patterns ?
+25. Which is the most used design pattern ?
+26. What is module Pattern and revealing module pattern ?
+27. What are the various ways to create Javascript objects ?
+28. How can we do inheritance in Javascript ?
+29. What is prototype in Javascript ?
+30. Explain Prototype chaining ?
+31. What is Let Keyword ?
+32. Are Let variables hoisted ?
+33. Explain Temporal Dead Zone ?
+34. Let vs Var
+35. Tricky Question around Concatenation
+36. What is class in ES6 ?
+37. So with class Keyword does it imply Javascript is a OOP language ?
+38. class vs normal function ?
+39. What is a Arrow function ?
+40. Why do we use Arrow function ?
+41. Differentiate between Arrow vs Normal Function ?
+42. Does Arrow function create its own this ?
+43. Explain Synchronous execution ? 
+44. What is a call Stack ? 
+45. What is a blocking call ?
+46. How to avoid blocking calls ?
+47. Explain Async execution ?
+48. Synch vs Asynch ?
+49. How can we do Asynch calls ?
+50. What is a thread ?
+51. Explain Multi-threading ?
+52. Is JavaScript Multi-threaded ?
+53. Then how does Settimeout run ?
+54. What is a WebAPI/Browser API ?
+55. What is a Event loop and callback queue?
+56. Eventloop and Callback code question ?
+57. What are promises in JavaScript?
+58. How to catch error in promises ?
+59. What are callbacks ?
+60. Explain Promise chaining ?
+61. Three States of Promises ?
+62. Explain Async and Await ?
+63. Why to make a promise synch?
+64. Does Async represent a promise ?
+65. Can we use Async with out Await ?
+66. What are Micro and Macro queues ?
+67. How will the code execute(testing Micro and Macro)
+68. Explain Webworker ?
+69. How to create WebWorker ?
+70. Can Webworker update UI ?
+71. Webworker vs Async Task

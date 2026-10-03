@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let promise = new Promise(function(resolve,reject){
+            console.log(resolve)
+            setTimeout(()=> resolve("Done"),1000)
+        })
+        promise.then(result=> alert(result),error=> alert(error))
+        console.log(promise)
+        document.write("happy to go ahed...")
+    </script>
+</body>
+</html>

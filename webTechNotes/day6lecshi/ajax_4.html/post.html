@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>The XMLHttpRequest Object</h2>
+
+    <p id="demo"></p>
+
+    <form>
+        <label>Name</label>
+        <input name="name">
+
+        <label>Email</label>
+        <input name="email">
+
+        <label>Department</label>
+        <input name="department">
+
+        <button type="button" onclick="loadDoc()">
+            Send Form Data
+        </button>
+    </form>
+
+    <script>
+
+        function loadDoc() {
+
+            // Get the form
+            var form = document.querySelector("form");
+
+            // Get form data
+            var formData = new FormData(form);
+
+            // Convert FormData into normal object
+            var jsondata = {};
+
+            for (var [key, value] of formData) {
+                jsondata[key] = value;
+            }
+
+            console.log(jsondata);
+
+            // Convert object into JSON string
+            var jdata = JSON.stringify(jsondata);
+
+            console.log(jdata);
+
+            // Create XMLHttpRequest
+            var xhttp = new XMLHttpRequest();
+
+            // What to do when request finishes
+            xhttp.onreadystatechange = function () {
+
+                if (this.readyState === 4 && this.status === 200) {
+
+                    document.getElementById("demo").innerHTML =
+                        "Data inserted";
+
+                }
+            };
+
+            // Prepare POST request
+            xhttp.open("POST", "demo4.json", true);
+
+            // Tell server we're sending JSON
+            xhttp.setRequestHeader(
+                "Content-Type",
+                "application/json"
+            );
+
+            // Send JSON data
+            xhttp.send(jdata);
+        }
+
+    </script>
+
+</body>
+</html>

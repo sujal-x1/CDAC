@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Book Purchase</title>
+
+    <script>
+        function calculateTotal() {
+            var total = 0;
+
+            if (document.getElementById("book1").checked)
+                total += 500;
+
+            if (document.getElementById("book2").checked)
+                total += 350;
+
+            if (document.getElementById("book3").checked)
+                total += 450;
+
+            document.getElementById("total").value = total;
+        }
+    </script>
+</head>
+
+<body>
+
+<h2>Book Purchase</h2>
+
+<form>
+
+<input type="checkbox" id="book1" onclick="calculateTotal()">
+<label for="book1">Java - ₹500</label><br><br>
+
+<input type="checkbox" id="book2" onclick="calculateTotal()">
+<label for="book2">Python - ₹350</label><br><br>
+
+<input type="checkbox" id="book3" onclick="calculateTotal()">
+<label for="book3">JavaScript - ₹450</label><br><br>
+
+Total Amount:
+<input type="text" id="total" disabled>
+
+</form>
+
+</body>
+</html>

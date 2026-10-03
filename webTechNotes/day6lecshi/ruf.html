@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sum(a,b){
+            return a+b
+        }
+        let sum3=(a,b) => a+b
+
+        let sqr = (num)=> num*num
+        let positive=(number)=> number>0
+        function hello(callback){
+            console.log("hello")
+            callback();
+        }
+
+        function leave(){
+            console.log("bye")
+        }
+        hello(leave);
+
+        console.log(sum(2,3));
+                console.log(sqr(4))
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function calculate(){
+            var num1= document.getElementById("i1").value;
+            var num2= document.getElementById("i2").value;
+
+            //Basic Validation
+            if(num1=="" || num2==""){
+                alert("please enter both nums")
+                return;
+            }
+
+            num1=parseFloat(num1)
+            num2=parseFloat(num2)
+
+            var result;
+
+            if(document.getElementById("add").checked){
+                result=num1+num2
+            }
+            else if(document.getElementById("mul").checked){
+                result=num1*num2
+            }
+            else{
+                alert("please select an operation");
+                return;
+            }
+
+            document.getElementById("result").value=result;
+        }
+    </script>
+    <form>
+        Number 1 :
+        <input type="text" id="i1"><br><br>
+
+        Number 2 :
+        <input type="text" id="i2"><br><br>
+
+        <input type="radio" id="add" name="rad" onclick="calculate()">
+        <label for="add">+</label>
+        <br><br>
+
+        <input type="radio" id="mul" name ="rad" onclick="calculate()">
+        <label for ="mul">*</label>
+
+        <br><br>
+        result=<input type="text" id="result" readonly> 
+
+    </form>
+</body>
+</html>

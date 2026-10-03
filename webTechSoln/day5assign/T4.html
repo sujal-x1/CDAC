@@ -1,0 +1,52 @@
+<!-- create 3 textbox and a dropdown list displaying mathematical
+operation. On click of button it should display result 
+in 3rd text box -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="t1" >num1:</label>
+    <input type="text" id="t1"></input><br><br>
+
+    <label for="t2">num2:</label>
+    <input type="text" id="t2" ><br><br>
+    <label for="op">menu</label>
+    <select id="op" onchange="calc()">
+        <option>+</option>
+        <option>-</option>
+        <option>*</option>
+        <option>%</option>
+    </select><br><br>
+    <label for="t3">result:</label>
+    <input type="text" id="t3" readonly></input><br><br>
+    <script>
+        function calc(){
+        var num1=parseFloat(document.getElementById("t1").value)
+        var num2=parseFloat(document.getElementById("t2").value)
+        var menu=document.getElementById("op").value
+        if (menu=="+"){
+            result=num1+num2
+             
+        }
+        else if (menu=="-"){
+            result=num1-num2
+             
+        }
+        else if (menu=="*"){
+            result=num1+num2
+             
+        }
+        else if (menu=="%"){
+            result=num1%num2
+             
+        }
+        document.getElementById("t3").value=result
+    }
+    </script>
+</body>
+</html>

@@ -14,3 +14,6 @@ console.log(result);
 
 filter()  → select elements(only odd nums)
 reduce()  → combine elements into one value (1,2,3)=>6
+
+### Q. callback()
+--> callback function accepts anther function in parameters and executes it after

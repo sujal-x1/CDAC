@@ -1,0 +1,26 @@
+<html><head><script>
+functionreadradio()
+{
+varl=document.frm.rd.length
+letpobj=document.getElementById("pp")
+
+if(document.frm.rd[0].checked)
+pobj.innerHTML=document.frm.rd[0].value
+else
+pobj.innerHTML=document.frm.rd[1].value
+}
+functioncc()
+{
+  document.frm.rd[0].checked=true;
+
+}
+</script></head>
+<body>
+<pid="pp"></p>
+<formname="frm">
+
+<inputtype="radio"name="rd"value="yes"/>yes
+<inputtype="radio"name="rd"value="no"checked/>no
+<inputtype="button"value="read"onclick="readradio()">
+<inputtype="button"value="chk"onclick="cc()">
+</form></body></html>
