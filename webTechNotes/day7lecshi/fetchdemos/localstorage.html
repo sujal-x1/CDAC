@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="storedata()">Store Data</button>
+    <button onclick="Getdata()">Get Data</button>
+
+    <p id="ta"></p>
+    <script>
+        function storedata(){
+            const userData={
+                job:"programmer",
+                skills:[
+                    {id:4332,name:"Angular"},
+                    {id:3324,name:"React"},
+                    {id:2324,name:"JS"},
+                ],
+            }
+            //storing obj into storage
+            localStorage.setItem("userData",JSON.stringify(userData))
+        }
+        function Getdata(){
+            const data = localStorage.getItem("userData")
+            console.log("data:",JSON.parse(data));
+            let ta=document.getElementById("ta")
+            let obj=JSON.parse(data)
+            ta.innerHTML=JSON.stringify(obj)
+        }
+    </script>
+</body>
+</html>

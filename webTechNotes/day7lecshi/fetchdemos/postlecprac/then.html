@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        async function getMessage(){
+            let promise = new Promise((resolve,reject)=>{
+                setTimeout(()=>resolve("done"),2000)
+            })
+            const result = await promise
+            return result
+        }
+        getMessage().then((result)=>{console.log("then executed",result)},
+        (error)=>{console.log("then error",error)})
+    </script>
+</body>
+</html>

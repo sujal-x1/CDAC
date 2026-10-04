@@ -1,0 +1,26 @@
+<html><head><script>
+var tt;
+function changebg()
+{
+ var col=new Array("green","blue","red")
+ l=col.length
+var rnd_no = Math.floor(l*Math.random()); //it will generate any number between  [0 to 2] 
+
+//alert(Math.floor(l*Math.random()))
+document.body.bgColor=col[rnd_no];
+
+tt=setTimeout('changebg()',5)
+
+}
+function stopclock()
+{
+  clearTimeout(tt)
+ }
+</script></head>
+
+<body onLoad="changebg()">
+
+<input type="button" onclick="stopclock()" value="stop">
+
+</body> </html>
+

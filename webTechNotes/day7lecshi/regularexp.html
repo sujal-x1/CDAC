@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+       var  str  =  "Neo|  Trinity      |Morpheus    |    Smith|    Tank";
+      var  pattern  =  /\s*\|\s*/;
+      
+      //  split  the  string  using  the  regular  expression  as  the  separator
+      // \s means space
+    // * means 0 or more occurrence of previous character ( m* m can occure in string 0 or more time[mita, nita])
+    // “|” it has meaning OR to escape and to indicate that read it as “|” character use \| 
+        result  =  str.split(pattern);
+      //  iterate  over  result  array
+      document.write(result)
+      </script>
+
+</body>
+</html>

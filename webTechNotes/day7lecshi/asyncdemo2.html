@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="hh">Header</h1>
+    <div id="inner">kyadiv</div>
+    <script>
+        async function f(){
+            let promise = new Promise((resolve,reject)=>{
+                setTimeout(()=>resolve("done!"),5000)
+
+        });
+        document.write(".....")
+        let result= await promise;
+        console.log(result)
+        alert("where is this line?")
+    }
+    f();
+    document.write("go --------")
+    document.write("inner div done")
+    </script>
+    
+</body>
+</html>

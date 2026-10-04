@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>me header hu re</h1>
+    <script>
+        // console.log("1st consloe")
+
+        // async function f (){
+        //     let promise = new Promise((resolve , reject )=>{setTimeout(()=>resolve("it's done bro"),5000)})
+        //     document.write("....");
+        //     document.write("<br>")
+        //     let result = await promise
+        //     console.log(result)
+        //     alert("alert")
+        // }
+        // f();
+        // console.log("2nd consloe")
+
+        // document.write("line 1 after promise")
+        // document.write("line 2 after promise")
+
+
+        // ### eg demo 1 ###
+        // async function f() {
+        //     return 1
+        // }
+        // f().then((resolved) => alert("done"), (err) => alert("err"))
+        // console.log(f())
+
+    async function getData(){
+        let promise = new Promise((resolve,reject)=>
+        {setTimeout(()=>resolve("hello"),2000)})
+
+        const result= await promise
+        return result
+    }
+    async function main(){
+        const result=await getData()
+        console.log(result)
+    }
+    main()
+    console.log("later onn")
+    </script>
+</body>
+
+</html>

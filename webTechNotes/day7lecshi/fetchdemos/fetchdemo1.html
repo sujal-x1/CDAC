@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        fetchdata= async function () {
+            let response = await fetch("ejson.json")
+            if (response.ok){
+                let json = await response.json()
+                let fd=""
+                console.log(json)
+                for (let x of json){
+                    console.log(x)
+                    for (let b in x){
+                        console.log(x[b])
+                        fd+=x[b]+"<br>"
+                    }
+                    fd+="<hr/>"
+                }
+                document.getElementById('p').innerHTML=fd;
+                console.log(response.headers)
+                alert(response.headers.get('Content-Type'))
+
+                for(let[key,value]of response.headers){
+                    alert(`${key}=${value}`)
+                }
+                
+            }
+		else {
+			alert("HTTP-Error:  " + response.status);
+		}
+	}
+	setTimeout(fetchdata, 1000);
+</script>
+<h1> Getting data from server</h1>
+<p id="p">.....Loading</p>
+<p id="pp">hello this page</p>
+<hr />
+</body>
+</html>
