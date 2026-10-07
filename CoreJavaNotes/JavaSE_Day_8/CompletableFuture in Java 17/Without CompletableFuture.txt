@@ -1,0 +1,23 @@
+public class Test
+{
+	public static String getData()
+	{
+	    try
+	    {
+	        Thread.sleep(3000);
+	    }
+	    catch (InterruptedException e)
+	    {
+	        e.printStackTrace();
+	    }
+
+	    return "Data received";
+	}
+    public static void main(String[] args) throws Exception
+    {
+    	String result = getData();
+
+    	System.out.println(result);
+    	System.out.println("Main continues...");
+    }
+}

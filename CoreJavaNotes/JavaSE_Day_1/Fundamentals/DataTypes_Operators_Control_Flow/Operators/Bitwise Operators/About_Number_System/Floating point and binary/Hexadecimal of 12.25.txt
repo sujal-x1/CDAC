@@ -1,0 +1,45 @@
+12.25
+
+how will you find out the Hexa-decimal of above number
+
+12 is integer part and .25 is a fractional part.
+The rule is 
+for integer part , you've to devide integer part ( 12 ) by 16 till you get quotient as 0 and then consider all the remainders in a "reverse order".
+
+for a fractional part, you've to multiply by 16 till you get result as 0 and then consider "the straight order or same order".
+
+
+       12
+16	0  12
+
+reverse order
+
+0 12
+
+i.e.
+
+12
+
+i.e.
+
+C   [ i.e.  10 is A , 11 is B  and so on.... ]
+
+
+.25
+
+.25 * 16
+
+	4.00
+	
+
+you have to stop here as after a dot ( . ) , there are zeros
+
+so if you check integer part here (look at the left side of dot), it is
+	4
+
+already we've calculated hexa decimal of 12
+	C.4
+
+you can cross check on "https://www.rapidtables.com/convert/number/decimal-to-binary.html" site.
+
+

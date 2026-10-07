@@ -1,0 +1,31 @@
+Question
+
+define a class Student 
+	rollno
+	name
+	age
+	marks
+
+	parameterized constructor 
+	getter methods
+
+	create 5 objects and store them inside list.
+
+	using java8 stream api:
+
+
+1) Remove Duplicates
+
+2) sort age in 
+	a) ascending 
+	b) descending
+
+3) Find Duplicate Elements [ e.g. marks ]
+
+4) Find Longest name in List
+
+5) Find how many students are there
+
+6) Find average marks
+
+

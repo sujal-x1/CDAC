@@ -1,0 +1,27 @@
+e.g.
+
+public class myclass 
+{
+    static {
+        System.out.println("in myclass static");
+    }
+
+    public static void main(String args[]) {
+    }
+}
+
+
+When you run by giving the command:
+
+		java myclass
+
+
+JVM loads myclass directly (no parent user-defined class here).
+
+Note: Every class in Java implicitly extends "Object" (if no extends is written).
+
+But "Object" is part of the core JDK, and it’s already loaded by the "bootstrap classloader", so its static blocks (if any) would already be initialized long before.
+
+In fact, "Object" has no static block.
+
+So the only static block that runs is from myclass

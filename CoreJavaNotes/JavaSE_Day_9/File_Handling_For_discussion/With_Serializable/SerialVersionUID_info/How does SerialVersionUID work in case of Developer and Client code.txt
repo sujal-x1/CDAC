@@ -1,0 +1,26 @@
+Developer code
+			class Student implements Serializable 
+			{
+			}
+
+			writeObject(s);           // serialization
+				a) since the class does not declare SerialVersionUID, it will be computed by JVM
+				b) This id will be then stored inside the file.
+
+
+file in which object is stored and jar file representing .class file will be distributed to the client.
+
+
+Client code
+
+			readObject();            // deserialization
+
+			1) class Student gets loaded
+			2) since the class does not declare SerialVersionUID, it will be computed by JVM
+			3) This generated id will be checked with the id which is there inside the file.
+			4) if they match then deserialization happens successfully otherwise we get "InvalidClassException"
+		[ This is to verify that the sender and receiver of a serialized object have loaded classes for that object that are compatible with respect to serialization.]
+
+
+
+		

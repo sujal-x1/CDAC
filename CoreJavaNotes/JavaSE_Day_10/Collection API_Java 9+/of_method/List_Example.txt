@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	// this creates modifiable list
+    	List<String> names1 = new ArrayList<>();
+
+    	names1.add("Nitin");
+    	names1.add("Rahul");
+    	names1.add("Ashok");
+    	System.out.println("initially\t"+names1);
+    	names1.add("Vikas");
+    	System.out.println("After modification\t"+names1);
+    	
+    	// this creates a list which is unmodifiable
+    	List<String> names =
+    		    List.of("Nitin", "Rahul", "Ashok");
+
+    		System.out.println(names);
+    		
+    		//names.add("Vijay");   //  UnsupportedOperationException
+    		//names.remove("Amit"); //  UnsupportedOperationException
+    		//names.set(0, "ABC");  //  UnsupportedOperationException
+    }
+}

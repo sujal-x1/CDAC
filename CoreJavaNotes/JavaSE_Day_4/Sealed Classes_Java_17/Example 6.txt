@@ -1,0 +1,63 @@
+sealed interface Repairable permits Car,Bus
+{
+	void repair();
+}
+
+final class Car implements Repairable  // must be either final, sealed or non-sealed
+{
+	public void start()
+	{
+		System.out.println("Car start");
+	}
+
+	@Override
+	public void repair() {
+		System.out.println("Car repair");
+		
+	}
+}
+sealed class Bus implements Repairable permits MiniBus
+{
+	public void start()
+	{
+		System.out.println("Bus start");
+	}
+
+	@Override
+	public void repair() {
+		System.out.println("Bus repair");
+		
+	}
+}
+non-sealed class MiniBus extends Bus
+{
+	public void start()
+	{
+		System.out.println("MiniBus start");
+	}
+}
+// non-sealed class Truck implements Repairable  // not allowed, not in the permits list of Repairable
+class Truck
+{
+	public void start()
+	{
+		System.out.println("Truck start");
+	}
+}
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		Car c1=new Car();
+		c1.start();
+		c1.repair();
+		Bus b1=new Bus();
+		b1.start();
+		b1.repair();
+		Truck t1=new Truck();
+		t1.start();
+		MiniBus m1=new MiniBus();
+		m1.start();
+	}
+}

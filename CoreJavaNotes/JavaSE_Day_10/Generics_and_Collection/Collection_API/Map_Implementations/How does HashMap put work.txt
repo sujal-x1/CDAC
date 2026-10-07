@@ -1,0 +1,48 @@
+put operation
+
+
+hashCode() is invoked on the key to determine the bucket.
+
+hashcode  - key of the first entry
+
+	subsequent entries
+
+hashcode - different - different bucket
+
+	   same  [ hash collision case]
+		==  - true - overwrite the value
+		      false
+			 equals - true - overwrite the value
+				false - linked list will be formed within a bucket i.e. same bucket having different Entries [Entry]
+
+
+
+
+
+put(key, value)
+      |
+      ↓
+key.hashCode()
+      |
+      ↓
+Determine bucket
+      |
+      ↓
+Is bucket empty?
+   /          \
+ YES           NO
+  |             |
+Insert       Collision
+              |
+              ↓
+             == ?
+           /      \
+        true      false
+         |          |
+      overwrite   equals()?
+                   /    \
+                true    false
+                 |        |
+             overwrite   Store another
+                         Entry in same
+                         bucket

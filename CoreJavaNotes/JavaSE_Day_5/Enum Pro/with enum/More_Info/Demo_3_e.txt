@@ -1,0 +1,53 @@
+package mypack;
+
+/* 
+
+enums cannot extends any other class as by default they already
+extend  "Enum" class , they can implement any interface/s
+
+*/
+
+class A{}
+
+enum Sample extends A  // errors as Sample already extends inbuilt class "Enum"
+{
+	member1(9),member2(6),member3; // error for member3
+	private int num;
+	Sample()
+	{
+		System.out.println("inside Sample default constructor");
+	}
+	Sample(int num)  
+	{
+		this.num=num;
+		System.out.println("inside Sample parameterized constructor");
+	}
+	public int getNum()	
+	{
+		return num;
+	}
+	public void disp1()
+	{
+		System.out.println("inside disp1");
+	}
+	public void disp2()
+	{
+		System.out.println("inside disp2");
+	}
+}
+public class Demo_3_a
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Main function started");
+		
+		//Sample s1=new Sample(200); // not possible
+		//Sample s2=new Sample();  // not possible
+		Sample ref1=Sample.member1;
+		Sample ref2=Sample.member2;
+		Sample ref3=Sample.member3;
+		System.out.println(ref1.getNum());
+		System.out.println(ref2.getNum());
+		System.out.println(ref3.getNum());
+	}
+}

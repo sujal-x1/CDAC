@@ -1,0 +1,38 @@
+int x = -1073741824;
+
+Binary:
+
+		11000000 00000000 00000000 00000000
+
+Now shift left 1:
+
+		10000000 00000000 00000000 00000000
+
+i.e. -2147483648
+
+Still negative.
+
+
+so,
+
+	int x = -1073741824;
+    	System.out.println("x<<1 = " + (x << 1));
+		
+		Answer is:-  x<<1 = -2147483648
+
+
+Now shift left 2:
+
+		00000000 00000000 00000000 00000000
+
+Now it becomes:
+
+0
+
+so,
+		int x = -1073741824;
+    		System.out.println("x<<2 = " + (x << 2));
+
+			Answer is:-   x<<2 = 0
+
+Which is not negative anymore.

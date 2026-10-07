@@ -1,0 +1,3 @@
+A matching serialVersionUID does not mean that every class change is compatible.
+
+serialVersionUID is one part of the compatibility check; the serialized representation of the fields must also be compatible.

@@ -1,0 +1,48 @@
+
+int x = 12;
+System.out.println("x<<1 = " + (x << 1));
+
+
+`int` in Java is 32-bit signed.
+
+**12 (decimal)** = `00000000 00000000 00000000 00001100` (binary)
+
+```
+  Bit positions:  31 .................  3   2   1   0
+                  [  00000000 00000000 00000000 00001100  ]
+Decimal value:          8    +    4  =  12
+```
+
+---
+
+ **Step 2 — Left shift by 1 (`x << 1`)**
+
+A **left shift by 1** moves every bit **one place to the left**, and fills the rightmost bit with `0`.
+The leftmost bit (sign bit) would be dropped if it shifts out — but here, it’s 0.
+
+```
+Before: 00000000 00000000 00000000 00001100   (12)
+Shifted:00000000 00000000 00000000 00011000   (24)
+```
+
+---
+
+### **Step 3 — Decimal meaning**
+
+Before:
+
+```
+00001100  →  8 + 4  = 12
+```
+
+After shift:
+
+```
+00011000  → 16 + 8 = 24
+```
+
+
+ Left shifting by 1 is the same as multiplying by 2 (for positive integers),
+		because every bit now represents twice its original value.
+
+

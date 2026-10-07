@@ -1,0 +1,45 @@
+/*
+ * display all twin prime numbers between 1 to 50
+ * Twin prime numbers are a pair of 
+ * prime numbers whose difference is exactly 2.
+	e.g.
+		(3,5)
+		(5,7)	
+		(11,13)
+		(17,19)
+		(29, 31) 
+		(41, 43) 
+
+ */
+package mypack;
+public class Test
+{
+	    public static void main(String[] args) 
+	    {
+	    	boolean flag=false;
+	    	int prev=0,next=2;
+	    	for(int i=2;i<=50;i++)
+	    	{
+	    		flag=false;
+	    		for(int j=2;j<=i/2;j++)
+	    		{
+	    			if(i%j==0)
+	    			{
+	    				flag=true;
+	    				break;
+	    			}
+	    		}
+	    		if(!flag)
+	    		{
+	    			prev=next;
+	    			next=i;
+	    			if(next-prev==2)
+	    			{
+	    				System.out.print(prev+"\t"+next);
+	    				System.out.println();
+	    			}
+	    		}
+	    	}
+	    	
+	    }
+}

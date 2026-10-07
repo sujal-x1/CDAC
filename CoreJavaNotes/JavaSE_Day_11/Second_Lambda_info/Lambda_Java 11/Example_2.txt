@@ -1,0 +1,60 @@
+import java.util.List;
+import java.util.Map;
+
+/*
+
+Java 11 allows var to be used 
+for lambda parameters. 
+The parameter types are still inferred 
+from the functional interface.
+
+
+
+Java 11 introduced the ability 
+to use var in lambda parameters. 
+It is mainly a syntax option; 
+in simple cases like (var x, var y), 
+it doesn't provide much practical benefit.
+
+One important rule :
+
+(var x, var y) -> x + y   // this is correct
+
+but:
+
+(var x, y) -> x + y        // this is not correct
+
+If you use var, you must use var 
+for all the lambda parameters.
+
+*/
+
+interface A
+{
+	void disp(List<String> list, Map<Integer, String> map);
+}
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	A obj1=(List<String> list, Map<Integer, String> map)->
+    	{
+    		System.out.println("List is\t"+list);
+    		System.out.println("Map is\t"+map);
+    	};
+    	List<String> mylist=List.of("Abc","Pqr","Lmn");
+    	Map<Integer,String> mymap=Map.of(1,"Reena",2,"Rajesh");
+    	
+    	System.out.println("without var\n");
+    	obj1.disp(mylist, mymap);
+        
+    	A obj2 = (var list, var map) -> {
+    		System.out.println("List is\t"+list);
+    		System.out.println("Map is\t"+map);
+    	};
+
+    	System.out.println("\nwith var\n");
+    	obj2.disp(mylist, mymap);
+    }
+}

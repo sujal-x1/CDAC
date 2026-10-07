@@ -1,0 +1,34 @@
+import java.util.List;
+
+/*
+
+\u2003 is a Unicode whitespace character. 
+
+trim() does not remove it, but strip() recognizes it as whitespace and removes it.
+
+in other words,
+
+\u2003 is a Unicode whitespace character. trim() does not handle it, but strip() handles it.
+
+trim() does not consider \u2003 
+to be removable whitespace.
+
+strip() uses the Unicode-aware 
+Character.isWhitespace() method, and 
+if found , removes it.
+
+
+*/
+
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	String s = "\u2003Hello Java\u2003";
+
+    	System.out.println("trim  = [" + s.trim() + "]");
+    	System.out.println("strip = [" + s.strip() + "]");
+
+    }
+}

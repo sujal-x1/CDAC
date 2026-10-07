@@ -1,0 +1,28 @@
+list.stream()
+    .filter(i -> {
+        System.out.println("Filtering: " + i);
+        return i > 10;
+    })
+    .mapToInt(i -> {
+        System.out.println("Mapping: " + i);
+        return i;
+    });
+return 0;
+
+When we write:
+
+Stream<Integer> s = list.stream()
+    .filter(i -> { System.out.println("Filter op"); return i > 10; })
+    .map(i -> { System.out.println("Map op"); return i * 2; });
+
+
+Nothing prints yet — but internally the stream pipeline now remembers:
+
+Stage 1 = filter, function = (i -> { System.out.println(...); return i > 10; })
+
+Stage 2 = map, function = (i -> { System.out.println(...); return i * 2; })
+
+
+Only when we call a terminal operation like .sum() or .collect() will those stored functions be executed on the actual elements.
+
+

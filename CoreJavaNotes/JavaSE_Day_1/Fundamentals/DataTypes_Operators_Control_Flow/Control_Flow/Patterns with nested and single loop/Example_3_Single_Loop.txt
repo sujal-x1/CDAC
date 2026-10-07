@@ -1,0 +1,38 @@
+package mypack;
+/*
+ * 
+1
+121
+12321
+1234321
+
+
+*/
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	int i=1,count=0,limit=1,linenumber=0;
+    	while(limit<8)
+    	{
+       		if(count>=linenumber)
+    		{
+    			System.out.print(i--);
+    		}
+    		else
+    		{
+    			System.out.print(i++);
+    		}
+    		count++;
+    		if(count==limit)
+    		{
+    			System.out.println();
+    			i=1;
+    			linenumber++;
+    			limit+=2;
+    			count=0;
+    		}
+    	}
+    }
+}

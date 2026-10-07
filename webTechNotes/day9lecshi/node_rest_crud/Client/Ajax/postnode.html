@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h2>The XMLHttpRequest Object</h2>
+    <p id="demo"></p>
+    <form>
+        <label>firstName</label><input name="firstname" />
+        <label>lastName</label><input name="lastname" />
+        
+        <button type="button" onclick="loadDoc()">Send Form data </button>
+    </form>
+    <script>
+
+
+        function loadDoc() {
+            var form = document.querySelector('form');
+             let sdata= new URLSearchParams(new FormData(form)).toString()
+  console.log(sdata)
+
+      
+            var xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 201) {
+
+                    document.getElementById("demo").innerHTML = "Data inserted"
+                }
+            };
+            xhttp.open("POST", "http://localhost:8081/person", true);
+            xhttp.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+            xhttp.send(sdata);
+        }
+    </script>
+
+</body>
+
+
+</html>

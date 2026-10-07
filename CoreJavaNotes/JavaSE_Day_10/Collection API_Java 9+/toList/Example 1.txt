@@ -1,0 +1,43 @@
+import java.util.List;
+import java.util.stream.Collectors;
+
+/*
+ * Stream.toList() collects 
+ * the elements of a Stream into a List.
+
+Before this method, we commonly used:
+
+.collect(Collectors.toList())
+
+Java 16+ gives us the shorter:
+
+.toList()
+
+ */
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	// Before Java 16
+    	List<String> names = List.of(
+    		    "Amit",
+    		    "Rahul",
+    		    "Neha",
+    		    "Priya"
+    		);
+    	// We want names starting with "A".
+
+    	// Before Java 16
+    	
+    	List<String> result = names.stream()
+    	        .filter(name -> name.startsWith("A"))
+    	        .collect(Collectors.toList());
+
+    	System.out.println(result);
+    	
+    	// Java 16 onwards
+    	List<String> result1=names.stream().filter(name->name.startsWith("A")).toList();
+    	System.out.println(result1);
+    }
+}

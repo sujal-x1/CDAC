@@ -1,0 +1,1 @@
+incompatible changes are the ones which will give InvalidClassException even if we declare serial version uid in the class which implements Serializable

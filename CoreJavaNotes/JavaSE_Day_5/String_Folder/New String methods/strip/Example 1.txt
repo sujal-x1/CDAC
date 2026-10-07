@@ -1,0 +1,23 @@
+import java.util.List;
+
+/*
+strip() removes whitespace from both ends of a String.
+
+trim() = old whitespace removal
+strip() = modern, Unicode-aware 
+whitespace removal (Java 11+)
+
+ */
+
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	String s = "   Hello Java   ";
+    	System.out.println(s.trim());  // old version
+    	System.out.println(s.strip());
+    	System.out.println(s.stripLeading());
+    	System.out.println(s.stripTrailing());
+    }
+}

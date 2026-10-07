@@ -1,0 +1,46 @@
+
+import java.util.*;
+
+interface Emp1
+{
+	void disp();
+}
+interface Emp2
+{
+	void disp(int k);
+}
+interface Emp3
+{
+	boolean disp(int k);
+}
+interface Emp4
+{
+	int sqr(int k);
+}
+public class Demo
+{
+	static void perform1(Emp1 ref)
+	{
+		ref.disp();
+	}
+	static void perform2(Emp2 ref)
+	{
+		ref.disp(20);
+	}
+	static void perform3(Emp3 ref)
+	{
+		System.out.println(ref.disp(10));
+	}
+	static void perform4(Emp4 ref)
+	{
+		System.out.println(ref.sqr(10));
+	}
+	public static void main(String args[])
+	{
+		perform1(()->System.out.println("inside disp"));
+		perform2((k)->{System.out.println(k);});
+		perform2(j->System.out.println("number is\t"+j));
+		perform3(s-> s%2==0);
+		perform4(s-> s*s);
+	}
+}

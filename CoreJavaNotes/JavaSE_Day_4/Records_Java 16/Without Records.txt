@@ -1,0 +1,69 @@
+import java.util.Objects;
+
+class Student
+{
+    private int rollNo;
+    private String name;
+	/**
+	 * @param rollNo
+	 * @param name
+	 */
+	public Student(int rollNo, String name) {
+		super();
+		this.rollNo = rollNo;
+		this.name = name;
+	}
+	/**
+	 * @return the rollNo
+	 */
+	public int getRollNo() {
+		return rollNo;
+	}
+	/**
+	 * @param rollNo the rollNo to set
+	 */
+	public void setRollNo(int rollNo) {
+		this.rollNo = rollNo;
+	}
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(name, rollNo);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Student other = (Student) obj;
+		return Objects.equals(name, other.name) && rollNo == other.rollNo;
+	}
+	@Override
+	public String toString() {
+		return "Student [rollNo=" + rollNo + ", name=" + name + "]";
+	}
+
+    
+}
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		Student s1=new Student(1,"Abc");
+		System.out.println(s1);
+	}
+}

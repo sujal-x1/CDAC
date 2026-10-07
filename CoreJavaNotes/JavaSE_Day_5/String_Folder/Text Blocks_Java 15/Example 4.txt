@@ -1,0 +1,24 @@
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		// JSON
+		
+		String json1 =
+				"{\n" +
+				"\"name\":\"John\",\n" +
+				"\"age\":25\n" +
+				"}";
+		System.out.println(json1);
+		System.out.println();
+		
+		String json2 = """
+				{
+				    "name":"John",
+				    "age":25
+				}
+				""";
+		System.out.println(json2);
+	}
+}

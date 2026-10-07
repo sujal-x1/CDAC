@@ -1,0 +1,26 @@
+import java.util.List;
+
+/*
+ lines() is useful when a String contains 
+ multiple lines.
+
+It returns a Stream<String> containing each line.
+
+
+ */
+
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	String data = """
+                Java
+                Python
+                Spring Boot
+                Docker
+                """;
+  data.lines()
+      .forEach(System.out::println);
+    }
+}

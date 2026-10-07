@@ -1,0 +1,24 @@
+When sleep() is executed:
+
+	The current thread moves to TIMED_WAITING state.
+
+	The thread stops executing instructions.
+
+	The CPU is released so other threads can run.
+
+	The JVM asks the OS to wake the thread after the specified time.
+
+
+When sleep time is over
+
+	When the specified time finishes:
+
+	The OS timer expires.
+
+	The JVM wakes the thread.
+
+	The thread moves to RUNNABLE state.
+
+	State change
+
+The thread does NOT start running immediately  It must wait for CPU scheduling again.

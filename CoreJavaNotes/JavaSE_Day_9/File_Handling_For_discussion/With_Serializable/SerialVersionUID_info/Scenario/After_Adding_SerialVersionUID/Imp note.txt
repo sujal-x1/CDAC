@@ -1,0 +1,7 @@
+In this example , in the second round when we add one field
+	private double salary
+
+even after making this change , deserialization does not fail ,SerialVersionUID will not be different this time as we have declared "SerialVersionUID" in the class.
+
+But that does not mean whatever changes we do in the class after serialization will be allowed during deserialization. There is a separate topic "compatible and incompatible changes" we'll see later where we will get to know which changes are allowed and which are not despite declaring "SerialVersionUID" in the class.
+

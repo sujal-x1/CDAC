@@ -1,0 +1,31 @@
+/*
+mapMulti()
+
+mapMulti() was introduced in Java 16.
+
+It is useful when:
+
+One input element can produce 
+zero, one, or multiple output elements.
+
+*/
+
+import java.util.*;
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	List<Integer> numbers = List.of(1, 2, 3);
+
+    	List<Integer> result =
+    	    numbers.stream()
+    	           .<Integer>mapMulti((n, consumer) -> {
+    	               consumer.accept(n);
+    	               consumer.accept(n * 10);
+    	           })
+    	           .toList();
+
+    	System.out.println(result);
+    }
+}

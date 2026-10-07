@@ -1,0 +1,27 @@
+import java.util.Optional;
+
+/*
+ ifPresentOrElse() was introduced in Java 9. 
+ It executes one action if the value is present 
+ and another action if the value is absent.
+ */
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	Optional<String> name = Optional.of("Nitin");
+
+    	name.ifPresentOrElse(
+    	    n -> System.out.println("Name: " + n),
+    	    () -> System.out.println("Name is not available")
+    	);
+    	
+    	Optional<String> name1 = Optional.empty();
+
+    	name1.ifPresentOrElse(
+    	    n -> System.out.println("Name: " + n),
+    	    () -> System.out.println("Name is not available")
+    	);
+    }
+}

@@ -1,0 +1,19 @@
+reduce() is a terminal operation
+
+The reduce() method is powerful for performing aggregate operations on streams and can be adapted for various data processing tasks.
+
+reduce() is a powerful method used to combine all elements of a stream into a single result, such as sum, product, or concatenated value.
+
+e.g.
+
+
+int sum = list.stream()
+              .reduce(0, (a, b) -> a + b);  
+
+Step by step:
+
+	Start with 0
+
+	Add each element one by one
+
+Final result = single value (sum)

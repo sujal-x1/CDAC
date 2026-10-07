@@ -1,0 +1,21 @@
+Question
+
+define a class Student 
+	rollno
+	name
+	age
+	marks
+
+	parameterized constructor 
+	getter methods
+
+	create 5 objects and store them inside list.
+
+	using java8 stream api:
+
+
+1) Find Highest marks
+
+2) Find Second Highest Number 
+
+2) 

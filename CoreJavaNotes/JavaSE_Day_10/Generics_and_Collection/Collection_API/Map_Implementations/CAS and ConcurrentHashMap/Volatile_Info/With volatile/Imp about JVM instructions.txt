@@ -1,0 +1,32 @@
+Who informs thread to read from main memory in case of "volatile" member?
+
+Answer:
+
+The JVM JIT compiler inserts memory barrier instructions into machine code.
+These instructions tell the CPU hardware how to manage cache and memory ordering.
+
+It is NOT decided at simple Java compile time.
+It is decided at runtime by JIT and enforced by CPU architecture.
+
+
+
+Volatile works because the JVM inserts special memory barrier instructions at runtime, which force the CPU to synchronize its cache with main memory according to Java Memory Model rules.
+
+
+e.g.
+
+volatile int x = 10;
+
+
+When a thread writes:
+
+
+x = 20
+
+
+JVM ensures:
+
+
+Write → flush to main memory
+Other cores → invalidate cached value
+Next read → fetch from main memory

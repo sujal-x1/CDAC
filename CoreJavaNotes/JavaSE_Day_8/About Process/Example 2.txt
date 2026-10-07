@@ -1,0 +1,25 @@
+import java.io.IOException;
+/*
+ * Java 9+ / Java 17: ProcessHandle
+Java also provides the ProcessHandle API, 
+introduced in Java 9, for working with 
+operating-system processes.
+
+ */
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	/*
+    	 * to obtain information about 
+    	 * running processes.
+    	 */
+    	ProcessHandle.allProcesses()
+        .forEach(ph -> {
+            System.out.println("PID: " + ph.pid());
+            System.out.println("Command: " +
+                    ph.info().command().orElse("Unknown"));
+        });
+
+    }
+}

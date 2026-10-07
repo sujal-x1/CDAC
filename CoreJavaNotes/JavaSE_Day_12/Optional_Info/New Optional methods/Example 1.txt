@@ -1,0 +1,48 @@
+import java.util.Optional;
+
+/*
+ * isEmpty()
+
+This was introduced in Java 11.
+
+Before Java 11, we commonly wrote:
+
+if (!optional.isPresent())
+{
+    System.out.println("No value");
+}
+
+Java 11 introduced:
+
+if (optional.isEmpty())
+{
+    System.out.println("No value");
+}
+ */
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	Optional<String> name = Optional.empty();
+
+    	System.out.println(name.isEmpty());
+    	
+    	Optional<String> name1 = Optional.of("Abhay");
+
+    	System.out.println(name1.isEmpty());
+    	
+    	/*
+    	In Java 8, Optional already had the method 
+    	isPresent(). 
+    	Java 11 introduced isEmpty().
+
+    	The difference is simply the opposite condition.
+
+		*/
+    	Optional<String> name2 = Optional.empty();
+
+    	System.out.println(name.isEmpty());      // true
+    	System.out.println(name.isPresent());    // false
+    }
+}

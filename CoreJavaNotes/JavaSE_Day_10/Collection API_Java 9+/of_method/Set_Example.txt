@@ -1,0 +1,20 @@
+Java 9 introduced convenient factory methods for creating unmodifiable collections:
+
+		Set.of()
+
+Creates an unmodifiable Set:
+
+Set<String> names =
+    Set.of("Nitin", "Rahul", "Ashok");
+
+System.out.println(names);
+
+You cannot do:
+
+names.add("Vikas");       //  UnsupportedOperationException
+names.remove("Rahul");    //  UnsupportedOperationException
+
+Also remember that a Set does not allow duplicate elements:
+
+Set<String> names =
+    Set.of("Nitin", "Rahul", "Nitin");  //  IllegalArgumentException

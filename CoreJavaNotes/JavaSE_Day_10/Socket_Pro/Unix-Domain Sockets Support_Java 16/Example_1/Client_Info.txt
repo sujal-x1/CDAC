@@ -1,0 +1,31 @@
+Path path = Path.of("myserver.socket");
+
+Defines the socket path.
+
+UnixDomainSocketAddress address =
+    UnixDomainSocketAddress.of(path);
+
+Creates the Unix-domain socket address.
+
+SocketChannel client =
+    SocketChannel.open(StandardProtocolFamily.UNIX);
+
+Creates a client-side SocketChannel using the Unix-domain socket protocol family.
+
+client.connect(address);
+
+Attempts to connect to the server.
+
+After the connection succeeds, the client continues:
+
+System.out.println("Connected to server");
+
+and the server's:
+
+server.accept();
+
+also returns.
+
+client.close();
+
+Closes the client's connection.

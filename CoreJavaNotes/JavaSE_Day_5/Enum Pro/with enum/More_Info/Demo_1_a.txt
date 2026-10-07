@@ -1,0 +1,48 @@
+package mypack;
+/*
+ * When you declare an enum, the enum constants 
+ * must appear first (at the very top, before any fields, 
+ * methods, or static/instance blocks).
+ */
+
+/*
+Why this restriction?
+
+Enum constants are like static final objects.
+The compiler needs to know all the constants up front 
+so it can generate the values() method and other boilerplate code.
+
+If you put anything (like a static block or method) before 
+the constants, the compiler cannot properly generate 
+the enum’s internal class structure.
+*/
+
+enum MyEnum
+{   // error
+	static
+	{
+		System.out.println("inside MyEnum static block");
+	}
+
+	instance;  // error
+	public void disp1()
+	{
+		System.out.println("inside disp1");
+	}
+	public void disp2()
+	{
+		System.out.println("inside disp2");
+	}
+}
+public class Demo1_a
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Main function started");
+		MyEnum ref1=MyEnum.instance;
+		ref1.disp1();
+		ref1.disp2();
+	}
+}
+
+

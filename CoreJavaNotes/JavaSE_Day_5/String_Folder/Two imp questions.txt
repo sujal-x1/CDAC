@@ -1,0 +1,11 @@
+what do u mean by String class is immutable?
+
+	String s1="hello";
+	S.o.p(s1); // hello
+	String s2=s1.concat(" world");
+	S.o.p(s1); // hello
+	S.o.p(s2); // hello world
+
+Why String class is immutable ?
+
+	String class was made immutable because in case of String there is a possibility that more than one references can refer to one String object (String pool object). In that case Java Founders did not want that because of one reference other reference/s should get affected.

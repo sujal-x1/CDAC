@@ -1,0 +1,6 @@
+In Java, int is ALWAYS 32 bits
+✔️ Whether your system is 32-bit
+✔️ Whether your system is 64-bit
+✔️ Whether you run on Windows, Linux, or Mac
+
+Architecture does NOT change Java primitive sizes.

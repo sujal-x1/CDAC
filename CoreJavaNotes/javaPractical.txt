@@ -1,0 +1,21 @@
+Scanner class for accepting input
+
+Serialization  with Serializable
+	- ArrayList
+	- HashMap
+	Iterator on ArrayList 
+
+create CheckedException
+	raise it and declare it
+	handle it
+
+upcasting,downcasting, instanceof
+	- method accepting reference of parent class,downcasting, instanceof
+	- array of parent class,downcasting, instanceof
+
+
+Logic -   double dimension Array, special number, highest-second highest number from the array, number/character pattern using one for loop or two for loops etc.
+
+Done:Single dim ,  prime numbers , prime numbers,twin prime numbers 
+
+Morning: special number , double dim array , char print , upcastNdown rev, exception rev, arraylist rev with syntax input and iterator, hashmap syntax for get shit

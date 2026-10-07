@@ -1,0 +1,35 @@
+/*
+ * accept a number and display 
+ * whether it is prime or not
+ */
+package mypack;
+import java.util.*;
+public class Test
+{
+	    public static void main(String[] args) 
+	    {
+	    	int num=0;
+	    	boolean flag=false;
+	    	Scanner sc=new Scanner(System.in);
+	    	num=sc.nextInt();
+	    	if(num<=1)
+	    	{
+	    		System.out.println(num+"\t is not a prime number");
+	    		return;
+	    	}
+	    	for(int i=2;i<=num/2;i++)
+	    	{
+	    		if(num%i==0)
+	    		{
+	    			flag=true;
+	    			System.out.println(num+"\t is not a prime number");
+	    			break;
+	    		}
+	    	}
+	    	if(!flag)
+	    	{
+	    		System.out.println(num+"\t is a prime number");
+	    		
+	    	}
+	    }
+}

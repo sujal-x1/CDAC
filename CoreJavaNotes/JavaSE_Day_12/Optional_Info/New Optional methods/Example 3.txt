@@ -1,0 +1,49 @@
+import java.util.Optional;
+
+/*
+Optional.or() was introduced in Java 9.
+
+It is useful when you want to provide 
+another Optional as an alternative 
+if the first Optional is empty.
+
+or() vs orElse():
+
+name.or(() -> Optional.of("Nitin"));
+
+returns an Optional<String>.
+
+Whereas:
+
+name.orElse("Nitin");
+
+returns the actual String.
+ */
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	Optional<String> name = Optional.empty();
+
+    	Optional<String> result = name.or(
+    	    () -> Optional.of("Default Name")
+    	);
+    	System.out.println(result);
+    	
+    	Optional<String> name1 = Optional.of("Nitin");
+
+    	Optional<String> result1 = name1.or(
+    	    () -> Optional.of("Default Name")
+    	);
+
+    	System.out.println(result1);
+    	
+    	Optional<String> name2 = Optional.of("Nitin");
+    	//Optional<String> name2=Optional.empty();
+
+    	String result2 = name2.orElse("Sachin");
+
+    	System.out.println(result2);
+    }
+}

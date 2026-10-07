@@ -1,0 +1,43 @@
+/*
+ * 
+ * Problems in the following code
+
+	Difficult to read
+	Too many +
+	Too many \n
+	Easy to make mistakes
+ */
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		String html =
+				"<html>\n" +
+				"<body>\n" +
+				"<h1>Hello</h1>\n" +
+				"</body>\n" +
+				"</html>";
+		System.out.println(html);
+	}
+}
+
+
+vs
+
+
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		String html = """
+				<html>
+				<body>
+				<h1>Hello</h1>
+				</body>
+				</html>
+				""";
+		System.out.println(html);
+	}
+}
+

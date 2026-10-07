@@ -1,0 +1,38 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
+import java.util.List;
+import java.util.Optional;
+import java.util.Scanner;
+
+/*
+Files.writeString() supports append, 
+but instead of passing true like FileWriter, 
+you use "StandardOpenOption.APPEND".
+
+Append using Files.writeString()
+*/
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	Path path = Path.of("d:\\data1.txt");
+// if you want to append if it exists, 
+ // but also create the file if it doesn't exist, 
+    	// use:     StandardOpenOption.CREATE
+    	try {
+			Files.writeString(
+			    path,
+			    "Hello Everyone\n",
+			    StandardOpenOption.CREATE,
+			    StandardOpenOption.APPEND
+			);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    }
+}

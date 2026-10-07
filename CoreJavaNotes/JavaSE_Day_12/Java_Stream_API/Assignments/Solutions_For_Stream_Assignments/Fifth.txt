@@ -1,0 +1,141 @@
+package firstpro;
+import java.util.*;
+
+class Student
+{
+	private int rollno,age;
+	private String name;
+	private double marks;
+	/**
+	 * @return the rollno
+	 */
+	public int getRollno() {
+		return rollno;
+	}
+	/**
+	 * @param rollno the rollno to set
+	 */
+	public void setRollno(int rollno) {
+		this.rollno = rollno;
+	}
+	/**
+	 * @return the age
+	 */
+	public int getAge() {
+		return age;
+	}
+	/**
+	 * @param age the age to set
+	 */
+	public void setAge(int age) {
+		this.age = age;
+	}
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/**
+	 * @return the marks
+	 */
+	public double getMarks() {
+		return marks;
+	}
+	/**
+	 * @param marks the marks to set
+	 */
+	public void setMarks(double marks) {
+		this.marks = marks;
+	}
+	/**
+	 * @param rollno
+	 * @param age
+	 * @param name
+	 * @param marks
+	 */
+	public Student(int rollno, int age, String name, double marks) {
+		super();
+		this.rollno = rollno;
+		this.age = age;
+		this.name = name;
+		this.marks = marks;
+	}
+	@Override
+	public String toString() {
+		return "Student [rollno=" + rollno + ", age=" + age + ", name=" + name + ", marks=" + marks + "]";
+	}
+	
+
+}
+public class Sample 
+{
+    public static void main(String[] args) 
+    {
+    	List<Student> mylist=new ArrayList<>();
+    	Student s1=new Student(1,23,"Ravi",70);
+    	Student s2=new Student(2,20,"Sujay",58);
+    	Student s3=new Student(3,21,"Anand",80);
+    	Student s4=new Student(4,22,"Ram",70);
+    	Student s5=new Student(5,25,"Shashi",90);
+    	
+    	mylist.add(s1);
+    	mylist.add(s2);
+    	mylist.add(s3);
+    	mylist.add(s4);
+    	mylist.add(s5);
+    	
+    	System.out.println("All marks");
+    	// print all the marks
+    	mylist.stream().map(k->k.getMarks()).forEach(System.out::println);
+    
+    	System.out.println("After removing duplicates");
+    	// remove duplicates
+    	mylist.stream().map(k->k.getMarks()).distinct().forEach(System.out::println);
+    	System.out.println("Sorting age ascending");
+    	mylist.stream().map(k->k.getAge()).sorted().forEach(System.out::println);
+    	System.out.println("Sorting age descending");
+    	mylist.stream().map(k->k.getAge()).sorted(Comparator.reverseOrder()).forEach(System.out::println);
+    	
+    	System.out.println("Let's print duplicate marks");
+    	/*
+    	 * myset.add(mark) returns:
+
+true → if element is added first time
+
+false → if element already exists
+
+So:
+
+!myset.add(mark)
+
+Means:
+
+ If already present → it's duplicate
+    	 */
+  Set<Double> myset=new HashSet<>();
+  mylist.stream().map(s-> s.getMarks()).filter(k-> !myset.add(k)).forEach(System.out::println);
+  
+  System.out.println("Find Longest name in List");
+  
+  Optional<String> longestName = mylist.stream()
+	        .map(s->s.getName())
+	        .max(Comparator.comparingInt(String::length));
+  System.out.println(longestName.get());
+  
+  System.out.println("Total no.of students");
+  long count=mylist.stream().count();
+  System.out.println(count);
+  System.out.println("Find Average Marks");
+  double avg=mylist.stream().mapToDouble(s->s.getMarks()).average().getAsDouble();
+  System.out.println(avg);
+    }
+}
+
+

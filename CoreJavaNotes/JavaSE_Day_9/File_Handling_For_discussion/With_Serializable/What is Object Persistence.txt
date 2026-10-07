@@ -1,0 +1,45 @@
+			object persistence
+
+it means saving the state of an object inside either filesystem or database so that it can be retrieved back in future.
+
+When we save the state of an object inside filesystem , it is known as "Serialization".
+
+
+Java uses Serializable or Externalizable interfaces for serialization.
+
+Serializable is a marker interface but Externalizable has two abstract methods 
+	readExternal  and writeExternal
+
+Actually,   Externalizable extends Serializable
+
+
+Rules for Java Serialization
+
+a) The class whose object is to be serialized must implement either:
+
+Serializable or Externalizable interface.
+
+b) Every non-transient instance field that needs to be serialized must itself be serializable.
+
+All Java primitive types are serializable by default.
+Primitive fields are directly supported by Java Serialization; they do not need to (infact they can't) implement Serializable.
+
+A reference-type field is serializable if the object referred to by that field implements Serializable or Externalizable.
+
+
+
+
+Serializing object means writing Object inside filesystem as follows:
+		FileOutputStream fos=new FileOutputStream("filename");
+		ObjectOutputStream oos=new ObjectOutputStream(fos);
+			oos.writeObject(<object to be written>);
+
+Deserializing object means reading object from filesystem as follows:
+		FileInputStream fis=new FileInputStream("filename");
+		ObjectInputStream ois=new ObjectInputStream(fis);
+			ois.readObject();
+
+
+
+
+

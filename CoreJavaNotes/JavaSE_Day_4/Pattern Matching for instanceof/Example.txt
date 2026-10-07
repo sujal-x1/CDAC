@@ -1,0 +1,18 @@
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		// Java 8
+		Object ob1="Hello";
+		if(ob1 instanceof String)
+		{
+			String s1=(String)ob1;
+			System.out.println(s1.length());
+		}
+		// Java 17
+		if(ob1 instanceof String s2)
+		{
+			System.out.println(s2.length());
+		}
+	}
+}

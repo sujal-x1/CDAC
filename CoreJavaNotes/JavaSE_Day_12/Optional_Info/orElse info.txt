@@ -1,0 +1,101 @@
+Optional with map() and orElse()
+
+
+Optional<MyClass> op = Optional.ofNullable(getMyClass());
+
+System.out.println(
+    op.map(MyClass::disp)
+      .orElse("could not get MyClass instance")
+);
+
+
+ 	Case 1: getMyClass() returns a MyClass object
+
+
+getMyClass()
+     ↓
+MyClass instance
+     ↓
+Optional<MyClass>
+
+
+op contains the MyClass object.
+
+
+op.map(MyClass::disp)
+
+
+* map() finds that op contains a MyClass object.
+* It invokes disp() on that object.
+* Suppose disp() returns a String.
+* Therefore, map() returns:
+
+
+Optional<String>
+
+
+Then:
+
+
+.orElse("could not get MyClass instance")
+
+
+is called on Optional<String>.
+
+Since the Optional<String> contains the value returned by disp(), orElse() returns that value.
+
+
+
+ 		Case 2: getMyClass() returns null
+
+
+getMyClass()
+     ↓
+   null
+     ↓
+Optional.empty()
+
+
+op is empty.
+
+Therefore:
+
+
+op.map(MyClass::disp)
+
+
+does not invoke disp().
+
+It returns:
+
+
+Optional.empty()
+
+
+Then:
+
+
+.orElse("could not get MyClass instance")
+
+
+is called on the empty Optional.
+
+Since it has no value, orElse() returns:
+
+
+"could not get MyClass instance"
+
+
+	 Key Point
+
+
+Optional<MyClass>
+       ↓ map()
+Optional<String>
+       ↓ orElse()
+     String
+
+
+map() executes the function only when the Optional contains a value.
+
+orElse() returns the value if present; otherwise, it returns the specified default value.

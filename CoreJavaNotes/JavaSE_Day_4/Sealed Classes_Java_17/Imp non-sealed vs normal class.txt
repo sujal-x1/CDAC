@@ -1,0 +1,57 @@
+The child class of Sealed class has to have
+	final or sealed or non-sealed modifier.
+
+Question:- What is the point in making the class non-sealed when a normal class is by default non-sealed?
+
+Answer:-
+A normal class is non-sealed by default, but a direct subclass of a sealed class cannot simply be a normal class. It must explicitly declare final, sealed, or non-sealed.
+
+But wait, a normal class is anyway like a non-sealed class. So why a normal class cannot be a child class of Sealed class ? or in other words why a class has to be defined as "non-sealed" while deriving from a Sealed class?
+
+Ans:
+What Does non-sealed Mean?
+
+I am one of the permitted children of this sealed class, but from this point onward, I don't want inheritance to be restricted.
+
+	Why Can't We Just Write class Car extends Vehicle?
+
+Because Java wants the inheritance decision to be explicit at the boundary of a sealed hierarchy.
+
+Imagine:
+
+	sealed class Vehicle permits Car
+	{
+	}
+
+and:
+
+	class Car extends Vehicle
+	{
+	}
+
+Java would ask:
+
+	"Is Car supposed to stop inheritance?"
+
+or
+
+	"Is Car supposed to continue restricting inheritance?"
+
+or
+
+	"Should Car become an ordinary class?"
+
+
+Java doesn't make that decision implicitly.
+
+You have to explicitly tell Java:
+
+	final class Car extends Vehicle
+
+OR
+
+	sealed class Car extends Vehicle permits BMW
+
+OR
+
+	non-sealed class Car extends Vehicle

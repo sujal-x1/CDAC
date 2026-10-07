@@ -1,0 +1,34 @@
+<script>
+	fetchdata = async function () {
+		let response = await fetch("http://localhost:8081/person/6aae17b403d55edbf6494f07");
+		if (response.ok) {  //  if  HTTP-status  is  200-299
+			let json = await response.json();
+			let fd = "";
+			console.log(json)
+			for (let x in json) {
+				console.log(x)
+				
+					fd += x +":" +json[x]+"<br/>"
+				
+				
+			}
+			document.getElementById('p').innerHTML = fd;
+			console.log(response.headers);
+			alert(response.headers.get('Content-Type'));// application/json; charset=utf-8
+
+			// iterate over all headers
+			for (let [key, value] of response.headers) {
+				alert(`${key}=${value}`);
+			}
+
+		}
+		else {
+			alert("HTTP-Error:  " + response.status);
+		}
+	}
+	setTimeout(fetchdata, 1000);
+</script>
+<h1> Getting data from server</h1>
+<p id="p">.....Loading</p>
+<p id="pp">hello this page</p>
+<hr />

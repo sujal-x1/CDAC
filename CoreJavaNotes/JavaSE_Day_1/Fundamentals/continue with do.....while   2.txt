@@ -1,0 +1,10 @@
+int i=0;
+    	do
+    	{
+    		i++;
+    		if(i==7)
+    		{
+    			continue; // right approach
+    		}
+    		System.out.println(i);
+    	}while(i<10);

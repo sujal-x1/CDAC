@@ -1,0 +1,30 @@
+/*
+ * 
+1
+12
+123
+1234
+12345
+
+ */
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	int i=1,cnt=0,limit=1;
+    	while(limit<=5)
+    	{
+    		System.out.print(i);
+    		i++;
+    		cnt++;
+    		if(cnt==limit)
+    		{
+    			System.out.println();
+    			cnt=0;
+    			limit++;
+      			i=1;
+    		}
+    	}
+    }
+}

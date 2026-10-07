@@ -1,0 +1,30 @@
+class A{
+	static
+	{
+		System.out.println("A static");
+	}
+}
+class B
+{
+	static
+	{
+		System.out.println("B static");
+	}
+}
+
+public class StaticTest
+{
+	private A ob1;
+	private static B ob2;
+	static
+	{
+		System.out.println("in StaticTest static");
+	}
+	public static void main(String args[])
+	{
+		StaticTest ref=new StaticTest();
+		ref.ob1=new A();
+		ob2=new B();
+	
+	}
+}

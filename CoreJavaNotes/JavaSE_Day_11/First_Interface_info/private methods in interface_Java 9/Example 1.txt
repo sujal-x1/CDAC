@@ -1,0 +1,53 @@
+/*
+ * Java 9 introduced private methods inside interfaces.
+ *
+ * Private methods can be:
+ * 1. Instance private methods
+ * 2. Static private methods
+ *
+ * A private interface method must have a body.
+ *
+ * Private interface methods cannot be accessed
+ * by implementing classes.
+ *
+ *A field declared inside an interface cannot be private.
+ * Why were private methods introduced?
+ *
+ * Suppose multiple default methods need 
+ * some common code.
+ * Instead of duplicating that code in 
+ * every default method,
+ * we can put the common code inside 
+ * a private helper method.
+ */
+
+
+interface Vehicle 
+{
+	static void disp()
+	{
+		System.out.println("inside static disp");
+	}
+
+    default void start() {
+        check();
+        System.out.println("Vehicle started");
+    }
+
+    private void check() {
+        System.out.println("Checking vehicle...");
+    }
+}
+class Car implements Vehicle
+{
+	
+}
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	Vehicle vehicle=new Car();
+    	vehicle.start();
+    	Vehicle.disp();
+    }
+}

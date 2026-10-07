@@ -1,0 +1,18 @@
+public class First implements Serializable
+{
+private static final long serialVersionUID = 1000;
+	String name="sachin";
+	int age=20;
+}
+
+compile "First.java"
+
+now give following command:
+
+serialver First
+
+you will get the following output:
+
+First:    private static final long serialVersionUID = 1000L;
+
+It proves when you explicitly declare serial version uid in the class, JVM uses the same and does not generate it.

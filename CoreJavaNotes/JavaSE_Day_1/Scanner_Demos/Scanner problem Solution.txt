@@ -1,0 +1,12 @@
+int age;
+    	String name;
+    	Scanner sc=new Scanner(System.in);
+    	System.out.println("Enter age");
+    	age=sc.nextInt();
+    	// nextInt() just reads the value entered 
+    	// it doesn't read new line which remains the 
+    	// input buffer
+    	System.out.println("Enter fullname");
+    	sc.nextLine(); // this will consume leftover \n
+    	name=sc.nextLine();  // now there is no problem
+    	System.out.println(name+"\t"+age);

@@ -1,0 +1,32 @@
+package mypack;
+
+/*
+ * A constructor parameter does not 
+ * automatically become part of a record. 
+ * Only the components declared in the record 
+ * header become record components.
+ */
+class A
+{
+	
+}
+record Student()
+{
+	public Student(int rollno)
+	{
+		this();
+	}
+}
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		Student s1=new Student();
+		var s2=new Student();
+		System.out.println(s1);
+		System.out.println(s2);
+		Student s3=new Student(40);
+		System.out.println(s3);  // empty
+	}
+}

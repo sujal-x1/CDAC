@@ -1,0 +1,26 @@
+/*
+ 1. isBlank()
+Purpose
+
+Checks whether a String is:
+
+empty, or
+contains only whitespace characters.
+
+It returns a boolean.
+ */
+
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	String s1 = "";
+    	String s2 = "   ";
+    	String s3 = "   Hello   ";
+
+    	System.out.println(s1.isBlank());
+    	System.out.println(s2.isBlank());
+    	System.out.println(s3.isBlank());
+    }
+}

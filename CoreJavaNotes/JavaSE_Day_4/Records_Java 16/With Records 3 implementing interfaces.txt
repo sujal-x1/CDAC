@@ -1,0 +1,37 @@
+interface Workable
+{
+	void work();
+}
+record Student(int rollno,String name)implements Workable
+{
+			public Student()
+			{
+				this(0,"Unknown");
+			}
+
+			@Override
+			public void work() {
+				System.out.println("study");
+				
+			}
+}
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		Student s1=new Student(1,"Abc");
+		var s2=new Student(2,"Xyz");
+		System.out.println(s1);
+		System.out.println(s2);
+		System.out.println(s1.name());
+		System.out.println(s1.rollno());
+		System.out.println(s1.equals(s2));
+		System.out.println(s1.hashCode());
+		System.out.println(s2.hashCode());
+		var s3=new Student();  // it's possible now
+		System.out.println(s3);
+		s1.work();
+		s2.work();
+		s3.work();
+	}
+}

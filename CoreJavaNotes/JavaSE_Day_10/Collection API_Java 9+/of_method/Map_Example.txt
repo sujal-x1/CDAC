@@ -1,0 +1,36 @@
+import java.util.*;
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	/*
+    	Map.of()
+
+    	Creates an unmodifiable Map:
+		*/
+    	Map<Integer, String> students =
+    	    Map.of(
+    	        1, "Nitin",
+    	        2, "Rahul",
+    	        3, "Ashok"
+    	    );
+
+    	System.out.println(students);
+
+    	//You cannot modify it:
+
+    	//students.put(4, "Vikas");      //  UnsupportedOperationException
+    	//students.remove(2);            //  UnsupportedOperationException
+    	//students.put(1, "ABC");        //  UnsupportedOperationException
+    
+    	Map<Integer, String> students1 =
+        	    Map.of(
+        	        1, "Nitin",
+        	        2, "Rahul",
+        	        3, "Ashok",
+        	        2, "Vishal"
+        	    );  //  java.lang.IllegalArgumentException: duplicate key: 2
+    }
+}
+

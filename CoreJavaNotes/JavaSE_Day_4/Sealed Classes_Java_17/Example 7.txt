@@ -1,0 +1,21 @@
+Can a sealed class extend another normal class?
+
+Yes
+
+
+Example
+
+class Machine
+{
+}
+
+sealed class Vehicle extends Machine
+        permits Car
+{
+}
+
+final class Car extends Vehicle
+{
+}
+
+This is valid.

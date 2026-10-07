@@ -1,0 +1,3 @@
+of() → create a new unmodifiable collection from individual values.
+
+copyOf() → create an unmodifiable copy of an existing collection.

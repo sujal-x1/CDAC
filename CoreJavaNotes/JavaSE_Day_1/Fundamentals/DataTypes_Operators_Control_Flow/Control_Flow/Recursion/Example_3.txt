@@ -1,0 +1,29 @@
+package mypack;
+
+import java.util.Scanner;
+
+/*
+ * Print numbers from 1 to n
+ */
+public class Test
+{
+	static void disp(int k)
+	{
+		if(k==0)
+		{
+			return;
+		}
+		else
+		{
+			disp(k-1);
+			System.out.println(k);
+		}
+	}
+
+	public static void main(String[] args) 
+	{
+		System.out.println("Enter a number");
+		int n=new Scanner(System.in).nextInt();
+		disp(n);
+	}
+}

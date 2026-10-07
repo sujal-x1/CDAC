@@ -1,0 +1,11 @@
+Where Is the Variable Stored Without volatile?
+
+The variable flag is stored in:
+	method area [ since it is static ]
+
+But each thread may:
+	Copy it into its CPU cache / working memory
+After copying, thread keeps using its own version.
+There is NO guarantee when the cache will sync with main memory.
+
+That is why infinite loop may happen.

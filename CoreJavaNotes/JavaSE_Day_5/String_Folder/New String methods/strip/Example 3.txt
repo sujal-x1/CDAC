@@ -1,0 +1,25 @@
+import java.util.List;
+
+/*
+trim() does not consider \u2003 
+to be removable whitespace.
+
+strip() uses the Unicode-aware 
+Character.isWhitespace() method, and 
+if found , removes it.
+
+
+*/
+
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	String s = "\u2003Hello Java\u2003";
+
+    	System.out.println("Original length = " + s.length());
+    	System.out.println("trim length     = " + s.trim().length());
+    	System.out.println("strip length    = " + s.strip().length());
+    }
+}

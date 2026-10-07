@@ -1,0 +1,31 @@
+Path path = Path.of("myserver.socket");
+
+	Where is my Unix-domain socket located?
+
+
+
+UnixDomainSocketAddress address =
+    UnixDomainSocketAddress.of(path);
+
+	Create an address using that path.
+
+
+ServerSocketChannel server =
+ServerSocketChannel.open(StandardProtocolFamily.UNIX);
+
+	Create a server socket using the Unix-domain protocol family.
+
+
+
+server.bind(address);
+
+	Bind the server to the socket path.
+
+server.accept();
+
+	Wait for a client to connect.
+
+Files.deleteIfExists(path);
+
+	Clean up the socket path after the server finishes.
+

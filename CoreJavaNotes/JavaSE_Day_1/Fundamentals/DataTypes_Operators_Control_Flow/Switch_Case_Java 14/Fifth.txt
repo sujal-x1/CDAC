@@ -1,0 +1,17 @@
+package mypack;
+
+public class Trial
+{
+	public static void main(String[] args)
+	{
+		String fruit = "Apple";
+
+		switch (fruit) {
+		    case "Apple" -> System.out.println("Red Fruit");
+		    case "Banana" -> System.out.println("Yellow Fruit");
+		    case "Orange" -> System.out.println("Orange Fruit");
+		    default -> System.out.println("Unknown Fruit");
+		}
+
+	}
+}

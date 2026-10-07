@@ -1,0 +1,49 @@
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
+import java.util.Optional;
+
+/*
+Files.readString() and Files.writeString() 
+were introduced in Java 11. 
+They provide simple methods to read 
+an entire text file into a String 
+and write a String to a file.
+*/
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	// Before Java 11, reading an entire text file 
+    	// often required:
+    	Path path=Paths.get("d:\\FileDemo.java");
+    	byte[] data=null;
+		try {
+			data = Files.readAllBytes(path);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+    	String content = new String(data);
+    	System.out.println(content);
+    	System.out.println("**************************");
+    	
+    	// From Java 11:
+    	Path path1=Paths.get("d:\\FileDemo.java");
+
+    	//readString() reads the entire file as a String
+    	
+    	String content1=null;
+    	try {
+			content1 = Files.readString(path1);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+    	System.out.println(content1);
+    }
+}

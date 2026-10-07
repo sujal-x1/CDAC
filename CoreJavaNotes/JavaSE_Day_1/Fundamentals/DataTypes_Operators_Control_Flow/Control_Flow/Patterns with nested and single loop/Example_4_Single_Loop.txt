@@ -1,0 +1,40 @@
+package mypack;
+/*
+ * 
+A
+ABA
+ABCBA
+ABCDCBA
+
+
+
+*/
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	char ch='A';
+    	int count=0,limit=1,linenumber=0;
+    	while(limit<8)
+    	{
+       		if(count>=linenumber)
+    		{
+    			System.out.print(ch--);
+    		}
+    		else
+    		{
+    			System.out.print(ch++);
+    		}
+    		count++;
+    		if(count==limit)
+    		{
+    			System.out.println();
+    			ch='A';
+    			linenumber++;
+    			limit+=2;
+    			count=0;
+    		}
+    	}
+    }
+}

@@ -1,0 +1,52 @@
+/*
+ * 
+ * What happens in the following code?
+ * 
+	When thread t2 sets flag = true:
+• It writes directly to main memory
+• It forces a flush of that variable
+
+When thread t1 reads flag:
+• It does NOT read from its local cache
+• It always reads from main memory
+
+So thread t1 immediately sees the updated value.
+The loop stops correctly.
+
+ */
+
+package core1;
+
+public class DemoWithVolatile {
+
+    static volatile boolean flag = false;
+
+    public static void main(String[] args) {
+
+        Thread t1 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                while (!flag) {
+                    // waiting
+                }
+                System.out.println("Flag changed!");
+            }
+        });
+
+        Thread t2 = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    Thread.sleep(1000);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                flag = true;
+                System.out.println("Flag set to true");
+            }
+        });
+
+        t1.start();
+        t2.start();
+    }
+}

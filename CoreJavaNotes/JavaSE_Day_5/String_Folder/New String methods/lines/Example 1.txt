@@ -1,0 +1,18 @@
+/*
+ lines() is useful when a String contains 
+ multiple lines.
+
+It returns a Stream<String> containing each line.
+ */
+
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	String data = "Java\nPython\nC++";
+
+    	data.lines()
+    	    .forEach(System.out::println);
+    }
+}

@@ -1,0 +1,37 @@
+12.25
+
+how will you find out the octal of above number
+
+12 is integer part and .25 is a fractional part.
+The rule is 
+for integer part , you've to devide integer part ( 12 ) by 8 till you get quotient as 0 and then consider all the remainders in a "reverse order".
+for a fractional part, you've to multiply by 8 till you get result as 0 and then consider "the straight order or same order".
+
+
+       12
+8	1  4
+8       0  1
+
+reverse order
+
+0 1 4 
+
+
+.25
+
+.25 * 8
+
+	2.00
+	
+
+you have to stop here as after a dot ( . ) , there are zeros
+
+so if you check integer part here (look at the left side of dot), it is
+	2
+
+already we've calculated octal of 12
+	1 4.2
+
+you can cross check on "https://www.rapidtables.com/convert/number/decimal-to-binary.html" site.
+
+

@@ -1,0 +1,5 @@
+Java uses a Mark-and-Sweep based approach for garbage collection. It does not use Reference Counting.
+
+Mark: JVM finds which objects are still being used/reachable.
+
+Sweep: Objects that are not reachable are treated as garbage and their memory can be reclaimed.

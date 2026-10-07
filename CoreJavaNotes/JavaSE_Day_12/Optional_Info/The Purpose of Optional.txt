@@ -1,0 +1,52 @@
+ 		Purpose of Optional
+
+The purpose of Optional is not to replace every null reference in a Java program.
+
+Its main purpose is to make the absence of a value explicit, especially in method return values.
+
+For example:
+
+
+Optional<MyClass getMyClass()
+
+
+By looking at the method's return type, the caller immediately knows:
+
+ “This method may or may not return a MyClass object.”
+
+The caller must then explicitly handle the possibility that the Optional is empty.
+
+For example:
+
+
+Optional<MyClass op = getMyClass();
+
+op.ifPresent(MyClass::disp);
+
+
+or:
+
+
+MyClass obj = op.orElse(new MyClass());
+
+
+ Why is this useful?
+
+With a normal return type:
+
+MyClass getMyClass()
+
+
+the method may return null, but this possibility is not visible from the return type itself.
+
+With:
+
+
+Optional<MyClass getMyClass()
+
+
+the possibility of no value is clearly communicated to the caller.
+
+ Key Point
+
+Optional does not eliminate null from Java. It provides a clear way to represent and handle a value that may be absent, especially in APIs and method r

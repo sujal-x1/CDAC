@@ -1,0 +1,22 @@
+if we call any next***() method (nextInt(), nextDouble(), next(), etc.) before nextLine(), we must call one extra nextLine() to consume the leftover newline (\n) present in the input buffer.
+
+This is because next***() methods do not consume the newline character.
+
+
+If we have already used nextLine() to accept a string (like full name with spaces), and then we call nextLine() again to accept another string (like full address), there will be NO problem.
+
+Why?
+
+nextLine() consumes the entire line including the newline
+
+After it finishes, the buffer is clean
+
+So the next nextLine() works normally
+
+
+
+The problem occurs only when nextLine() comes immediately after a next***() method.
+
+
+Calling nextLine() multiple times causes no issue.
+The issue arises only when nextLine() is called after nextInt(), nextDouble(), etc., because they leave a newline in the buffer.

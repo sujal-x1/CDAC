@@ -1,0 +1,19 @@
+public class A implements Serializable
+{
+
+}
+
+go to command prompt
+compile A.java
+
+now give following command
+
+serialver A
+
+you will see the generated serial version uid of class "A"
+
+now go to A.java, comment "implements Serializable"
+compile A.java and try following command again
+
+serialver A
+	observe what happens

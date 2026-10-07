@@ -1,0 +1,35 @@
+The purpose of the peek() method in Java 8 streams is:
+
+it's useful for debugging and understanding how elements flow through the stream pipeline. It is actually used to debug during intermediate operations.
+
+peek() is like a glass window in a pipeline — you can see what’s flowing, but you don’t touch it.
+
+peek() is used to execute some code (like printing/logging) on each element as it flows through the stream, without changing the element.
+
+
+
+Printing → Action  [yes]
+
+Logging →  Action  [yes]
+
+Saving to DB → Action [yes]
+
+Changing value →  Not what peek() is meant for  [no]
+
+
+
+peek() is not required for stream processing. It is not part of core logic
+
+It is mainly used for:
+
+	Debugging
+
+	Understanding flow
+
+ All actual work is done by:
+
+	filter()
+
+	map()
+
+	reduce() / sum() / collect() (terminal operations)

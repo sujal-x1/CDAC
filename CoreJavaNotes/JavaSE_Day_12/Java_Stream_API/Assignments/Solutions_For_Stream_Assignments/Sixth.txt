@@ -1,0 +1,125 @@
+package firstpro;
+import java.util.*;
+import java.util.stream.Collectors;
+
+class Student
+{
+	private int rollno,age;
+	private String name;
+	private double marks;
+	/**
+	 * @return the rollno
+	 */
+	public int getRollno() {
+		return rollno;
+	}
+	/**
+	 * @param rollno the rollno to set
+	 */
+	public void setRollno(int rollno) {
+		this.rollno = rollno;
+	}
+	/**
+	 * @return the age
+	 */
+	public int getAge() {
+		return age;
+	}
+	/**
+	 * @param age the age to set
+	 */
+	public void setAge(int age) {
+		this.age = age;
+	}
+	/**
+	 * @return the name
+	 */
+	public String getName() {
+		return name;
+	}
+	/**
+	 * @param name the name to set
+	 */
+	public void setName(String name) {
+		this.name = name;
+	}
+	/**
+	 * @return the marks
+	 */
+	public double getMarks() {
+		return marks;
+	}
+	/**
+	 * @param marks the marks to set
+	 */
+	public void setMarks(double marks) {
+		this.marks = marks;
+	}
+	/**
+	 * @param rollno
+	 * @param age
+	 * @param name
+	 * @param marks
+	 */
+	public Student(int rollno, int age, String name, double marks) {
+		super();
+		this.rollno = rollno;
+		this.age = age;
+		this.name = name;
+		this.marks = marks;
+	}
+	@Override
+	public String toString() {
+		return "Student [rollno=" + rollno + ", age=" + age + ", name=" + name + ", marks=" + marks + "]";
+	}
+	
+
+}
+public class Sample 
+{
+    public static void main(String[] args) 
+    {
+    	List<Student> mylist=new ArrayList<>();
+    	Student s1=new Student(1,23,"Ravi",70);
+    	Student s2=new Student(2,20,"Sujay",58);
+    	Student s3=new Student(3,21,"Anand",80);
+    	Student s4=new Student(4,22,"Ram",70);
+    	Student s5=new Student(5,25,"Shashi",90);
+    	
+    	mylist.add(s1);
+    	mylist.add(s2);
+    	mylist.add(s3);
+    	mylist.add(s4);
+    	mylist.add(s5);
+    	
+    	System.out.println("All students");
+    	mylist.stream().forEach(System.out::println);
+    	System.out.println("Rollno and Students where marks>=70");
+    	mylist.stream().filter(s->s.getMarks()>=70).forEach(s->{System.out.println(s.getRollno()+"\t"+s.getName());});
+    	System.out.println("Group Students By Age");
+    	
+    	Map<Integer, List<Student>> groupedByAge = mylist.stream()
+    	        .collect(Collectors.groupingBy(Student::getAge));
+
+    	groupedByAge.forEach((age, students) -> {
+    	    System.out.println(age + " -> " + students);
+    	});
+    	
+    	System.out.println("Partition Students Pass / Fail (Marks >= 60");
+    	
+    	Map<Boolean, List<Student>> result = mylist.stream()
+    	        .collect(Collectors.partitioningBy(s -> s.getMarks() >= 60));
+
+    	System.out.println("Pass Students: " + result.get(true));
+    	System.out.println("Fail Students: " + result.get(false));
+    
+    	System.out.println("Top 2 students are");
+
+    	mylist.stream()
+    	      .sorted(Comparator.comparingDouble(Student::getMarks).reversed())
+    	      .limit(2)
+    	      .forEach(s -> 
+    	          System.out.println(s.getName() + " - " + s.getMarks()));
+    }
+}
+

@@ -1,0 +1,108 @@
+package mypack;
+class A
+{
+	/*
+	static
+	{
+		System.out.println("A static block defined above the constructor");
+	}
+	A()
+	{
+		System.out.println("in A constructor");
+	}
+	*/
+	
+	
+	A()
+	{
+		System.out.println("in A constructor");
+	}
+	static
+	{
+		System.out.println("A static block defined below the constructor");
+	}
+}
+public class Demo 
+{
+    private static A ref1=new A();
+    public static void main(String[] args) 
+    {
+        
+    }
+}
+
+in the above code whether we defined static block above the constructor or below the constructor , static block gets called first when "private static A ref1=new A();" is encountered.
+
+
+
+class A
+{
+	public static A ref=new A();
+	static
+	{
+		System.out.println("in A static block");
+	}
+	A()
+	{
+		System.out.println("in A default constructor");
+	}
+}
+
+
+/*
+class A
+{
+	static
+	{
+		System.out.println("in A static block");
+	}
+	public static A ref=new A();
+	
+	A()
+	{
+		System.out.println("in A default constructor");
+	}
+}
+*/
+public class DemoApp
+{
+	public static void main(String args[])
+	{
+		System.out.println(A.ref);
+		System.out.println("in main");
+	}
+}
+
+
+in the above code when we run DemoApp, 
+	DemoApp is loaded
+	main function gets called
+	when "A.ref" gets encountered,
+		A gets loaded
+	
+	static block and  private static A ref=new A();
+	will be executed in a "textual" order i.e. in the order they are defined in the class.
+if we have following code inside "A" class,
+
+	private static A ref=new A();
+	static
+	{
+		System.out.println("in A static block");
+	}
+
+		1) new A() gets encountered and A's constructor gets called
+		2) static block gets called
+
+
+if we have following code inside "A" class,
+
+	static
+	{
+		System.out.println("in A static block");
+	}
+	private static A ref=new A();
+
+
+		1) static block gets called
+		2) new A() gets encountered and A's constructor gets called
+

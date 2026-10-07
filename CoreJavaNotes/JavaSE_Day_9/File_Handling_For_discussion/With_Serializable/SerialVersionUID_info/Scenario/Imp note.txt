@@ -1,0 +1,3 @@
+serialVersionUID is mainly useful when a serialized object needs to be used later with a newer version of the class (with compatible changes). For example, an old serialized file may be stored for a long time, and later we may need to deserialize it using a modified version of the class.
+
+If we can simply serialize the object again after modifying the class, then the importance of serialVersionUID is much less.

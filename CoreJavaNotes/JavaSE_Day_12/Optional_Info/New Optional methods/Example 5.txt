@@ -1,0 +1,31 @@
+import java.util.List;
+import java.util.Optional;
+
+/*
+Optional.isEmpty() was introduced in Java 11. 
+It returns true when the Optional 
+does not contain a value.
+
+And remember:
+
+isPresent() → value exists?
+isEmpty() → value does not exist?
+
+isPresent() → Java 8
+isEmpty() → Java 11
+
+*/
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	Optional<String> name = Optional.empty();
+
+    	System.out.println(name.isEmpty());   // true
+    	
+    	Optional<String> name1 = Optional.of("Nitin");
+
+    	System.out.println(name1.isEmpty());   // false
+    }
+}

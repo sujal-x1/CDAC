@@ -1,0 +1,23 @@
+package mypack;
+import java.util.*;
+/*
+ * accept 5 numbers and display highest number
+ */
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		int max=Integer.MIN_VALUE,num=0;
+		Scanner sc=new Scanner(System.in);
+		for(int i=0;i<5;i++)
+		{
+			num=sc.nextInt();
+			if(num>max)
+			{
+				max=num;
+			}
+		}
+		System.out.println("Maximum number is\t"+max);
+	}
+}

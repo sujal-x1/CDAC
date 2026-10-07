@@ -1,0 +1,24 @@
+	static void perform(Animal ref)// Animal ref=new Tiger();
+	{
+		ref.makeSound();
+	}
+	public static void main(String args[])
+	{
+		// accept choice
+		perform(new Tiger());
+	}
+
+Animal ref=new Tiger();
+ref.makeSound();
+	when compiler encounters "ref.makeSound"
+for compiler "ref" is of type "Animal"
+compiler will search "makeSound" in Animal class
+is it there ?  yes
+is it private ? no
+is it static ? no
+is it final ? no
+
+now compiler goes for "late binding"
+	i.e it writes the following instructions for JVM to follow:
+	a) check the content of "ref" during runtime
+	b) whichever content is there ( a particular class) , invoke "makeSound" of that class

@@ -1,0 +1,28 @@
+/*
+Whenever a switch case uses a block ({ ... }), and that block needs to return a value for the switch expression, you must use yield.
+*/
+
+package mypack;
+
+public class Trial
+{
+	public static void main(String[] args)
+	{
+		int marks = 85;
+
+		String grade = switch (marks / 10) {
+		    case 10, 9 -> "A+";
+
+		    case 8 -> {
+		        System.out.println("Good Performance");
+		        yield "A";
+		    }
+
+		    case 7 -> "B";
+
+		    default -> "Needs Improvement";
+		};
+
+		System.out.println(grade);
+	}
+}

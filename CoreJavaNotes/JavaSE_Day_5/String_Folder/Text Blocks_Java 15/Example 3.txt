@@ -1,0 +1,20 @@
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		// SQL Query
+		String sql1 =
+				"select *\n" +
+				"from employee\n" +
+				"where salary>50000";
+		System.out.println(sql1);
+		System.out.println();
+		String sql2 = """
+				select *
+				from employee
+				where salary > 50000
+				""";
+		System.out.println(sql2);
+	}
+}

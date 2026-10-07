@@ -1,0 +1,64 @@
+package mypack;
+//package core1;
+
+/*
+ * 
+ * Why you can’t do new Sample(...)
+
+In Java enums:
+
+All enum constructors are implicitly private 
+(even if you don’t write private, the compiler enforces it).
+
+You cannot call new on an enum type from outside, 
+because the whole point of an enum is to have a 
+fixed set of instances (the constants).
+
+So when we write:
+
+Sample s1 = new Sample(200); //  Not allowed
+
+
+The compiler prevents it. 
+The only way instances can be created is 
+through the enum constants (member1, member2, etc.) 
+you declared at the top.
+ */
+enum Sample
+{
+	member1(9),member2(6);
+	private int num;
+	public Sample(int num)  // Illegal modifier for the enum constructor; only private is permitted.
+	{
+		this.num=num;
+		System.out.println("inside Sample parameterized constructor");
+	}
+	public int getNum()	
+	{
+		return num;
+	}
+	public void disp1()
+	{
+		System.out.println("inside disp1");
+	}
+	public void disp2()
+	{
+		System.out.println("inside disp2");
+	}
+}
+public class Demo_3_b
+{
+	public static void main(String[] args) 
+	{
+		System.out.println("Main function started");
+		
+		//Sample s1=new Sample(200); // not possible
+		Sample ref1=Sample.member1;
+		Sample ref2=Sample.member2;
+		System.out.println(ref1==ref2);
+		System.out.println(ref1==Sample.member1);
+		System.out.println(ref1.getNum());
+		System.out.println(ref2.getNum());
+
+	}
+}

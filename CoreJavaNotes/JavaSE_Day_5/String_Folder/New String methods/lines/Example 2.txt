@@ -1,0 +1,23 @@
+import java.util.List;
+
+/*
+ lines() is useful when a String contains 
+ multiple lines.
+
+It returns a Stream<String> containing each line.
+
+You can also collect the lines:
+ */
+
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	String data = "Java\nPython\nC++";
+
+    	List<String> list = data.lines().toList();
+
+    	System.out.println(list);
+    }
+}

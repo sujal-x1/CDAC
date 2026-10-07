@@ -1,0 +1,52 @@
+Lambda Revision
+What are Streams API in Java8
+Collection API vs Stream API
+Intermediate vs Terminal Operation
+Simple example of Intermediate and terminal operations
+
+
+Programs folder
+
+	Demo1.java
+	Demo2.java
+	
+	
+	Explanation of Demo2 How it is Lazy.doc
+	How do "filter" and "mapToInt()" work internally in Demo2
+
+	Demo3  to Demo9
+
+	Role played by terminal operations
+
+	Which is Better Traditional Loop or Stream API.doc
+
+
+peek_folder
+	peek() method info
+	ProofOfLazyDemo.java
+	PeekExample1, PeekExample2 and PeekExample3
+	collect and Collectors.toList  info.doc
+
+reduce_folder
+	ReduceDemo1
+	ReduceDemo2
+	collect() method info
+
+Sequential vs Parallel Streams
+	Info
+	ParallelDemo
+	ForkAndJoin Info
+	Spliterator Info
+
+Stream_API_Java 16
+
+Why streams are lazy
+Streams API vs Normal loop
+Do streams occupy more memory
+
+Changes_in_Map
+	Example_1  to Example_4
+
+
+
+

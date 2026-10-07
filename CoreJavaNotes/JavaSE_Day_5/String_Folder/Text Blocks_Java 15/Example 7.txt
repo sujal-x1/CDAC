@@ -1,0 +1,17 @@
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		// Text Blocks preserve formatting
+		
+		String s1="""
+				Java
+					is
+				very
+					simple
+				language
+				""";
+		System.out.println(s1);
+	}
+}

@@ -1,0 +1,9 @@
+can we send the object over network?
+
+yes , one of the ways to achieve this is 
+	class should implement Serializable
+
+it is because when you send any object over the network
+	it gets serialized ( marshalling )
+and on the other end of network 
+	it gets deserialized ( unmarshalling )

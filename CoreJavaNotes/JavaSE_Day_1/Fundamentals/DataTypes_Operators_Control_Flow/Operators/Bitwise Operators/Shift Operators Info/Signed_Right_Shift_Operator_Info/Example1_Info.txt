@@ -1,0 +1,53 @@
+int x = 50;
+System.out.println("x>>2 = " + (x >> 2));
+```
+
+---
+
+ **Step 1 — Original number in binary**
+
+Java `int` = 32-bit signed.
+
+**50 (decimal)** = `00000000 00000000 00000000 00110010` (binary)
+
+```
+  Bit positions:  31 .................  5  4  3  2  1  0
+                  [  00000000 00000000 00000000 00110010  ]
+Decimal value:        32 + 16 + 2  =  50
+```
+
+---
+
+ **Step 2 — Right shift by 2 (`x >> 2`)**
+
+A **right shift by 2** moves every bit **two places to the right**, and fills the leftmost bits with the sign bit (0 here, since it’s positive).
+
+```
+Before: 00000000 00000000 00000000 00110010   (50)
+Shifted:00000000 00000000 00000000 00001100   (12)
+```
+
+---
+
+**Step 3 — Decimal meaning**
+
+Before:
+
+```
+00110010  →  32 + 16 + 2  = 50
+```
+
+After shift:
+
+```
+00001100  →  8 + 4 = 12
+```
+
+---
+ **Key points:**
+
+> Right shifting by **n** is like **integer division by 2ⁿ** (for positive integers).
+> Here: `50 >> 2` → `50 / 4` = `12` (fractional part discarded).
+
+---
+

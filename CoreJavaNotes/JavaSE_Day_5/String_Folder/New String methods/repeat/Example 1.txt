@@ -1,0 +1,22 @@
+/*
+repeat() repeats a String a specified number of times
+
+repeat(n) repeats the String n times.
+
+*/
+
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	String s = "Java ";
+    	System.out.println(s.repeat(3));
+    	
+    	System.out.println("*".repeat(10));
+    	
+    	System.out.println("=".repeat(30));
+    	System.out.println("Student Details");
+    	System.out.println("=".repeat(30));
+    }
+}

@@ -1,0 +1,23 @@
+/*
+	map()
+does:
+1 input element → 1 output element
+
+*/
+
+import java.util.*;
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	List<Integer> numbers = List.of(1, 2, 3);
+
+    	List<Integer> result =
+    	    numbers.stream()
+    	           .map(n -> n * 10)
+    	           .toList();
+
+    	System.out.println(result);
+    }
+}

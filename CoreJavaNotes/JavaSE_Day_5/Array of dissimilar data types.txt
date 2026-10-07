@@ -1,0 +1,35 @@
+package mypack;
+
+class MyClass
+{
+	int num=10;
+
+	@Override
+	public String toString() {
+		return "MyClass [num=" + num + "]";
+	}
+	
+}
+public class Demo
+{
+	public static void main(String args[])
+	{
+		Object arr[]=new Object[5];
+		Object o = 3.14F;
+		arr[0]=new String("hello");
+		arr[1]=o;
+		arr[2]=new MyClass();
+		arr[3]=100;
+		arr[4]='A';
+		for(int i=0;i<arr.length;i++)
+		{
+			System.out.println(arr[i]);
+		}
+		System.out.println("\nusing foreach\n");
+		for(Object ref:arr)
+		{
+			System.out.println(ref);
+		}
+		
+	}
+}

@@ -1,0 +1,48 @@
+/*
+
+Java 11 allows var to be used 
+for lambda parameters. 
+The parameter types are still inferred 
+from the functional interface.
+
+
+Why write var when we already know 
+the parameters are int?"
+
+Answer: there isn't much benefit in this simple example.
+
+Java 11 introduced the ability 
+to use var in lambda parameters. 
+It is mainly a syntax option; 
+in simple cases like (var x, var y), 
+it doesn't provide much practical benefit.
+
+One important rule :
+
+(var x, var y) -> x + y   // this is correct
+
+but:
+
+(var x, y) -> x + y        // this is not correct
+
+If you use var, you must use var 
+for all the lambda parameters.
+
+*/
+
+interface A
+{
+    int add(int x, int y);
+}
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+        A obj = (var x, var y) -> x + y;
+
+        int result = obj.add(10, 20);
+
+        System.out.println(result);
+    }
+}

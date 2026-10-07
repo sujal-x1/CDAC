@@ -1,0 +1,58 @@
+abstract sealed class Vehicle permits Car,Bus,Truck
+{
+	public void start()
+	{
+		
+	}
+}
+final class Car extends Vehicle  // must be either final, sealed or non-sealed
+{
+	public void start()
+	{
+		System.out.println("Car start");
+	}
+}
+sealed class Bus extends Vehicle permits MiniBus
+{
+	public void start()
+	{
+		System.out.println("Bus start");
+	}
+}
+non-sealed class Truck extends Vehicle
+{
+	public void start()
+	{
+		System.out.println("Truck start");
+	}
+}
+final class MiniBus extends Bus
+{
+	public void start()
+	{
+		System.out.println("MiniBus start");
+	}
+}
+class SpecialTruck extends Truck
+{
+	public void start()
+	{
+		System.out.println("SpecialTruck start");
+	}
+}
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		Car c1=new Car();
+		c1.start();
+		Bus b1=new Bus();
+		b1.start();
+		Truck t1=new Truck();
+		t1.start();
+		MiniBus m1=new MiniBus();
+		m1.start();
+		SpecialTruck s1=new SpecialTruck();
+		s1.start();
+	}
+}

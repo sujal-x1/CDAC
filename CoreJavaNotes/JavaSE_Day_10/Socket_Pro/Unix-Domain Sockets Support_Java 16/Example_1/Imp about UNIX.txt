@@ -1,0 +1,12 @@
+UNIX here does not mean:
+
+"This works only on Unix/Linux."
+
+It refers to the Unix-domain socket protocol family, which modern Windows also supports at the OS level.
+
+So you can write on Windows:
+
+ServerSocketChannel server =
+    ServerSocketChannel.open(StandardProtocolFamily.UNIX);
+
+There is simply no separate WINDOWS protocol family.

@@ -1,0 +1,30 @@
+/*
+ * 
+12345
+2345
+345
+45
+5
+
+*/
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	int count=0,limit=5,i=1;
+    	while(limit>=1)
+    	{	
+    		System.out.print(i);
+    		i++;
+    		count++;
+    		if(count==limit)
+    		{
+    			System.out.println();
+    			limit--;
+    			count=0;
+    			i=6-limit;
+    		}
+    	}
+    }
+}

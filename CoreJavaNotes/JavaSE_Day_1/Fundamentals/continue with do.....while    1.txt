@@ -1,0 +1,11 @@
+int i=1;
+    	do
+    	{
+    		
+    		if(i==7)
+    		{
+    			continue; // don't do this, from which point it will continue?
+    		}
+    		System.out.println(i);
+    		i++;
+    	}while(i<=10);

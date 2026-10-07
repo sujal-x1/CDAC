@@ -1,0 +1,32 @@
+/*
+
+You can write any number of additional constructors, but there is one important rule.
+
+Every additional constructor must eventually call the canonical constructor using this(...) as its first statement.
+
+*/
+
+record Student(int rollno,String name)
+{
+			public Student()
+			{
+				this(0,"Unknown");
+			}
+}
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		Student s1=new Student(1,"Abc");
+		var s2=new Student(2,"Xyz");
+		System.out.println(s1);
+		System.out.println(s2);
+		System.out.println(s1.name());
+		System.out.println(s1.rollno());
+		System.out.println(s1.equals(s2));
+		System.out.println(s1.hashCode());
+		System.out.println(s2.hashCode());
+		var s3=new Student();  // it's possible now
+		System.out.println(s3);
+	}
+}

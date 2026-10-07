@@ -1,0 +1,50 @@
+1.
+Write a Java program to display the day of the week based on a number:
+•	1 → Monday
+•	2 → Tuesday
+•	3 → Wednesday
+•	4 → Thursday
+•	5 → Friday
+•	6 → Saturday
+•	7 → Sunday
+
+2.
+Write a Java program to display the month name based on month number (1–12).
+
+
+3.
+Accept two numbers and create a simple calculator using switch:
+•	Addition
+•	Subtraction
+•	Multiplication
+•	Division
+
+4.
+Write a Java program to check whether a given character is a vowel using switch.
+
+5.
+Write a Java program to display grade description based on grade character:
+•	A → Excellent
+•	B → Very Good
+•	C → Good
+•	D → Average
+•	F → Fail
+
+7.
+Write a Java program to display welcome message based on language choice:
+•	1 → English
+•	2 → Hindi
+•	3 → Marathi
+
+
+9.
+Write a Java program to convert number (1–5) into words using switch.
+10.
+
+Write a Java program to display weekday or weekend based on day number using switch.
+
+11.
+Write a Java program to display traffic signal meaning based on color:
+•	Red
+•	Yellow
+•	Green

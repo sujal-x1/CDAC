@@ -1,0 +1,47 @@
+import java.util.List;
+import java.util.Optional;
+
+/*
+The no-argument orElseThrow() was introduced in Java 10.
+
+Optional.orElseThrow() without an argument 
+was introduced in Java 10. 
+It returns the value if present; 
+otherwise, it throws "NoSuchElementException".
+*/
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	// Before Java 10 — Java 8
+
+    	// orElseThrow() already existed in Java 8, 
+    	// but you had to provide an exception:
+
+    	/*
+    	Optional<String> name = Optional.empty();
+
+    	String value = name.orElseThrow(
+    	    () -> new RuntimeException("Name not found")
+    	);
+    	*/
+    	// Java 10 — no-argument version
+    	
+    	/*
+    	Optional<String> name1 = Optional.empty();
+
+    	// If the Optional is empty, 
+    	// it throws NoSuchElementException.
+    	String value1 = name1.orElseThrow();
+    	*/
+    	// If the value is present:
+
+    		Optional<String> name2 = Optional.of("Nitin");
+
+    		String value2 = name2.orElseThrow();
+
+    		System.out.println(value2);
+    	
+    }
+}

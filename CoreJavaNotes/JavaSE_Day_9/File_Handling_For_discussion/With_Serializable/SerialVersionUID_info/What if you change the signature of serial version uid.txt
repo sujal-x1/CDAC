@@ -1,0 +1,30 @@
+suppose u have declared following serial version uid in the class
+
+private static final long serialVersionUID = 1000;
+
+
+now after compiling (assume A.java) if you apply
+
+serialver A
+
+you will get the following output
+
+
+private static final long serialVersionUID = 1000L;
+
+Most Imp:
+
+Inside the class if you manipulate access modifier (say if you make it public), compile the file and apply 
+
+	serialver A
+
+ouput will be still:
+
+private static final long serialVersionUID = 1000L;
+
+
+however if u try to manipulate other modifiers including "static","final","long" or even a name i.e. serialVersionUID , JVM generates its own serial version uid.
+
+
+
+

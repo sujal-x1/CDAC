@@ -1,0 +1,5 @@
+ifPresentOrElse()
+or()
+stream()
+isEmpty()
+orElseThrow() — no-argument version

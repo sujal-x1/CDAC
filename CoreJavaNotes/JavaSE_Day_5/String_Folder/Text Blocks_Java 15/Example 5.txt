@@ -1,0 +1,17 @@
+
+public class Test 
+{
+	public static void main(String[] args) 
+	{
+		// XML
+		
+		String xml1 = """
+				<employee>
+				    <id>101</id>
+				    <name>John</name>
+				</employee>
+				""";
+		System.out.println(xml1);
+		
+	}
+}

@@ -1,0 +1,32 @@
+package mypack;
+/*
+ * 
+A
+ABA
+ABCBA
+ABCDCBA
+
+
+
+*/
+
+public class Test
+{
+    public static void main(String[] args)
+    {
+    	char ch1=' ';
+    	for(char ch='A';ch<='D';ch++)
+    	{
+    		for(ch1='A';ch1<=ch;ch1++)
+    		{
+    			System.out.print(ch1);
+    		}
+    		ch1-=2;
+    		while(ch1>='A')
+    		{
+    			System.out.print(ch1--);
+    		}
+    		System.out.println();
+    	}
+    }
+}

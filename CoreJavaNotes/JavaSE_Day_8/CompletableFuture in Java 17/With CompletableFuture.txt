@@ -1,0 +1,71 @@
+/*
+ * supplyAsync() makes the task execute 
+ * asynchronously on another thread. 
+ * The main thread can continue doing other work. 
+ * join() is a blocking point where 
+ * the current thread waits 
+ * if the result is not yet available.
+
+And one more important point:
+
+Using join() immediately after supplyAsync() 
+doesn't make the operation synchronous. 
+It simply means that after starting 
+the asynchronous task, the main thread chooses 
+to wait for its result at that point.
+ */
+
+
+import java.util.concurrent.CompletableFuture;
+
+public class Test
+{
+    public static String getData()
+    {
+    	System.out.println("getData just started processing");
+        try
+        {
+            Thread.sleep(3000);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+        System.out.println("getData is executed...By...\t"+Thread.currentThread().getName());
+
+        return "Data received";
+    }
+
+    public static void main(String[] args)
+    {
+        CompletableFuture<String> future =
+            CompletableFuture.supplyAsync(() -> getData());
+
+        System.out.println("Main is executed...By...\t"+Thread.currentThread().getName());
+
+        String result = future.join();
+        System.out.println(result);
+        for(int i=0;i<5;i++)
+        {
+        	System.out.println("Hello\t"+i);
+        }
+
+       
+    }
+}
+
+/*
+output:
+
+Main is executed...By...	main
+getData just started processing
+getData is executed...By...	ForkJoinPool.commonPool-worker-1
+Data received
+Hello	0
+Hello	1
+Hello	2
+Hello	3
+Hello	4
+
+
+*/
