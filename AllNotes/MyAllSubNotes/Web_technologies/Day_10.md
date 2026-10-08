@@ -1,4 +1,4 @@
-post data is posted through payload and url encoded
+**post data is posted through payload and url encoded
 middleware is just a function
 
 # cross origin resourse sharing (cors)
@@ -7,3 +7,4 @@ middleware is just a function
   
 # to do:
 **Crud api get , post , put ,delete ,  install mongo db , and connect everything  make all requests , test with postman
+
