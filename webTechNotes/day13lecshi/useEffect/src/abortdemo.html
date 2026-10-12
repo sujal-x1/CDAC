@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    let controller = new AbortController();
+    let signal = controller.signal;
+    console.log(controller)
+    console.log(signal)
+
+signal.addEventListener('abort',()=>alert("abort!"))
+controller.abort();
+alert(signal.aborted);
+</script>    
+</body>
+</html>

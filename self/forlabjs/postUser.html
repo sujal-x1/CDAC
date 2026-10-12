@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>postuser</title>
+</head>
+<body>
+    <script>
+        async function addUser() {
+            let user = {
+                name : "Amit",
+                username : "Amitkalana",
+                email : "amit@gmail.com"
+            }
+
+            let response = await fetch("./ejson.json",
+            {
+                method : "POST",
+                headers : {"Content-Type" : "application/json"},
+            
+            body: JSON.stringify(user)
+        }
+    );
+    let data = await response.json()
+    document.getElementById("output").innerHTML=JSON.stringify(data)
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Search user</label>
+    <input type="text" id="search"></input>
+    <button onclick="findUser()">Find User</button>
+    <p id="output"></p>
+    <script>
+        async function findUser(){
+           let result = await fetch ("./ejson.json")
+            let data = await result.json()
+
+        let searchId = document.getElementById("search").value
+        let out = data.find((user)=>{
+            return user.id == searchId;
+        })
+
+        if(out){
+            document.getElementById("output").innerHTML=JSON.stringify(out)
+        }
+        else{
+            document.getElementById("output").innerHTML="user not found"
+        }
+
+
+
+        }
+    </script>
+</body>
+</html>

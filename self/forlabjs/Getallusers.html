@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Allusers</title>
+</head>
+<body>
+    <button onclick="loadUsers()">Load users</button> 
+    <div id="output"></div>      
+    <script>
+        async function loadUsers(){
+            let result = await fetch("./ejson.json")
+            let data = await result.json();
+
+            let output ="<table border = '1'>";
+            output +="<tr><th>ID</th><th>Name</th><th>Age</th></tr>"
+
+            data.forEach((user)=>{
+                output +="<tr>"
+                output +="<td>" + user.id + "</td>";
+                output +="<td>" + user.name + "</td>";
+                output +="<td>" + user.age + "</td>";
+                output += "</tr>"    
+            });
+            output += "</table>"
+            document.getElementById("output").innerHTML = output
+        }
+    </script>
+</body>
+</html>
+<!-- Find all user data and display them in table -->
