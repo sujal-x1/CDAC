@@ -1,0 +1,54 @@
+<!-- 1. Copy temporary address to permanent address
+Question: Create two textboxes for temporary and permanent addresses. 
+When a checkbox labelled “Same as temporary address” is ticked, copy 
+the temporary address into the permanent address. Add Submit and Reset 
+buttons and validate required fields -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Address</title>
+</head>
+<body>
+    <form onsubmit="validateForm(event)">
+        Temporary Address:
+        <input type="text" id="temp" required>
+        <br><br>
+
+        Permanent Address:
+         <input type="text" id="perm" required>
+        <br><br>
+
+        <input type="checkbox" id="same" onchange="copyAddress()">
+        <label>Same as temporary address</label>
+        <br><br>
+
+        <!-- <input type="submit" name="submit"> -->
+
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+
+    </form>
+    <script>
+        function copyAddress(){
+            if(document.getElementById("same").checked){
+                document.getElementById("perm").value=
+                document.getElementById("temp").value;
+            }
+        }
+        function validateForm(event){
+            event.preventDefault();
+            let temp = document.getElementById("temp").value
+            let perm = document.getElementById("perm").value
+
+            if(temp.trim()==""||perm.trim()==""){
+                alert("both addresses are required")
+                return false;
+            }
+            alert("form submitted successfully")
+            return true;
+        }
+    </script>
+</body>
+</html>

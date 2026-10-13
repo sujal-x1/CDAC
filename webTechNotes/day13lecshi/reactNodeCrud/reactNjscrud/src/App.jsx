@@ -1,15 +1,17 @@
 import { Outlet, Link } from "react-router-dom";
-import Header from "./header";
-import Footer from "./footer";
+import Header from "./Header.jsx";
+import Footer from "./Footer.jsx";
+import { useState } from "react";
 
 function App() {
+  const [isSignedIn, setIsSignedIn] = useState(false);
+
+  const signin = () => setIsSignedIn(true);
+  const signout = () => setIsSignedIn(false);
+
   return (
     <>
-      <header>
-      </header>
-              <Header />
-              
-
+      <Header />
       <nav>
         <ul>
           <li>
@@ -24,18 +26,27 @@ function App() {
           <li>
             <Link to="/CreateEmployee">Create Employee</Link>
           </li>
+          <li>
+            <Link to="/Listperson">Edit Employee</Link>
+          </li>
+          <li>
+            <Link to="/Search">Search Employee</Link>
+          </li>
+          <li>
+            <Link to="/SearchData">SearchData</Link>
+          </li>
         </ul>
       </nav>
-
+      {isSignedIn ? (
+        <button onClick={signout}>Sign out</button>
+      ) : (
+        <button onClick={signin}>Sign in</button>
+      )}
       <main>
-        <Outlet />
+        <Outlet context={{ isSignedIn }} />
       </main>
-<Footer/>
-      <footer>
-
-      </footer>
+      <Footer />
     </>
   );
 }
 export default App;
-

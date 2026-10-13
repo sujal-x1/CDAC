@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email Validate</title>
+</head>
+<body>
+    <form onSubmit="checkEmail()">
+        Email:
+        <input type="email" id="email">
+        <br><br>
+
+        Confirm Email:
+        <input type="email" id="confirm" onchange="checkMatch()">
+        <br><br>
+
+        <p id="msg"></p>
+
+        <input type="submit" name="submit">
+        <br>
+
+        <input type="reset" name="reset">
+
+       
+
+    </form>
+    <script>
+        
+       
+
+        function checkEmail(){
+            let e1=document.getElementById("email").value
+            let e2=document.getElementById("confirm").value
+
+           if(e1==="" || e2===""){
+            alert("please enter some data..")
+            return false;
+           }
+           
+            if(e1!=e2){
+                alert("Emails donot match!")
+                return false;
+            }     
+
+
+             if(e1===e2){
+                 alert("Email submitted successfully")
+                document.getElementById("msg").innerHTML="Email Matches"
+                return true
+            }
+
+            }
+        
+
+        // function clearMsg(){
+        //     document.getElementById("msg").innerHTML="";
+        // }
+    </script>
+</body>
+</html>

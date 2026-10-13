@@ -1,0 +1,1 @@
+create a react app with component -listEmployee , in dropdown display name of employee on change of it display full detail of that employee (id,email,gender,salary,image) 

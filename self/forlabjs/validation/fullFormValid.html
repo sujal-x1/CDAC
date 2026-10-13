@@ -1,0 +1,61 @@
+<!-- Q) create a form with
+    userid(min lenght 4 max length 15) 
+    password(min length 4 max 15) 
+    email(ensure user enter correct email) 
+    mobile no(ensure user enter 10 digit no) 
+    address textarea(min 5 max 35 character allowed) 
+    create submit and rest button
+    do validation if data is valid then only submit button will work-->
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>form valid</title>
+    </head>
+    <body>
+        <form  onsubmit=" return Validate(event)">
+            User ID
+            <input type="text" minlength="4" maxlength="15" id="userid" required>
+            <br>
+            <br>
+            Password
+            <input type="password"  minlength="4" maxlength="15" id="password" required>
+            <br>
+            <br>
+            Email
+            <input type="email" id="email" required>
+            <br>
+            <br>
+            Mobile no.
+            <input type="tel" minlength="10" required id="mobile">
+            <br>
+            <br>
+            Address
+            <input type="text" minlength="5" maxlength="35" required id="address">
+            <br>
+            <br>
+            <input type="submit">
+            <input type="reset">
+        </form>
+        <script>
+            function Validate(event){
+                event.preventDefault();
+                let userId =document.getElementById("userid").value
+                let password =document.getElementById("password").value
+                let email =document.getElementById("email").value
+                let mobile =document.getElementById("mobile").value
+                let address =document.getElementById("address").value
+
+                const payload={};
+                payload.userIDDD = userId;
+                payload.pass = password;
+
+                console.log(payload)
+                 
+
+            }
+        </script>
+        
+    </body>
+    </html>
