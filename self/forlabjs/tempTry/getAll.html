@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- BEST FOR GET ALL -->
+    <h1>Gotta Fetch em all!</h1>
+    <br>
+    <pre id="output"></pre>
+
+    <br>
+    <button onclick="FetchAll()">Fetch All</button>
+    <script>
+        async function FetchAll(){
+        let response = await fetch("./ejson.json")
+        if(response.ok){
+        let data = await response.json();
+        
+        let out = document.getElementById("output").innerHTML =JSON.stringify(data,null,2)
+        
+        }
+    }
+    </script>
+</body>
+</html>

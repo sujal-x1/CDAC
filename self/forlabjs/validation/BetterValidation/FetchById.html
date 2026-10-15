@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <h1> Get Employee Data by Name or Id....</h1>
+    <br>
+
+    <label>Enter id/Name of Employee : </label>
+    <input type="text" id="emp">
+    <button onclick="get_emp_by_id_name()">Get Employee</button>
+    <br>
+
+    <p id="output">Your data will be displayed here....</p>
+    
+    <script>
+
+       async function get_emp_by_id_name(){
+
+            let val = document.getElementById('emp').value.trim();
+
+            let response = await fetch("ejson.json");
+
+            if(response.ok){
+
+                let json = await response.json();
+                console.log(json)
+
+                let result = json.filter(x=> String(x.code) === val || x.name.toLowerCase() === val.toLowerCase().trim());
+
+                let fd ="";
+
+                     
+                    for (let x of result){
+                        for(let b in x){
+                            fd += b +":  "+x[b]+" <br>";
+                        }
+                    }
+
+                document.getElementById('output').innerHTML = fd ||"Employee not Found";
+            }
+        } 
+
+
+          
+
+      
+    </script>
+</body>
+</html>

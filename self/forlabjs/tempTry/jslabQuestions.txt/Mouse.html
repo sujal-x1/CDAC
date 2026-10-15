@@ -1,0 +1,104 @@
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mouse</title>
+</head>
+<body>
+    Create a div tag and type your name in it. On mouse over,
+    copy your name into an h1 tag.
+
+    <div id="og" onmouseover="CopyIt()" onmouseleave="EraseIt()">Sujal</div>
+    <h1 id="copy"></h1>
+
+    <script>
+        function CopyIt() {
+            let og = document.getElementById("og").innerHTML;
+            let copy = document.getElementById("copy");
+
+            copy.innerHTML = og;
+        }
+
+        function EraseIt() {
+            let copy = document.getElementById("copy");
+            copy.innerHTML = " ";
+        }
+    </script>
+</body>
+</html>
+-->
+
+<!--
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Read 5 Para</title>
+</head>
+<body>
+    Read the contents of 5 p tags and display them in a div tag when a button is clicked.
+
+    <p id="q">Hello</p>
+    <p id="w">Hello1</p>
+    <p id="e">Hello2</p>
+    <p id="r">Hello3</p>
+    <p id="t">Hello4</p>
+
+    <div id="here"></div>
+    <button onclick="Readit()">ClickHere</button>
+
+    <script>
+        function Readit() {
+            let read = document.getElementById("here");
+            let p1 = document.getElementById("q").innerHTML;
+            let p2 = document.getElementById("w").innerHTML;
+            let p3 = document.getElementById("e").innerHTML;
+            let p4 = document.getElementById("r").innerHTML;
+            let p5 = document.getElementById("t").innerHTML;
+
+            read.innerHTML = p1 + " " + p2 + " " + p3 + " " + p4 + " " + p5;
+        }
+    </script>
+</body>
+</html>
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>copy Address</title>
+</head>
+    <!-- Create 2 text areas and 1 checkbox. On clicking the checkbox, copy the address from one text area to another. -->
+<body>
+    <label>Address</label>
+    <input type="text" id="T1" size="40"></input>
+    <br>
+    <input type="text" id="T2"  size="40"></input>
+    <br>
+    <input type="checkbox" id="checkbox" onclick="Copi()"></input>
+    <script>
+        function Copi(){
+            let T1=document.getElementById("T1")
+            let T2=document.getElementById("T2")
+            let checkbox = document.getElementById("checkbox")
+
+            if(checkbox.checked){
+                T2.value=T1.value
+            }
+            if(checkbox.unchecked){
+                T2.value=""
+            }
+            
+            
+        }
+    </script>
+    
+    
+</body>
+</html>

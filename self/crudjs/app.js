@@ -6,6 +6,12 @@ const app = express()
 mongoose.connect(url,{useNewUrlParser:true})
 const con = mongoose.connection
 
-con.on('open',function(){
-    console.log('connnected')
+con.on('open',()=>{
+    console.log('connnected...')
 }) 
+
+const alienRouter= require('./routers/aliens')
+app.use('/aliens',alienRouter)
+app.listen(9000,()=>{
+    console.log("server started")
+})

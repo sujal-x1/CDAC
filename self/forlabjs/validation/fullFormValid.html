@@ -15,45 +15,70 @@
     </head>
     <body>
         <form  onsubmit=" return Validate(event)">
-            User ID
+            <!-- User ID
             <input type="text" minlength="4" maxlength="15" id="userid" required>
-            <br>
+            <br> -->
             <br>
             Password
             <input type="password"  minlength="4" maxlength="15" id="password" required>
             <br>
             <br>
-            Email
+            <!-- Email
             <input type="email" id="email" required>
             <br>
-            <br>
-            Mobile no.
+            <br> -->
+            <!-- Mobile no.
             <input type="tel" minlength="10" required id="mobile">
             <br>
             <br>
             Address
             <input type="text" minlength="5" maxlength="35" required id="address">
             <br>
-            <br>
+            <br> -->
             <input type="submit">
             <input type="reset">
         </form>
         <script>
             function Validate(event){
-                event.preventDefault();
-                let userId =document.getElementById("userid").value
+                // event.preventDefault();
+                // let userId =document.getElementById("userid").value
                 let password =document.getElementById("password").value
-                let email =document.getElementById("email").value
-                let mobile =document.getElementById("mobile").value
-                let address =document.getElementById("address").value
+                // let email =document.getElementById("email").value
+                // let mobile =document.getElementById("mobile").value
+                // let address =document.getElementById("address").value
 
                 const payload={};
-                payload.userIDDD = userId;
+                // payload.userIDDD = userId;
                 payload.pass = password;
 
-                console.log(payload)
-                 
+                // console.log(payload)
+                // if(userId=""){
+                //     alert("userId cannot be empty")
+                //     return false;
+                
+               let hasNum=false;
+               let hasSym=false;
 
+               for (let c of password){
+                if(c>="0" && c<="9"){
+                    hasNum=true;
+                }
+                if("!@#$%^&*_+-".includes(c)){
+                    hasSym=true
+                }
+               }
+
+               if(password.length>=8 && password.length<=16
+                && password != password.toLowerCase() &&
+                 password != password.toUpperCase() &&
+                hasNum && hasSym){
+                    console.log("valid Password")
+                    return true
+                }
+                else{
+                    console.log("invalid password")
+                    return false
+                }
             }
         </script>
         

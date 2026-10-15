@@ -19,7 +19,7 @@
             
 
         let searchId = document.getElementById("search").value
-        let out = data.filter((user)=>{
+        let out = data.find((user)=>{
             return user.age == searchId;
         })
 
@@ -29,9 +29,6 @@
         else{
             document.getElementById("output").innerHTML="user not found"
         }
-
-
-
         }
     </script>
 </body>

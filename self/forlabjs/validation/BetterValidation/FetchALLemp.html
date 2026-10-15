@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Fetching All Employee Data</h1>
+    <p id="output">Your data will be displayed here...</p>
+    <button onclick="getdata()">Click here to get data</button>
+
+    <script>
+        async function getdata() {
+            let response=await fetch("ejson.json");
+            if(response.ok){
+            let data = await response.json()
+
+            let fd="";
+
+            for(let x of data){
+                console.log(x)
+                for(let b in x){
+                    fd += x[b]+"<br>"
+                }
+                fd+="<hr>"
+            }
+            document.getElementById('output').innerHTML=fd;
+            }
+        }
+    </script>
+</body>
+</html>

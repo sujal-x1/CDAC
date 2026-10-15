@@ -1,0 +1,170 @@
+Q1. Registration form validation (10)
+Create a form with User ID, Name, Email, Password and Confirm Password. Use onsubmit to validate everything and onchange on individual fields.
+
+No field may be empty (2)
+User ID: 5 to 15 characters, only A-Z, a-z, 0-9 (no underscore or special symbols) (3)
+Password: 8 to 15 characters (2)
+Password and Confirm Password must match (2)
+Show error messages next to fields; block submission if invalid (1) 
+
+Soln : 
+<body>
+    <form onsubmit="return check();">
+      Userid :
+      <input type="text" name="userid" id="uid" onchange="useridCheck()" /><span
+        id="uiderr"
+        class="err"
+      ></span>
+
+      Email :
+      <input
+        type="email"
+        name="email"
+        id="email"
+        required
+        style="margin-left: 10px"
+      />
+      <br />
+
+      Name :
+      <input
+        type="text"
+        name="name"
+        id="name"
+        required
+        style="margin-left: 10px"
+      />
+      <br />
+
+      Password :
+      <input type="text" name="pass" id="pass" onchange="passCheck()" />
+
+      Confirm Password :
+      <input
+        type="text"
+        name="confirmpass"
+        id="confirmpass"
+        onchange="passCheck()"
+      />
+      <span id="passerr" class="err"></span>
+
+      <input type="submit" value="Submit" />
+    </form>
+    <script>
+      function check() {
+        if (useridCheck() && passCheck()) return true;
+        else return false;
+      }
+
+      function useridCheck() {
+        const userid = document.getElementById("uid");
+        console.log("reuslt ", /^[A-Za-z0-9]+$/.test(userid.value));
+        if (userid.value.length == 0) {
+          document.getElementById("uiderr").innerHTML =
+            "User ID should not be empty";
+          return false;
+        } else if (userid.value.length < 5 || userid.value.length > 15) {
+          document.getElementById("uiderr").innerHTML = "Min : 8 Max :15";
+          return false;
+        } else if (!/^[A-Za-z0-9]+$/.test(userid.value)) {
+          document.getElementById("uiderr").innerHTML =
+            "No Special Chracter allowed";
+          return false;
+        } else {
+          document.getElementById("uiderr").innerHTML = " ";
+          return true;
+        }
+      }
+
+      function passCheck() {
+        const pass = document.getElementById("pass");
+        const confirmPass = document.getElementById("confirmpass");
+        const span = document.getElementById("passerr");
+        if (pass.value.length < 8 || pass.value.length > 15) {
+          span.innerHTML = "Min : 8 Max : 15";
+          return false;
+        } else if (pass.value != confirmPass.value) {
+          span.innerHTML = "Password does not match";
+          return false;
+        } else {
+          span.innerHTML = " ";
+          return true;
+        }
+      }
+
+    </script>
+  </body>
+
+Q2 : Fetch all users from 'user.json' and display id, name, age and salary in an HTML table when a “Load Users” button is clicked.
+
+
+Soln : 
+user.json
+[
+  {
+    "id": 1,
+    "name": "Aarav Sharma",
+    "age": 25,
+    "salary": 45000,
+    "imageUrl": "https://i.pravatar.cc/100?img=1"
+  },
+  {
+    "id": 2,
+    "name": "Priya Patel",
+    "age": 28,
+    "salary": 55000,
+    "imageUrl": "https://i.pravatar.cc/100?img=2"
+  },
+  {
+    "id": 3,
+    "name": "Rahul Verma",
+    "age": 32,
+    "salary": 70000,
+    "imageUrl": "https://i.pravatar.cc/100?img=3"
+  }
+]
+
+
+
+index.html
+ <input type="text" name="getone" id="getone" placeholder="1" />
+    <button onclick="getOne()">Get One</button>
+    <button onclick="getAll()">Get All</button>
+    <div id="details"></div>
+
+    <script>
+      let getone = document.createElement("p");
+
+      async function getAll() {
+        document.getElementById("details").innerHTML = "";
+        let response = await fetch("user.json");
+        let data = await response.json();
+        console.log(data);
+
+        data.forEach((item) => {
+          let p = document.createElement("p");
+          p.innerHTML = `ID : ${item.id} \nName:${item.name}\n Age:${item.age}\n Salary:${item.salary}\n <img src=${item.imageUrl}>`;
+
+          document.getElementById("details").appendChild(p);
+        });
+      }
+
+      async function getOne() {
+        let id = document.getElementById("getone").value;
+        let response = await fetch("user.json");
+        let data = await response.json();
+
+        let user = data.find((item) => item.id == id);
+        if (user) {
+          document.getElementById("details").innerHTML = "";
+          getone.innerHTML = `ID: ${user.id}\n Name: ${user.name}\n Age: ${user.age}\n Salary: ${user.salary}\n <img src=${user.imageUrl}>`;
+          document.getElementById("details").appendChild(getone);
+        } else {
+          document.getElementById("details").innerHTML = "No data found";
+          getone.innerHTML = "";
+        }
+        console.log(user);
+      }
+
+    </script>
+
