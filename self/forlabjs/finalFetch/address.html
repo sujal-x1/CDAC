@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    Address
+    <textarea id="ta1"></textarea>
+     <br><br>
+    <input type="checkbox" id="chk" onclick="ischk()">
+
+    <br><br>
+    tempadd
+    <textarea id="ta2"></textarea>
+    <br>
+    
+    <button type="submit" >submit</button>
+   <script>
+        function ischk(){
+            let add = document.getElementById("ta1")
+            let temp = document.getElementById("ta2")
+            let checkbox= document.getElementById("chk")
+            if(checkbox.checked){
+                temp.value = add.value
+            }
+            else if(!checkbox.checked){
+                temp.value=""
+            }
+        }
+   </script>
+</body>
+</html> 

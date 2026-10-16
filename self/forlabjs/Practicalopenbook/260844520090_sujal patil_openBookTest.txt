@@ -1,0 +1,425 @@
+// LISTSTUDENT.JSX
+
+import { useEffect, useState } from "react";
+import { Link, useOutletContext } from "react-router-dom";
+
+function ListStudent() {
+    const { name, loggedIn } = useOutletContext();
+
+    const [students, setStudents] = useState([]);
+    const [selectedId, setSelectedId] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    useEffect(() => {
+        if (!loggedIn || name !== "VITA") {
+            setStudents([]);
+            setSelectedId("");
+            return;
+        }
+
+        const controller = new AbortController();
+
+        async function fetchStudents() {
+            setLoading(true);
+            setError("");
+
+            try {
+                const response = await fetch(
+                    "http://localhost:8083/student",
+                    { signal: controller.signal }
+                );
+
+                if (!response.ok) {
+                    throw new Error("Failed to fetch students");
+                }
+
+                const data = await response.json();
+                setStudents(data);
+            } catch (err) {
+                if (err.name !== "AbortError") {
+                    setError(err.message);
+                }
+            } finally {
+                if (!controller.signal.aborted) {
+                    setLoading(false);
+                }
+            }
+        }
+
+        fetchStudents();
+
+        return () => controller.abort();
+    }, [loggedIn, name]);
+
+    if (!loggedIn) {
+        return <h2>Please login first.</h2>;
+    }
+    if (name !== "VITA") {
+        return <h2>Access Denied. Login with the name VITA.</h2>;
+    }
+    const student = students.find(
+        s => s._id === selectedId
+    );
+
+    return (
+        <div>
+            <h2>List Student</h2>
+            {loading && <p>Loading students...</p>}
+            {error && <p style={{ color: "red" }}>{error}</p>}
+            <label>Select Student: </label>
+            <select
+                value={selectedId}
+                onChange={e => setSelectedId(e.target.value)}
+            >
+                <option value="">-- Select Student --</option>
+
+                {students.map(s => (
+                    <option key={s._id} value={s._id}>
+                        {s.name}
+                    </option>
+                ))}
+            </select>
+            <br /><br />
+            <Link to="/CreateStudent">Create Student</Link>
+
+            {student && (
+                <>
+                    <h3>Student Details</h3>
+
+                    <table border="1" >
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Name</th>
+                                <th>Mobile</th>
+                                <th>Email</th>
+                                <th>Address</th>
+                                <th>Image</th>
+                                {/* <th>Actions</th> */}
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{student.id}</td>
+                                <td>{student.name}</td>
+                                <td>{student.mobile}</td>
+                                <td>{student.email}</td>
+                                <td>{student.address}</td>
+                                <td>
+                                    <img
+                                        src={`/${student.image}`}
+                                        alt={student.name}
+                                        width="80"
+                                        height="80"
+                                        loading="lazy"
+                                        style={{ objectFit: "cover" }}
+                                    />
+                                </td>
+                                <td>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </>
+            )}
+        </div>
+    );
+}
+
+export default ListStudent;
+
+
+
+// main.jsx
+
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+
+import App from "./App";
+import Home from "./Home";
+import ContactUs from "./ContactUs";
+import ListStudent from "./ListStudent";
+
+import NotFound from "./NotFound";
+
+//import "./index.css";
+
+createRoot(document.getElementById("root")).render(
+    <StrictMode>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<App />}>
+                    <Route index element={<Home />} />
+                    <Route path="/Home" element={<Home />} />
+                    <Route path="/ContactUs" element={<ContactUs />} />
+                    <Route path="/ListStudent" element={<ListStudent />} />
+                    {/* <Route path="/CreateStudent" element={<StudentCreate />} /> */}
+                    {/* <Route path="/UpdateStudent/:id" element={<StudentUpdate />} />
+                    <Route path="/DeleteStudent/:id" element={<StudentDelete />} /> */}
+                    <Route path="*" element={<NotFound />} />
+                </Route>
+            </Routes>
+        </BrowserRouter>
+    </StrictMode>
+);
+
+
+
+
+//App.jsx
+
+import { useState } from "react";
+import { Outlet } from "react-router-dom";
+import Header from "./Header";
+import Footer from "./Footer";
+
+function App() {
+    const [name, setName] = useState("");
+    const [loggedIn, setLoggedIn] = useState(false);
+
+    return (
+        <>
+            <Header
+            name={name}
+            setName={setName}
+            loggedIn={loggedIn}
+            setLoggedIn={setLoggedIn}
+            />
+            <main>
+            <Outlet context={{ name, loggedIn }} />
+            </main>
+            <Footer />
+        </>
+    );
+}
+
+export default App;
+
+
+
+
+//Contact us.jsx
+
+function ContactUs() {
+    return (
+        <div>
+            <h2>Authorised Training Centre...</h2>
+            <p>
+            5th Floor, Vidyanidhi Education Complex,
+                <br />
+                Vidyanidhi Road,
+                <br />
+                Juhu Scheme,
+                Andheri (W),
+                <br />
+                Mumbai 400 049,
+                <br />
+                India
+            </p>
+            <p>
+                <b>Mobile Number :</b>{" "}
+                99999999 / 888888888 / 777777777
+            </p>
+            <p>
+            <b>Email:</b> vita@gmail.com
+            </p>
+        </div>
+    );
+}
+
+export default ContactUs;
+
+
+
+//Header.jsx
+
+import { Link } from "react-router-dom";
+
+function Header({ name, setName, loggedIn, setLoggedIn }) {
+    const handleLogin = () => {
+        if (name.trim() === "") {
+            alert("Please enter your name");
+            return;
+        }
+        setLoggedIn(true);
+    };
+    const handleLogout = () => {
+        setLoggedIn(false);
+        setName("");
+    };
+    return (
+        <header>
+            <nav>
+                <Link to="/">Home</Link>{" | "}
+                <Link to="/ContactUs">ContactUs</Link>{" | "}
+                <Link to="/ListStudent">ListStudent</Link>
+            </nav>
+
+            <div>
+                {loggedIn ? (
+                    <>
+                        <span>Welcome, {name} </span>
+                        <button onClick={handleLogout}>Logout</button>
+                    </>
+                ) : (
+                    <>
+                        <label>Login: </label>
+                        <input
+                            type="text"
+                            placeholder="Enter name"
+                            value={name}
+                            onChange={e => setName(e.target.value)}
+                        />
+                        <button onClick={handleLogin}>Login</button>
+                    </>
+                )}
+            </div>
+
+            <hr />
+        </header>
+    );
+}
+
+export default Header;
+
+
+
+
+// Footer.jsx
+
+function Footer() {
+    return (
+        <footer>
+            <hr />
+            <p>Copy Right @CDAC.IN</p>
+        </footer>
+    );
+}
+
+export default Footer;
+
+
+
+
+
+// SERVER - EXPRESS AND MONGO COnnectivity
+
+const express = require("express");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const app = express();
+app.use(cors());
+app.use(express.json());
+// MongoDB connection
+mongoose.connect("mongodb://127.0.0.1:27017/student_crud")
+    .then(() => console.log("MongoDB Connected"))
+    .catch(err => console.log("MongoDB Error:", err.message));
+// Counter model for auto-increment ID
+const counterSchema = new mongoose.Schema({
+    _id: String,
+    seq: { type: Number, default: 0 }
+});
+const Counter = mongoose.model("Counter", counterSchema);
+// Student model
+const studentSchema = new mongoose.Schema({
+    id: {type: Number,unique: true,required: true},
+    name: {type: String,required: true},
+    mobile: {type: String,required: true
+    },
+    email: {
+        type: String,
+        required: true
+    },
+    address: {
+        type: String,
+        required: true
+    },
+    image: {
+        type: String,
+        required: true
+    }
+});
+const Student = mongoose.model("Student", studentSchema);
+// CREATE student
+app.post("/student", async (req, res) => {
+    try {
+        const counter = await Counter.findOneAndUpdate(
+            { _id: "studentId" },
+            { $inc: { seq: 1 } },
+            { new: true, upsert: true }
+        );
+const student = new Student({
+            id: counter.seq,
+            name: req.body.name,
+            mobile: req.body.mobile,
+            email: req.body.email,
+            address: req.body.address,
+            image: req.body.image
+        });
+await student.save();
+        res.status(201).json(student);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+// READ all students
+app.get("/student", async (req, res) => {
+    try {
+        const students = await Student.find().sort({ id: 1 });
+        res.json(students);
+    } catch (err) {
+        res.status(500).json({ message: err.message });
+    }
+});
+// READ one student using MongoDB _id
+app.get("/student/:id", async (req, res) => {
+    try {
+        const student = await Student.findById(req.params.id);
+if (!student) {
+            return res.status(404).json({ message: "Student not found" });
+        }
+res.json(student);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+// UPDATE student
+app.put("/student/:id", async (req, res) => {
+    try {
+        const student = await Student.findByIdAndUpdate(
+            req.params.id,
+            {
+                name: req.body.name,
+                mobile: req.body.mobile,
+                email: req.body.email,
+                address: req.body.address,
+                image: req.body.image
+            },
+            { new: true, runValidators: true }
+        );
+if (!student) {
+            return res.status(404).json({ message: "Student not found" });
+        }
+res.json(student);
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+// DELETE student
+app.delete("/student/:id", async (req, res) => {
+    try {
+        const student = await Student.findByIdAndDelete(req.params.id);
+if (!student) {
+            return res.status(404).json({ message: "Student not found" });
+        }
+res.json({ message: "Student deleted successfully" });
+    } catch (err) {
+        res.status(400).json({ message: err.message });
+    }
+});
+// Start server
+app.listen(8083, () => {
+    console.log("Server running at http://localhost:8083");
+});

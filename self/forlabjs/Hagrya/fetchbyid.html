@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    fetch emp
+    <input type="text" id="ser">
+    <br><br>
+    <button type="button" onclick="FindIt()">find emp</button>
+    <br><br>
+    <p id="p"></p>
+
+    <script>
+        async function FindIt(){
+            let response = await fetch("./ejson.json")
+            let json = await response.json()
+            let search = document.getElementById("ser").value
+            let result = json.find(x=>(x.id)==search)
+
+            let fd =""
+            
+            for(let x in result){
+                fd+=x+":"+result[x]+"<br>"
+            }
+            document.getElementById("p").innerHTML=fd
+
+        }
+    </script>
+</body>
+</html>

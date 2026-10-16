@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    search here
+    <input type="text"  id="in1"><br>
+    <label for="button">filter by id </label><br>
+    <button id="button" onclick="findEmp()" >find emp</button>
+    <br><br>
+    <p id="out">your data will be here soon....</p>
+
+    <script>
+        async function findEmp(){
+        let result= await fetch("./ejson.json")
+        let json = await result.json()
+        let search=document.getElementById("in1").value.trim()
+
+        let final=json.find(x=>String(x.id)===search||x.name.toLowerCase()==search.toLowerCase());
+        
+        let fd=""
+        // for(let x of final){
+        //     for(let b in x){
+        //         fd+=b+ ":" +x[b]+"<br>"
+        //     }
+        // }
+        for(let b in final){
+                fd+=b+ ":" +final[b]+"<br>"
+            }
+        document.getElementById("out").innerHTML=fd || "emp not found"
+    }
+    </script>
+
+</body>
+</html>
