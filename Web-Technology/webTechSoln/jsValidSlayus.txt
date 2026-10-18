@@ -1,0 +1,21 @@
+<!-- Q) create two textbox and checkbox with a label if temporary address and permanent address is same
+    on tick of checkbox data should get copied from one textbox to another
+    create submit and reset button give basic validation of required if data is valid then only u should 
+    be allowed to submit the page
+
+    Q) update password-
+    create a textbox re-enter password submit and rest button on change of the second textbox check value in both 
+    the text field is same or not data in both field required if data is not valid then the submit button should not work
+    password length is min 8 and max 15 character -->
+
+    <!-- Q) create a form with
+    userid(min lenght 4 max length 15) 
+    password(min length 4 max 15) 
+    email(ensure user enter correct email) 
+    mobile no(ensure user enter 10 digit no) 
+    address textarea(min 5 max 35 character allowed) c
+    reate submit and rest button
+    do validation if data is valid then only submit button will work
+
+    Q) create textfield confirm email create a submit and reset button if email in both the text field are same 
+    then only submit button should work else give error -->

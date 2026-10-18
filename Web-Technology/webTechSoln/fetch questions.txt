@@ -1,0 +1,90 @@
+Write a javascript application which will load array of json data using filter display specific record whose id is mentioned in the textbox
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch using Filter</title>
+</head>
+<body>
+
+    <form action="" method="get" onsubmit="return false">
+        <label for="userId">Enter the user ID:</label>
+        <input type="text" id="userId" placeholder="Enter the user ID">
+        <input type="submit" value="Search" onclick="fetchUser()">
+    </form>
+
+    <p id="displayInfo"></p>
+
+    <script>
+        async function fetchUser() {
+            let result = await fetch("ejson.json");
+            let data = await result.json();
+
+            let searchId = document.getElementById("userId").value;
+
+            let out = data.filter(function(users) {
+                return users.id == searchId;
+            });
+
+            document.getElementById("displayInfo").innerHTML =
+                JSON.stringify(out);
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+
+#using find
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fetch using Find</title>
+</head>
+<body>
+
+    <form action="" method="get" onsubmit="return false">
+        <label for="userId">Enter the user ID:</label>
+        <input type="text" name="userID" id="userId"
+               placeholder="Enter the user ID">
+
+        <input type="submit" value="Search" onclick="fetchUser()">
+    </form>
+
+    <p id="displayInfo"></p>
+
+    <script>
+        async function fetchUser() {
+            console.log("1");
+
+            let result = await fetch("ejson.json");
+            console.log("2");
+
+            let data = await result.json();
+            console.log("3");
+
+            let searchId = document.getElementById("userId").value;
+
+            let out = data.find(function(users) {
+                return users.id == searchId;
+            });
+
+            if (out) {
+                document.getElementById("displayInfo").innerHTML =
+                    JSON.stringify(out);
+            } else {
+                document.getElementById("displayInfo").innerHTML =
+                    "User not found";
+            }
+        }
+    </script>
+
+</body>
+</html>

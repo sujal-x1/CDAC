@@ -1,0 +1,88 @@
+Q1. Copy Text on Mouse Over
+
+Create a <div> tag and type your name in it. On mouse over, copy your name into an <h1> tag.
+
+Q2. Read 5 Paragraph Tags
+
+Read the contents of 5 <p> tags and display them in a <div> tag when a button is clicked.
+
+Q3. Copy Address Using a Checkbox
+
+Create 2 text areas and 1 checkbox. On clicking the checkbox, copy the address from one text area to another.
+
+Q4. Calculate the Sum of Two Numbers
+
+Create 2 text boxes and a button. On clicking the button, calculate the sum of the two values entered by the user.
+
+Q5. Password Matching Validation
+
+Create 2 text boxes and a button:
+
+Enter Password
+Re-enter Password
+
+If both values do not match, display an error message in a <span> tag in red colour.
+
+Q6. Copy Div Content on Mouse Over
+
+Create a <div> tag with some CSS formatting and type 5 lines in it. On mouse over, copy this data into a <p> tag.
+
+..................
+
+Q1. Temporary and Permanent Address
+
+Create 2 text boxes and checkbox with a label if temporary address are same, data should be copied from one text box to another. Create submit and reset button.
+
+Give basic validation of required. If data is valid, then only you should allow to submit the page.
+
+Q2. Update Password
+
+Create a textbox to enter password and re-enter password, and then submit and reset button.
+
+On change of the second text box, check whether values in both text fields are the same or not. Data in both fields are required. If data is not valid, give an error message and submit should not work (validation should be done on onchange and submit).
+
+Password length is minimum 8 and maximum 15 characters.
+
+Q3. User Registration Form Validation
+
+Create a form with:
+
+User ID (Minimum length is 4, maximum 15)
+Password (Minimum length is 8, maximum 15)
+Email (Ensure user enters a correct email)
+Mobile number (Ensure user enters a 10-digit number)
+Address (Textarea — minimum 5, maximum 35 characters allowed)
+
+Create submit and reset buttons. Do proper validation. If data is valid, then only the submit button should work.
+
+Q4. Confirm Email Validation
+
+Create a text field to confirm email. Create submit and reset buttons. If the email in both text fields is the same, then only the submit button should work; otherwise, give an error.
+
+................
+
+Q1. Calculator Using Radio Buttons
+
+Write an HTML program to perform arithmetic operations using radio buttons.
+
+Create a form containing two text boxes to accept two numbers, radio buttons for Addition (+) and Multiplication (*), and a button labelled "Click Me". When the user selects an operation and clicks the button, perform the selected operation and display the result in a third text box.
+
+Q2. Calculate the Total Price of Selected Books
+
+Write an HTML program to calculate the total price of books selected using checkboxes.
+
+Display three checkboxes representing three books, with prices of ₹1000, ₹2000, and ₹3000, respectively. When the user selects the books and clicks the button, calculate the total price of the selected books and display it in a disabled text box.
+
+Q3. Display the Selected State
+
+Write an HTML program to display the selected state using a dropdown list.
+
+Create a dropdown list containing Maharashtra, Gujarat, Goa, and Rajasthan. When the user selects a state, display the selected state's name in a text box using the onchange event.
+
+Q4. Arithmetic Calculator Using a Dropdown List
+
+Write an HTML program to perform arithmetic operations using a dropdown list.
+
+Create two text boxes to accept two numbers and a dropdown list containing Addition, Subtraction, Multiplication, and Division. When the user selects an operation and clicks the Calculate button, perform the selected operation and display the result in another text box.
+
+
