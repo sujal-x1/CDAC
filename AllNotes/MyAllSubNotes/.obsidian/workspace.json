@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "DSA_module/DAY_ONE!.md",
+                "file": "DSA_module/Day_3.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "DAY_ONE!"
+              "title": "Day_3"
             }
           }
         ]
@@ -190,8 +190,10 @@
   },
   "active": "50651cad8a7dba9c",
   "lastOpenFiles": [
-    "DSA_module/pre req.md",
+    "DSA_module/Day_2.md",
+    "DSA_module/Day_3.md",
     "DSA_module/DAY_ONE!.md",
+    "DSA_module/pre req.md",
     "Placement_Tips`N`Tricks/Pasted image 20261018224233.png",
     "Placement_Tips`N`Tricks/DSA_sir  template.md",
     "Web_technologies/Day_8.md",

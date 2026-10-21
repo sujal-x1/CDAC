@@ -1,4 +1,4 @@
-package Stack_Examples;
+package day_one_Stack_Examples;
 
 public class Weapon{
 	 void attack() {

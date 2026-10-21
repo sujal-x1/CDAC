@@ -1,4 +1,4 @@
-package Stack_Examples;//wellness of paranthesis
+package day_one_Stack_Examples;//wellness of paranthesis
 import java.util.Scanner;
 import java.util.Stack;
 

@@ -1,4 +1,4 @@
-package Stack_Examples;
+package day_one_Stack_Examples;
 import java.util.Scanner;
 import java.util.Stack;
 
