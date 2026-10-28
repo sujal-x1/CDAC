@@ -1,0 +1,105 @@
+/*
+
+	    1
+	   121
+	  12321
+	  1234321
+	 123454321
+
+*/
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int j = 1;
+	for (int i = 1; i <= 5; i++)
+	{
+		for (int space = 6; space >= i; space--)
+		{
+			cout << " ";
+		}
+		for (j = 1; j <=i; j++)
+		{
+			cout << j;
+		}
+		if (i > 1)
+		{
+			j-=2;
+			do
+			{
+				cout << j;
+				j--;
+			} while (j >= 1);
+		}
+		cout << endl;
+	}
+	
+}
+
+
+
+// using single loop
+
+
+
+
+/*
+
+	    1
+	   121
+	  12321
+	 1234321
+	123454321
+
+*/
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int start = 1, end = 1, space = 5, endspace = 5, reverse = false, row = 1;
+	while (true)
+	{
+
+		if (space >= start)
+		{
+			cout << " ";
+			space--;
+		}
+		else
+		{
+			if (!reverse)
+			{
+				if (start <= end)
+				{
+					cout << start;
+					start++;
+				}
+				else
+				{
+					start--;
+					reverse = true;
+				}
+			}
+			if (start == 1)
+			{
+				cout << endl;
+				row++;
+				endspace--;
+				end++;
+				space = endspace;
+				reverse = false;
+			}
+			if (reverse)
+			{
+				start--;
+				cout << start;
+			}
+		}
+		if (row > 5)
+		{
+			break;
+		}
+	}
+}

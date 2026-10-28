@@ -1,0 +1,393 @@
+ 14)
+
+// following example is valid as per C++17
+
+int arr[4] = { 10,20,30,40 };
+int* ptr = arr;
+cout << (++*ptr)++<< "\t" << *ptr << endl;
+cout << arr[0] << endl;
+
+	output:			11		12
+				12
+
+here, (++*ptr)
+	*ptr gets the value of arr[0] i.e. 10 and increments it to 11 
+		11 gets printed
+	then because of post increment 11 gets incremented to 12
+
+	*ptr
+		prints 12
+	arr[0] 
+		obviously prints 12
+
+
+
+15)
+// what if we want to print value "20" using "ptr"
+
+int arr[4] = { 10,20,30,40 };
+int* ptr = arr;
+cout << *++ptr<<endl;
+
+
+16)
+
+// what if we want to print value "30" using "ptr"
+
+int arr[4] = { 10,20,30,40 };
+int* ptr = arr;
+cout << *++++ptr<<endl;
+
+
+17)
+
+int arr[] = { 4, 10, 15, 20 };
+int* ptr = arr;
+cout << *++ptr + *ptr << "\t" << *ptr << endl;
+
+	output:  20          10
+
+*++ptr
+	here first ptr is incremented to point to the value 10 
+	because of +  , it adds 10 +10
+		i.e. 20    and *ptr prints 10
+
+
+18) 
+
+int arr[] = { 4, 10, 15, 20 };
+int* ptr = arr;
+cout << *ptr++ + *ptr << "\t" << *ptr << endl;
+
+
+	output:  8        10
+
+*ptr++ + *ptr 
+	what it does is :
+	*ptr takes the value of 4 and because of + sign , first it adds i.e. 4+4 i.e 8 and then it increments the ptr ( post increment ) so now ptr points to value 10 and it prints the value.
+
+
+19)
+
+int arr[] = { 4, 10, 15, 20 };
+int* ptr = arr;
+cout << *++ptr + *ptr++ << "\t" << *ptr << endl;
+
+	output:  20            15
+
+*++ptr
+	first ptr increments to point to arr[1] i.e. 10 
+	*++ptr + *ptr++
+		"prints 20" and increments ptr further to arr[2] i.e. 15
+	*ptr in the last part of cout will "print 15"
+
+
+20)
+
+int arr[] = { 5, 10, 15, 20 };
+int* ptr = arr;
+cout << ++*ptr + *ptr << endl;
+
+	output:  12
+
+	++*ptr will retrieve  arr[0] value i.e. 5 and increment it
+	i.e. arr[0] value now becomes 6
+	+  *ptr  will consider 6 as a latest value of arr[0]
+
+		so answer is 12
+
+
+21) 
+
+int arr[] = { 5, 10, 15, 20 };
+int* ptr = arr;
+cout << *ptr++ + ++*ptr << "\t"<<*ptr<<endl;
+
+	output: 12          10
+
+++*ptr evaluates first
+	which makes arr[0]  as 6
+now
+	*ptr++ 
+		will take 6 as arr[0] value
+
+	because of  +   
+		6+6  it "prints 12"
+
+	above we have post increment of the pointer ptr as well
+	because of that ptr increments to  point to  arr[1]
+		so it "prints 10"
+
+
+	
+22) 
+
+	int arr[] = { 5, 10, 15, 20 };
+	int* ptr = arr;
+	cout << ++*ptr++ + *ptr <<"\t"<<*ptr<< endl;
+
+	output:  12       10
+
+	++*ptr++
+		*ptr gives u  5
+			because of ++ on the left side 5 becomes 6
+
+	+  *ptr
+		it takes  6+6  
+			prints 12
+	++ on the right side takes pointer to value 10
+
+23)
+
+	int arr[] = { 5, 10, 15, 20 };
+	int* ptr = arr;
+	cout << *ptr + *++ptr << endl;
+
+	output:  20
+	
+	Right side first: *++ptr → increment to 10 → gives 10
+
+	Left side: now ptr also points to 10, so *ptr = 10
+		 10 + 10 = 20
+
+24)
+
+int x = 5;
+int* p = &x;
+cout << ++(*p) + (*p)++ <<"\t"<<*p<< endl;
+
+	output:   12       7
+
+++(*p)
+
+	*p gives  5  which is incremented to 6 due to ++
+(*p)++
+	takes *p which is now 6
+
+	6+6   prints 12 and then it will increment 6 to 7
+
+
+25) int x = 5;
+int* p = &x;
+cout << ++(*p) + (*p++) << "\t" << *p << endl;
+
+	output:  12            0 [ unpredictable ]
+
+*p gives  5 which is increments to 6
+6+6  is 12  
+because of (*p++)  p gets incremented but at that position no data is there so we get 0  which can be unpredictable.
+
+
+
+26)
+
+int arr[] = { 5, 10 };
+int* p = arr;
+cout << ++(*p++) + *p <<"\t"<<*p<< endl;
+
+	output:  12       10
+
+++(*p++)
+
+	here *p gives 5  
+	because of ++ on the left side
+	5 becomes 6
+	that 6 is considered for addition
+	so,  6+6   prints 12
+	then ++ of p on the right side will increment the pointer to point to 10
+	that's why last *p  prints 10
+
+
+26)
+
+int arr[] = { 12, 20, 30 };
+int* p = arr;
+cout << (*p++) + (*p++) << "\t" << *p << endl;
+
+	output:  24         30
+
+(*ptr++) + (*ptr++)
+
+	will take *ptr as 12 and add them prints   24
+now ptr++
+	will make ptr points to 20
+one more ptr++ 
+	will make ptr points to 30
+
+27)
+
+int arr[] = { 10, 20, 30, 40 };
+int* p = arr;
+cout << *p++ + ++*p << "\t" << *p << endl;
+
+
+	output:   22         20
+
+*p++ + ++*p
+	here  ++*p
+		will make 10 to 11
+	*p++
+		will take incremented value as 11
+	11 + 11 will print  22
+	then p++ will take place which will increment p to point to 20
+	so, *p  will print  20
+
+
+28)
+
+int arr[] = { 1,2,3,4 };
+int* p = arr;
+cout << *p + *++p + *++p << "\t" << *p << endl;
+
+	output:  9          3
+
+*++p
+	will make p increment to point to 2
+one more *++p
+	will make p increment to point to 3
+
+now for addition *p is taken as 3
+ 	so, 3+3+3   will print 9
+and *p at the end will print  3
+
+29)
+
+int arr[] = { 1, 2, 3, 4 };
+int* p = arr;
+cout << ++*(p + 2) << "\t" << arr[2] << endl;
+
+	output:  4             4
+
+++*(p+2)
+
+p+2 will increment p to point to 3
+now *p will give value 3  which will be incremented to 4
+so it will print 4
+
+arr[2] is the location where p is pointing to and this location's value has been changed from 3 to 4
+so, arr[2]  also prints   4
+
+
+30)
+
+int x = 2, y = 3;
+int *p = &x, *q = &y;
+cout << ++*p + ++*q << "\t" << x << "\t" << y << endl;
+
+	output:   7         3         4
+
+++*p
+	will increment 2 to 3 so, value of x is 3
+++*q
+	will increment 3 to 4  so, value of y is 4
+
+so, 3+4   will print 7
+
+value of x is now  3
+
+value of y is now  4
+
+
+31)
+
+int arr[] = { 10, 20, 30, 40 };
+int* p = arr;
+cout << *p++ + *++p << "\t" << *p << endl;
+
+	output:  40           30
+
+*++p 
+	will evaluate first
+it will increment p to point to 20
+
+for addition latest value of *p which is 20 in taken
+	so, 20+20  will print 40
+++ on the right side of p will now evaluate
+	which will increment p to point to 30
+so, *p at the end will print 30
+
+32)
+
+int calc(int *p) 
+{
+	return ++*p * ++*p;
+}
+int main() 
+{
+	int a = 5;
+	cout << calc(&a) << "\t" << a << endl;
+}
+
+	output:   49             7
+
+
+value of a is 5
+address of a is passed to  p
+
+inside calc function
+	++*p  *  ++*p
+will increment 5 to 6
+and then 6  to  7
+
+so for multiplication latest value of *p  i.e.  a is taken which is  7
+7*7   will print  49
+
+value of a is now 7
+
+
+33)
+
+int calc(int* p) 
+{
+	return ++*p * *p++;
+}
+int main() 
+{
+	int a = 5;
+	cout << calc(&a) << "\t" << a << endl;
+}
+
+	output: 36          6
+
+value of a is 5
+
+p holds the address of a
+
+++*p
+	will increment  5  to 6
+
+so for multiplication  6 is considered
+	6*6   will print 36
+p++
+	will now increment the pointer but there is no value at the next address
+
+in the main function when we print "a", it is now  6
+
+
+34)
+
+int calc(int* p) 
+{
+	return ++*p * (*p)++;
+}
+int main() 
+{
+	int a = 5;
+	cout << calc(&a) << "\t" << a << endl;
+}
+
+	output: 36           7
+
+
+value of a is 5
+
+it's address goes to p
+
+++*p
+	will increment 5  to  6
+
+for the multiplication  6*6 is considered so it prints  36
+
+now (*p)++
+	this ++ will increment 6 to 7
+so in the main function when we print the value of "a" , the latest value of "a" is 7.		

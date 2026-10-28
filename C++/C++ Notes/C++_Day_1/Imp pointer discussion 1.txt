@@ -1,0 +1,223 @@
+
+// the result of following codes are as per C++ 17
+/*
+inside visual studio 2022, right click on your project name 
+		properties
+			general properties
+	c++ language standard       C++ 17 standard
+
+*/
+
+Prerequisite:
+
+*ptr++ or *(ptr++) both means :
+
+
+Original Address Used: Because ++ is in the postfix position, the expression first uses the current memory address held by ptr.
+
+Dereference: The * operator then accesses the value at that current address.
+
+Increment: Finally, the pointer ptr is incremented to point to the next memory location.
+
+
+++(*ptr) means first access value pointed by ptr, then increment that value, then use updated value.
+
+
+(*ptr)++ means first use value pointed by ptr, then increment that value afterward.
+
+
+1)
+
+char name[20] = "Rajesh";
+char* ptr = name;
+cout << *ptr++ << "\t" << *ptr << endl;
+	
+	output: R            a
+
+	first *ptr is evaluated which prints "R" and then ptr is incremented, so it displays "a".
+
+
+
+2)
+
+int arr[4] = { 10,20,30,40 };
+int* ptr = arr;
+cout << (*ptr)++ <<"\t"<<*ptr<< endl;
+
+
+	output:  10          11
+
+	first *ptr is evaluated which prints 10 and then *ptr i.e. the value (10) where ptr is point to is incremented. That's why we get output "11"
+
+
+
+3)
+
+int arr[4] = { 10,20,30,40 };
+int* ptr = arr;
+cout << ++(*ptr) <<"\t"<<*ptr<<endl;
+	
+output:  11			11
+
+
+	first *ptr is evaluated which is 10 and 10 is incremented to 11 which gets printed.
+
+
+4) 
+
+int arr[4] = {10,20,30,40};
+int* ptr = arr;
+cout << ++++*ptr <<"\t"<<*ptr<<endl;
+
+
+output:  12			12
+
+	first *ptr is evaluated which is 10 and 10 is incremented to 11, 11 is incremented to 12  which finally gets printed.
+
+
+5)
+
+int arr[4] = {10,20,30,40};
+int* ptr = arr;
+cout << ++*ptr++<<"\t"<<*ptr<<endl;
+
+	output: 11            20
+
+	first *ptr is evaluated which is 10 and 10 is incremented to 11 which gets printed and then ptr is incremented to the next position.
+
+
+6)
+int arr[4] = { 10,20,30,40 };
+int* ptr = arr;
+cout <<  (*ptr++)++ << "\t" << *ptr <<"\t"<<arr[0]<< endl;
+
+	output: 10      20    11
+
+	the sequence is :
+
+print the original value   10
+Increment that value   10 becomes 11 (because of ++ outside the bracket )
+Increment the pointer ( ++ inside the bracket )
+
+So old value gets printed first, pointed value increases afterward, and pointer moves to next location.
+
+
+
+7)
+
+int arr[4] = { 10,20,30,40 };
+int* ptr = arr;
+cout << *(ptr++)<<"\t"<<*ptr<<endl;
+
+	output: 10            20
+
+	first *ptr is evaluated which prints 10 and then ptr is incremented because of which 20 is printed.
+	[ Imp note:  *ptr++ and *(ptr++) are equivalent. Both mean:
+
+Dereference the current value of ptr, then increment ptr.  ]
+
+
+8)
+
+int arr[4] = { 10,20,30,40 };
+int* ptr = arr;
+cout << *(++ptr)<<"\t"<<*ptr<<endl;
+
+	output: 20                  20
+
+	first ptr is incremented to the next position and then *ptr is evaluated , that's the reason it prints 20           20 .
+
+	
+
+9) 
+
+int arr[4] = { 10,20,30,40 };
+int* ptr = arr;
+cout << ++*(ptr++)<<"\t"<<*ptr<<endl;  // same like      ++*ptr++
+
+
+	output: 11			20
+
+
+	*ptr uses the original value i.e. 10  , because of pre ++  it gets incremented and printed and now because of post ++ inside the bracket pointer gets inremented so next *ptr shows 20.
+
+
+10) 
+
+int arr[4] = { 10,20,30,40 };
+int* ptr = arr;
+cout << ++*(++ptr)<<"\t"<<*ptr<<endl;
+
+
+	output: 21			21
+
+	first ptr gets incremented to the next position ( because of ++ inside the bracket ) , then *ptr is evaluated which is 20 and then 20 is incremented (because of ++ outside the bracket ) to 21 which gets printed.
+
+
+11)
+
+int arr[4] = { 10,20,30,40 };
+int* ptr = arr;
+cout << ++++*(++ptr) << "\t" << *ptr << endl;
+
+
+	output: 22			22
+
+	first ptr gets incremented to the next position , then *ptr is evaluated which is 20 and then 20 is incremented to 21 , 21 is incremented to 22 which finally gets printed.
+
+
+12)
+
+int arr[4] = { 10,20,30,40 };
+int* ptr = arr;
+cout << ++++*(ptr++)<<"\t"<<*ptr<<endl;
+
+
+	ouput: 12			20
+
+	first *ptr gets evaluated which is 10 [ *(ptr++) is same as *ptr++ ] , then 10 is incremented to 11, 11 is incremented to 12 ( because of two ++ on left side ) which gets printed and at the end ptr is incremented to the next position [ due to ++ right side ] because of which 20 is displayed.
+
+13)
+
+#include <iostream>
+using namespace std;
+
+int missile(int *ip) 
+{ 
+	return ++++(*ip)* (*ip); 
+}
+int main() 
+{
+	int i = 4;
+	cout << i << ":" << missile(&i) << ":" << *(&i)<<endl;
+}
+
+i=4
+
+in the cout , value of i is printed  i.e. 4
+
+missile function is called by passing the address of "i" which is collected inside the pointer "*ip"
+
+ip - points to the address of i 
+
+*ip means i   i.e.   4
+
+with double ++ (increment operators)
+	i is incremented to 5 and then 6 
+
+that means now the value of "i" is 6
+
+now *ip  *  *ip will be evaluated
+	i.e. 6*6
+
+so the output of
+	cout<<missile(&i)
+		is 36
+and the output of
+	cout<<*(&i)
+		is 6
+
+so the total output is
+	4:36:6
+
+

@@ -1,0 +1,68 @@
+#include<iostream>
+using namespace std;
+
+/*
+
+    A B C D E F 
+     A B C D E 
+      A B C D 
+       A B C 
+        A B 
+         A 
+
+
+*/
+int main()
+{
+    for (char ch1 = 'F'; ch1 >= 'A'; ch1--)
+    {
+        for (int sp = 70; sp >= ch1; sp--)
+        {
+            cout << " ";
+        }
+        for (char ch2 = 'A'; ch2 <= ch1; ch2++)
+        {
+            cout << ch2 << " ";
+        }
+        cout << endl;
+    }
+	
+}
+
+
+// using single loop
+
+
+int main()
+{
+    char start = 'A',end='G';
+    int spacelimit = 1, spacecounter = 0;
+
+    while (true)
+    {
+        if (spacecounter < spacelimit)
+        {
+            cout << " ";
+            spacecounter++;
+        }
+        else if (start < end)
+        {
+            cout << start << " ";
+            start++;
+        }
+        else
+        {
+            cout << endl;
+            spacelimit++;
+            spacecounter = 0;
+            start = 'A';
+            end--;
+            if (start == end)
+            {
+                break;
+            }
+        }
+    }
+	
+}
+

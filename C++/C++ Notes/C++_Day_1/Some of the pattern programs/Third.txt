@@ -1,0 +1,66 @@
+#include<iostream>
+using namespace std;
+
+/*
+
+ * * * * *
+  * * * *
+   * * *
+    * *
+     *
+
+*/
+int main()
+{
+	char ch = '*';
+
+	for (int i = 5; i >= 0; i--)
+	{
+		for (int k = 5; k > i; k--)
+		{
+			cout << " ";
+		}
+		for (int j = 0; j <= i; j++)
+		{
+			cout << ch << " ";
+		}
+		cout << endl;
+	}
+	
+}
+
+
+// using single loop
+
+
+int main()
+{
+	char ch = '*';
+	int counter = 0, limit = 5, totalspaces = 0, spacecount = 0;
+	while (true)
+	{
+		if (spacecount <totalspaces)
+		{
+			cout << " ";
+		}
+		else
+		{
+			cout << ch<<" ";
+			counter++;
+		}
+		spacecount++;
+		if (counter == limit)
+		{
+			cout << endl;
+			limit--;
+			counter = 0;
+			totalspaces++;
+			spacecount = 0;
+		}
+		if (totalspaces == 6)
+		{
+			break;
+		}
+	}
+	
+}

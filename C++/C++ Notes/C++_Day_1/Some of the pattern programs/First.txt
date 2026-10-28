@@ -1,0 +1,42 @@
+*
+* *
+* * *
+* * * *
+
+// Using nested loop
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	char ch = '*';
+	for (int i = 0; i < 5; i++)
+	{
+		for (int j = 0; j < i; j++)
+		{
+			cout << ch << " ";
+		}
+		cout << endl;
+	}
+}
+
+
+// using single loop
+
+
+int main()
+{
+	char ch = '*';
+	int limit = 1,counter=0;
+	for (int i = 0; i < 10; i++)
+	{
+		cout << ch << " ";
+		counter++;
+		if (counter == limit)
+		{
+			cout << endl;
+			limit++;
+			counter = 0;
+		}
+	}
+}

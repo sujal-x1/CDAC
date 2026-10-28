@@ -1,0 +1,67 @@
+  1 2 3 4 
+   1 2 3 
+    1 2 
+     1 
+
+
+
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int x=1;
+	for (int i=1;i<=4;i++)
+	{
+		for (int space = 0; space <= i; space++)
+		{
+			cout << " ";
+		}
+		for (int j =4; j >=i; j--)
+		{
+			cout << x << " ";
+			x++;
+		}
+		cout << endl;
+		x = 1;
+	}
+}
+
+
+// using single loop
+
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	int start=1,end=5,spacecounter=0,spacelimit=1;
+
+	while (true)
+	{
+		if (spacecounter < spacelimit)
+		{
+			cout << " ";
+			spacecounter++;
+		}
+		else if (start <end)
+		{
+			cout << start << " ";
+			start++;
+		}
+		else
+		{
+			cout << endl;
+			end--;
+			start = 1;
+			spacelimit++;
+			spacecounter = 0;
+			if (end == -1)
+			{
+				break;
+			}
+		}
+	}
+	
+}
+

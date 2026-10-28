@@ -1,0 +1,1 @@
+The founder of the C++ programming language is Bjarne Stroustrup. He developed C++ at Bell Labs in the early 1980s as an extension of the C programming language, initially calling it "C with Classes."

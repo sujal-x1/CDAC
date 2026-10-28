@@ -1,0 +1,51 @@
+* * * *  
+* * *   
+* *    
+*  
+
+
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	char ch = '*';
+	for (int i=4;i>=1;i--)
+	{
+		for (int j =i; j>=1; j--)
+		{
+			cout << ch << " ";
+		}
+		cout << endl;
+	}
+}
+
+// using single loop
+
+
+#include<iostream>
+using namespace std;
+int main()
+{
+	char ch = '*';
+	int row = 4,count=0;
+	while (true)
+	{
+		if (count<row)
+		{
+			cout << ch << " ";
+			count++;
+		}
+		else
+		{
+			cout << endl;
+			row--;
+			if (row < 1)
+			{
+				break;
+			}
+			count = 0;
+		}
+	}
+	
+}
