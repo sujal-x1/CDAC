@@ -1,0 +1,43 @@
+/*
+When you run this code, it will first accept age.
+
+Try entering: 25 abc
+
+cin >> age will read 25 from the input stream,
+leaving " abc\n" in the input stream.
+
+Now cin.ignore() will discard only one character,
+i.e., the space, leaving "abc\n" in the input stream.
+
+Now cin.getline(name, 20) will read the leftover
+"abc" as the name.
+
+But this is not what we want, right?
+
+We want the entire remaining input line (" abc\n")
+to be discarded so that cin.getline(name, 20)
+accepts a fresh name from the user.
+
+For this, we can use:
+
+cin.ignore(numeric_limits<streamsize>::max(), '\n');
+
+This discards all remaining characters up to and
+including the newline character.
+*/
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int age;
+	char name[20];
+	cout << "Enter age" << endl;
+	cin >> age;
+	cout << "Enter a name" << endl;
+	cin.ignore();
+	cin.getline(name, 20);
+	cout <<name<<"\t"<<age<<endl;
+}
+

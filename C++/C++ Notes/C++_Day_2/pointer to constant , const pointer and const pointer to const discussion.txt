@@ -1,0 +1,105 @@
+pointer to constant
+constant pointer
+constant pointer to a constant
+
+a) pointer to constant
+
+meaning:
+	pointer can point to const as well as non-const member.
+using pointer variable you cannot change the value of a variable to which pointer is pointing.
+can we change the pointer?
+	yes u can change the pointer ( as it is not a constant pointer)
+
+syntax:
+
+const datatype *pointervariable
+	or
+datatype const *pointervariable
+
+
+// with non-const member
+
+int num = 100;  // non-const member
+//const int *ptr;  // pointer to constant
+int const* ptr;    // pointer to constant
+ptr = &num;
+cout << num << "\t" << *ptr << endl;
+// *ptr = 200;  // not allowed
+num = 200;
+cout << num << "\t" << *ptr << endl;
+
+
+// with const member
+
+
+const int num = 100;  // const member
+//const int *ptr;  // pointer to constant
+int const* ptr;    // pointer to constant
+ptr = &num;
+cout << num << "\t" << *ptr << endl;
+// *ptr = 200;  // not allowed
+// num = 200;  // not allowed
+cout << num << "\t" << *ptr << endl;
+ptr++;  // allowed
+
+
+b) constant pointer
+
+meaning:
+	pointer cannot be changed but using pointer we can change the variable where it is pointing. Can point to non-const member. but cannot point to const member.
+
+syntax:
+
+datatype * const pointervariable=address;
+
+// with non-const member
+
+
+int num = 100;  // non-const member
+int* const ptr = &num;  // constant pointer
+cout << num << "\t" << *ptr << endl;
+*ptr = 200;  //  allowed
+cout << num << "\t" << *ptr << endl;
+num = 300;
+cout << num << "\t" << *ptr << endl;
+// ptr++;  // not allowed
+
+
+const int num = 100;  // const member
+int* const ptr = &num;  // not allowed
+
+
+c) constant pointer to a constant
+
+meaning:
+	neither pointer can be changed nor the value of a variable can be changed using the pointer. It's like a read-only pointer. can point to const as well as non const member.
+
+syntax:
+
+const datatype * const pointervariable=address
+	or
+datatype const * const pointervariable=address
+
+// with non-const member
+
+int num = 100;  // non-const member
+const int* const ptr = &num;
+cout << num << "\t" << *ptr << endl;
+// *ptr = 20;   // not allowed
+// ptr++;   // not allowed
+num = 20;  // allowed
+cout << num << "\t" << *ptr << endl;
+
+
+// with const-member
+
+const int num = 100;  // non-const member
+const int* const ptr = &num;
+cout << num << "\t" << *ptr << endl;
+// *ptr = 20;   // not allowed
+// ptr++;   // not allowed
+// num = 20;  // not allowed
+cout << num << "\t" << *ptr << endl;
+
+
+

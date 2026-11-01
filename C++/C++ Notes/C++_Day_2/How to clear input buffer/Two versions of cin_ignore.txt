@@ -1,0 +1,12 @@
+cin.ignore()
+
+	cin.ignore() discards one character from the input stream usually the new line character (\n)
+
+
+
+cin.ignore(numeric_limits<streamsize>::max(), '\n'); 
+
+Ignore everything left in the input buffer up to 
+and including the newline character.
+
+

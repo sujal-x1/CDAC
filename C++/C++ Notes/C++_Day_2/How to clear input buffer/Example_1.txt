@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int age;
+	char name[20];
+	cout << "Enter a name" << endl;
+	cin.getline(name, 20);
+	cout << "Enter age" << endl;
+	cin >> age;
+	cout <<name<<"\t"<<age<<endl;
+}
+
+Above program works well, i.e. it accepts name (with space) and then age successfully.
+
+
+
+#include<iostream>
+using namespace std;
+
+int main()
+{
+	int age;
+	char name[20];
+	cout << "Enter age" << endl;
+	cin >> age;
+	cout << "Enter a name" << endl;
+	cin.getline(name, 20);
+	cout <<name<<"\t"<<age<<endl;
+}
+
+The above code will accept age but not name
+	why?
+
+
+When we use cin >> age, the user types something like:
+
+25 [ and presses enter key ]
+
+Here’s what actually goes into the input buffer:
+
+'2' '5' '\n'
+
+The >> operator reads only the number 25.
+
+But it leaves the newline character ('\n') in the input buffer.
+
+Then cin.getline() sees that newline '\n' immediately and thinks:
+
+"Oh, the user pressed Enter, so the line is empty."
+
+So it reads an empty string ("") into name.
+
+That’s why this program skips the name input.
+

@@ -1,0 +1,46 @@
+what is pointer?
+
+what is the exact use of pointer
+
+preprocessor
+
+structure
+
+structure variable what happens
+
+class vs structure
+
+inline functions
+
+C++ to exe
+
+what is linker's job here
+
+pointer vs array name
+
+what is the use of new and delete
+
+memory leak
+
+dangling pointer
+
+how C++ structure is different than C structure ?
+
+8) inline functions
+meaning
+advantages
+drawbacks
+how they are diff from macro
+
+9) scope resolution operator
+
+12) what is the difference bet'n structure and class in C++ ?
+13) how C++ structure is different than C structure ?
+
+
+15) what is function overloading ? what is the rule ?
+16) what is Name Mangling  (name decoration)?
+whether function call and function definition both are mangled ?
+whether C++ compiler always mangles name ?
+
+

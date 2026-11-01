@@ -1,0 +1,19 @@
+// how to accept a string with space in char pointer
+#include<iostream>
+using namespace std;
+
+
+int main()
+{
+	char* ptr=NULL;
+	int len = 0;
+	cout << "Enter approx lenght of the name" << endl;
+	cin >> len;
+	ptr = new char[len + 1];
+	cout << "now enter your name (max)  " << len << " characters" << endl;
+	//cin >> ptr;   // will terminate at space
+	cin.ignore(numeric_limits<streamsize>::max(), '\n'); // try commenting this
+	cin.getline(ptr, len+1);
+	cout << ptr << endl;
+	return 0;
+}

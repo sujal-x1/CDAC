@@ -1,0 +1,39 @@
+#include <iostream>
+using namespace std;
+
+int main()
+{
+	/*
+	int num1 = 10;
+	int& ref1= num1; // ref is referring to num
+	cout << num1 << endl;
+	cout << ref1 << endl;
+	*/
+
+	/*
+	const int num2 = 20;
+	int& ref2 = num2; //  not allowed
+	// unsafe =  safe
+	*/
+
+	/*
+	const int num3 = 20;
+	const int& ref3 = num3; // allowed
+	cout << num3 << "\t" << ref3 << endl;
+	*/
+
+	/*
+	int num4 = 30;
+	const int& ref4 = num4; // allowed
+	cout << num4 << "\t" << ref4 << endl;
+	num4 = 50;
+	cout << num4 << "\t" << ref4 << endl;
+	// ref4 = 60; // not allowed
+	*/
+
+	// int& ref5 = 400; // not allowed
+	const int& ref5 = 400; // allowed
+
+
+	
+}

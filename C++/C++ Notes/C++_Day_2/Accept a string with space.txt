@@ -1,0 +1,19 @@
+// how to accept a string with space 
+
+#include<iostream>
+using namespace std;
+
+
+int main()
+{
+	cout << "enter string with space" << endl;
+	char str3[20];
+	/*
+	getline(str3, 20) means maximum 19 
+	actual characters can be stored, 
+	because one position is reserved for '\0'.
+	*/
+	cin.getline(str3, 20);
+	cout << str3 << endl;
+	return 0;
+}

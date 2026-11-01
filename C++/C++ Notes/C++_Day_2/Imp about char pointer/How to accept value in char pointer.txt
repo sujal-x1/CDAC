@@ -1,0 +1,17 @@
+// how to accept a string in char pointer
+#include<iostream>
+using namespace std;
+
+
+int main()
+{
+	char* ptr=NULL;
+	int len = 0;
+	cout << "Enter approx lenght of the name" << endl;
+	cin >> len;
+	ptr = new char[len + 1];
+	cout << "now enter your name (max)  " << len << " characters" << endl;
+	cin >> ptr;
+	cout << ptr << endl;
+	return 0;
+}

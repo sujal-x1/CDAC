@@ -1,0 +1,18 @@
+pointer to constant =  non-const member   // allowed
+  safe			unsafe
+
+pointer to constant =  const member       // allowed
+ safe			safe
+
+constant pointer = non-const member      // allowed
+unsafe			unsafe
+
+constant pointer = const member          // not allowed
+unsafe		    safe
+
+constant pointer to a constant =  non-const member   // allowed
+safe					unsafe
+
+
+constant pointer to a constant =  const member       // allowed
+safe					safe

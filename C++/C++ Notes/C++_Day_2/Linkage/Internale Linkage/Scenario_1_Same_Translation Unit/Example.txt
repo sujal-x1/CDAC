@@ -1,0 +1,18 @@
+		Same Translation Unit Scenario
+
+			Trial.cpp
+
+int main()
+{
+    extern int num;  // External linkage in this context
+    cout << num;
+}
+
+static int num = 100;  // Internal linkage
+
+
+- extern int num; declares num with external linkage in this context.
+- static int num = 100; defines num with internal linkage.
+- These declarations conflict because they specify different linkage for the same variable.
+
+Therefore, the program is ill-formed because of conflicting linkage declarations. Visual Studio may report an unresolved external symbol during linking.

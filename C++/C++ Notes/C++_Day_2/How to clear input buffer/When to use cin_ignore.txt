@@ -1,0 +1,77 @@
+1)
+
+int age;
+char name[20];
+cout << "Enter age" << endl;
+cin >> age;        
+cout << "Enter full name" << endl;
+cin.ignore(numeric_limits<streamsize>::max(), '\n'); // cin.ignore(...) line clears the leftover newline before getline() runs
+cin.getline(name, 19); 
+cout << name << "\t" << age << endl;
+
+[ in the above code “cin.ignore” is needed because cin >> (for numbers or words) stops reading just before the newline,
+and that leftover newline messes up getline() (it reads it as an empty line). ]
+
+
+2)
+
+int age;
+char name[20];
+cout << "Enter full name" << endl;
+cin.getline(name, 20);
+cout << "Enter age" << endl;
+cin >> age;        
+cout << name << "\t" << age << endl;
+
+[ in the above code “cin.ignore” is not needed as getline() (for string or char array) reads the entire line, including spaces and importantly it consumes newline also. ]
+
+
+3)
+
+
+int age;
+char name[20];
+cout << "Enter age" << endl;
+cin >> age;     
+cout << "Enter full name" << endl;
+cin >> name;  // it will terminate at the space
+cout << name << "\t" << age << endl;
+
+[ in the above code “cin.ignore” is not needed because :
+
+Step 1 — cin >> age
+	User types:
+	25    [ presses enter key ]
+	cin >> age reads the number 25.
+	It leaves the newline '\n' in the input buffer.
+
+Step 2 — cin >> name
+	cin >> (for strings or char arrays) automatically skips any whitespace at the beginning — including spaces, tabs, or newlines.
+	So, when it starts reading name, it sees the leftover newline, skips it, and waits for the next word.
+ That’s why it works fine — the leftover newline doesn’t cause a problem here. ]
+
+
+
+4)
+
+
+int age;
+char name[20],address[40];
+cout << "Enter age" << endl;
+cin >> age;     
+cout << "Enter full name" << endl;
+cin.ignore(numeric_limits<streamsize>::max(), '\n');
+cin.getline(name, 20);
+cout << "Enter address" << endl;
+cin.getline(address, 40);
+cout << name << "\t" << age <<"\t"<<address<< endl;
+
+
+[ in the above code why don't we need cin.ignore after 
+cin.getline(name, 20); 
+cout << "Enter address" << endl; 
+
+	these lines ?
+
+it's because   cin.getline(name,20)  will read the characters entered by user and store them in "name" , also getline will remove '\n' from the input buffer. That means when we say cin.getline(address,40) , there is no \n  left inside the buffer and now getline will wait for you to enter the characters ]
+

@@ -1,0 +1,48 @@
+7) pointer to a constant , constant pointer, constant pointer to a constant
+const int *ptr or int const * ptr
+int * const ptr
+const int * const ptr
+
+10) diff. between defining function inside class and outside class.
+
+11) what are default arguments ? what is the rule ?
+
+14) what is reference ?
+meaning  (ref. must be initialized , once initialized can not refer to any other variable)
+diff with pointer (advantage of reference over pointer and vice-versa)
+diff bet'n call by address and call by reference
+function call on left side . how ?
+can we have array of references ?
+can we have reference to an array
+
+ what is this pointer ?  what is this pointer ? 
+
+what is class and object give examples.
+
+what is constructor? types?
+
+in how many scenarios copy constructor gets called
+
+what is the syntax of copy constructor
+
+need of copy constructor
+
+destructor
+
+need of destructor
+
+what is static in oops
+
+rule for static members
+
+how should we initialize const instance members
+
+mutable member
+
+why this cannot be used with static
+
+can static member function access non-static data
+can non-static member function access static data
+
+what happens when object is created
+

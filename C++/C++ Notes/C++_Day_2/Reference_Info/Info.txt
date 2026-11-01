@@ -1,0 +1,33 @@
+reference
+
+
+reference is just another name to a variable.
+reference is not allocated any memory.
+reference must be initialized.
+once initialized it cannot refer to another referent.
+reference gets dereferenced automatically ( in comparison with pointer which has be dereferenced explicitly using *)
+
+e.g.
+
+ int num = 10;
+ int& ref = num;
+ cout << num << endl;
+ cout << ref << endl;
+
+
+
+
+The compiler treats ref as an alias for num.
+
+Every use of ref is replaced by num in generated machine code (after compilation).
+
+In essence, ref doesn’t exist as a separate variable in memory.
+
+		cout << ref << endl;
+
+
+The compiler replaces ref with num internally.
+
+So machine code reads from num’s memory location and prints 10.
+
+There is no dereference operator needed; this is done automatically by the compiler.
