@@ -1,0 +1,40 @@
+/*
+When you want to return an object from a function make
+sure you return anonymous object. So that additional object will not be created by compiler.
+*/
+
+#include <iostream>
+using namespace std;
+
+
+class MyClass
+{
+public:
+    MyClass()
+    {
+        cout << "inside MyClass no-arg constructor" << endl;
+    }
+    MyClass(const MyClass& ref)
+    {
+        cout << "inside MyClass copy constructor" << endl;
+    }
+  
+    ~MyClass()
+    {
+        cout << "destructor is called" << endl;
+    }
+};
+
+MyClass getMyClass()
+{
+    return MyClass();
+}
+int main()
+{
+    MyClass m1;
+    MyClass m2 = m1;
+    MyClass m3;
+    m3 = getMyClass();  // anonymous object will be created here, assigned to m3 and will be immediately destroyed
+    cout << "done" << endl;
+}
+

@@ -1,0 +1,6 @@
+What is the need to overload "operator=" when compiler provides it implicitly ( especially when two objects are of same class)?
+
+a) When pointer is a member of class
+b) we have allocated memory dynamically for the pointer.
+
+So in order to avoid "dangling pointer" problem we have to overload "operator=" and make sure we do deep assignment. (Compiler's "operator=" does shallow assignment).

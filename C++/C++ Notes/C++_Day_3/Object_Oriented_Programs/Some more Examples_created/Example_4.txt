@@ -1,0 +1,38 @@
+// how to call member function of one class from 
+// member function of another class
+
+// forward declaration is only to mention the classname
+// before its actual definition. But it is not sufficient
+// for accessing the members of the class. You cannot access
+// the members of the class unless class is fully defined.
+
+#include<iostream>
+using namespace std;
+
+class Second; // forward declaration
+class First
+{
+public:
+	void disp1(Second&);
+};
+class Second
+{
+public:
+	
+	void disp2() 
+	{
+		cout << "First disp2" << endl;
+	}
+};
+void First::disp1(Second& temp)
+{
+	temp.disp2();
+	cout << "in First disp1" << endl;
+}
+int main()
+{
+	First f; 
+	Second s;
+	f.disp1(s);
+
+}

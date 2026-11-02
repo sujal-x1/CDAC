@@ -1,0 +1,24 @@
+// how to call one member function from 
+// another member function of the same class
+#include<iostream>
+using namespace std;
+
+class First
+{
+public:
+	void disp1()
+	{
+		cout << "First disp1" << endl;
+		disp2();
+	}
+	void disp2()
+	{
+		cout << "First disp2" << endl;
+	}
+};
+int main()
+{
+	First f;
+	f.disp1();
+
+}

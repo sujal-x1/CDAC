@@ -1,0 +1,34 @@
+// how to call member function of one class from 
+// member function of another class
+#include<iostream>
+using namespace std;
+
+class First
+{
+public:
+	void disp1()
+	{
+		cout << "First disp1" << endl;
+	}
+};
+class Second
+{
+public:
+	// when u pass object to a function , always 
+	// collect it in a reference.
+
+	void disp2(First &temp) // First &temp=f;
+	{
+		// invoke "disp1" of First
+		// we need object of First
+		temp.disp1();
+		cout << "First disp2" << endl;
+	}
+};
+int main()
+{
+	First f; // can we use it in "disp2"
+	Second s;
+	s.disp2(f);
+
+}

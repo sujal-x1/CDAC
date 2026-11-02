@@ -1,0 +1,31 @@
+#include<iostream>
+using namespace std;
+
+class First
+{
+private:
+	int num;
+public:
+	First(int num)
+	{
+		this->num = num;
+	}
+	int getNum()
+	{
+		return num;
+	}
+};
+int main()
+{
+	First f(100);
+	cout << f.getNum() << endl;
+	First& ref1 = f;
+	cout << ref1.getNum() << endl;
+
+	First* f1 = new First(200);
+	cout << f1->getNum() << endl;
+	First& ref2 = *f1;
+	cout << ref2.getNum() << endl;
+	delete f1;
+
+}

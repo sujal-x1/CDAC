@@ -1,0 +1,7 @@
+Enum is used when we want to work with a fixed set of predefined values such as days of week, month names, pizza sizes, font styles, directions, etc.
+
+Its main use is type safety and better readability.
+
+Instead of using random numbers like `1`, `2`, `3`, we can use meaningful names like `SMALL`, `MEDIUM`, `LARGE`.
+
+Also, if we assign an invalid value by mistake, compiler can often give compile-time error, which is safer than getting unexpected results at runtime.

@@ -1,0 +1,23 @@
+#include <iostream>
+using namespace std;
+
+class A
+{
+public:
+    A()
+    {
+        disp();
+    }
+    void disp()
+    {
+        cout << "in disp" << endl;
+    }
+};
+
+A ref1;
+
+int main()
+{
+    cout << "in main" << endl;
+    return 0;
+}

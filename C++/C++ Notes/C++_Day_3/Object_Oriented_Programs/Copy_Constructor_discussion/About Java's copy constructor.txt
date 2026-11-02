@@ -1,0 +1,16 @@
+do we have copy constructor in java?
+
+not implicitly but we can create explicitly .
+
+
+public class MyClass
+{
+	public MyClass(){}
+
+	public MyClass(MyClass ref)
+	{
+	}
+}
+
+MyClass first=new MyClass();
+MyClass second=new MyClass(first); // initializing second using first

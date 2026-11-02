@@ -1,0 +1,50 @@
+
+#include <iostream>
+using namespace std;
+
+
+class MyClass
+{
+public:
+    MyClass()
+    {
+        cout << "inside MyClass no-arg constructor" << endl;
+    }
+    MyClass(const MyClass& ref)
+    {
+        cout << "inside MyClass copy constructor" << endl;
+    }
+    void operator=(const MyClass& ref)
+    {
+        cout << "inside operator=" << endl;
+    }
+};
+MyClass m1;
+MyClass getMyClass()
+{
+    return m1;  // returning object
+
+	/* behind the scene:
+	MyClass anoymous=m1;  // copy constructor
+	return anonymous;
+	*/
+}
+int main()
+{
+    
+    MyClass m2 = m1;
+    MyClass m3;
+    m3=getMyClass();
+    cout << "done" << endl;
+}
+
+/*
+output:
+
+inside MyClass no-arg constructor
+inside MyClass copy constructor
+inside MyClass no-arg constructor
+inside MyClass copy constructor
+inside operator=
+done
+*/

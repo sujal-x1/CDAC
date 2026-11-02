@@ -1,0 +1,42 @@
+
+#include <iostream>
+using namespace std;
+
+
+class MyClass
+{
+public:
+    MyClass()
+    {
+        cout << "inside MyClass no-arg constructor" << endl;
+    }
+    MyClass(const MyClass& ref)
+    {
+        cout << "inside MyClass copy constructor" << endl;
+    }
+  
+    ~MyClass()
+    {
+        cout << "destructor is called" << endl;
+    }
+};
+MyClass m1;
+MyClass& getMyClass()
+{
+    return m1;   // returning reference
+
+    /* behind the scene:
+    MyClass &anoymous=m1;  // no copy constructor
+    return anonymous;
+    */
+
+}
+int main()
+{
+
+    MyClass m2 = m1;
+    MyClass m3;
+    m3 = getMyClass();
+    cout << "done" << endl;
+}
+

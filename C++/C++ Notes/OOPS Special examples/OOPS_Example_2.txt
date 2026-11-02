@@ -1,0 +1,78 @@
+#include <iostream>
+using namespace std;
+
+class Person
+{
+    char* name;
+    int age;
+
+public:
+    Person()
+    {
+        name = NULL;
+    }
+    Person(char const* name, int age)
+    {
+        this->name = new char[strlen(name) + 1];
+        strcpy_s(this->name, strlen(name)+1, name);
+        this->age = age;
+    }
+    void setName(const char* name)
+    {
+        if (this->name != NULL)
+        {
+            delete this->name;
+            this->name = NULL;
+        }
+        this->name = new char[strlen(name) + 1];
+        strcpy_s(this->name, strlen(name) + 1, name);
+     }
+    void setAge(int age)
+    {
+        this->age = age;
+    }
+    char* getName()
+    {
+        return name;
+    }
+    int getAge()
+    {
+        return age;
+    }
+    ~Person()
+    {
+        cout << "in destructor"<<endl;
+        if(name!=NULL)
+            delete name;
+    }
+};
+
+int main() 
+{
+    Person p1("Abcd", 10);
+    Person p2;
+    p2.setName("Xyz");
+    p2.setAge(20);
+    cout << p1.getName() << "\t" << p1.getAge() << endl;
+    cout << p2.getName() << "\t" << p2.getAge() << endl;
+
+    Person arr1[3];
+    char persons[3][30] = { "aaaa","bbbb","cccc" };
+    int agearr[] = { 20,25,30 };
+    for (int i = 0; i < 3; i++)
+    {
+        arr1[i].setName(persons[i]);
+        arr1[i].setAge(agearr[i]);
+    }
+    for (int i = 0; i < 3; i++)
+    {
+        cout<<arr1[i].getName()<<"\t"<<arr1[i].getAge()<<endl;
+    }
+    Person* arr2 = new Person[3]{Person("ppppp", 21), Person("qqqq", 23), Person("rrrr", 27) };
+    for (int i = 0; i < 3; i++)
+    {
+        cout << arr2[i].getName() << "\t" << arr2[i].getAge() << endl;
+    }
+    delete[]arr2;
+    return 0;
+}

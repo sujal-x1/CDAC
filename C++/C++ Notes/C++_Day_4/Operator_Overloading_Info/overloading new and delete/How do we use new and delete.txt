@@ -1,0 +1,16 @@
+"new" can be used in two ways:
+
+MyClass *ptr=new MyClass;
+	operator new
+
+or
+
+MyClass *ptr=new MyClass[5];
+	operator new[]
+
+
+"delete" can be used in two ways:
+
+delete ptr;  // operator delete
+or
+delete []ptr;  // operator delete[]

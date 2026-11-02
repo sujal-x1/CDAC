@@ -1,0 +1,17 @@
+copy constructor is called in 2 situations
+a) when object is initialized with another object
+b) when object is passed as an argument ,and collected in 
+another temporary object i.e. When an object is passed to a function by value
+
+
+when we don't provide copy constructor in the class, compiler implicitly provides it.
+
+How does copy constructor look ?
+
+if we consider class name as "MyClass", copy constructor looks like:
+
+MyClass(const MyClass &ref)
+{
+}
+	so that means copy constructor accepts same class reference as an argument.
+

@@ -1,0 +1,38 @@
+#include<iostream>
+using namespace std;
+class MyClass
+{
+private:
+	int num; // instance member
+public:
+	void setNum(int k)
+	{
+		num = k;
+	}
+	int getNum()
+	{
+		return num;
+	}
+	MyClass()
+	{
+		cout << "no-arg constructor" << endl;
+	}
+	~MyClass()
+	{
+		cout << "in destructor" << endl;
+	}
+};
+void main()
+{
+	MyClass m;  // object of MyClass
+	m.setNum(100);
+	cout << endl << m.getNum() << endl;
+	// heap based object initialized using stack based object
+	MyClass *m1 = new MyClass(m);
+
+	cout << m1->getNum() << endl;
+	// stack based object initialized using heap based object
+	MyClass m2 = *m1;
+	cout << m2.getNum() << endl;
+	delete m1;
+}

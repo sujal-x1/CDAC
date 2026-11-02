@@ -1,0 +1,80 @@
+#include<iostream>
+using namespace std;
+class Number
+{
+private:
+	int num;
+public:
+	Number(int num)
+	{
+		this->num = num;
+	}
+	Number()
+	{
+
+	}
+	int getNum()
+	{
+		return num;
+	}
+	Number operator+(Number& ref)
+	{
+		return Number(num + ref.num);
+	}
+	Number operator*(Number& ref)
+	{
+		return Number(num * ref.num);
+	}
+};
+int main()
+{
+	Number n1(10), n2(20), n3(6), n4;
+	n4 = n1 + n2 * n3;
+	cout << n4.getNum(); // We expect answer 130
+}
+
+
+/*
+above code gives error at + sign. Actually we expect
+answer as 130. i.e. it would do n2*n3 
+and result will be added inside n1 as per bodmas rule.
+
+Why do we get error at + ?
+
+Answer:
+
+* has higher precedence than +.
+So it does first evaluate n2 * n3.
+That produces a temporary object (rvalue).
+
+Conceptually:
+
+n4 = n1 + (n2 * n3);
+
+
+Then the compiler tries to call our operator+ :
+
+n1.operator+((n2 * n3));
+
+
+But our operator+ is declared as:
+
+Number operator+(Number& ref)
+
+
+It takes a non-const lvalue reference (Number&).
+
+A temporary object (n2 * n3) cannot bind to 
+a non-const lvalue reference.
+
+You can only bind temporaries to const references 
+or rvalue references.
+
+How to solve this problem ?
+	Use const Reference
+
+i.e.
+
+Number operator+(const Number& ref)
+
+*/

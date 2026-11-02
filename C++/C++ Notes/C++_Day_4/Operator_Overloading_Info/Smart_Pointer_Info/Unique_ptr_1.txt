@@ -1,0 +1,27 @@
+#include <iostream>
+using namespace std;
+
+class MyClass {
+public:
+    MyClass(int k) { cout << "MyClass created with "<<k<<endl; }
+    ~MyClass() { cout << "MyClass destroyed\n"; }
+};
+
+int main() {
+    {
+        unique_ptr<MyClass> ptr1 = make_unique<MyClass>(200);
+
+        // unique_ptr<MyClass> ptr2 = ptr1; // not possible
+
+        /*
+        * not possible
+        unique_ptr<MyClass> ptr2;
+        ptr2 = ptr1;
+        */
+
+        cout << "done" << endl;
+        // Use ptr1 to access MyClass instance
+    } // ptr1 goes out of scope here, and MyClass is automatically destroyed
+
+    return 0;
+}

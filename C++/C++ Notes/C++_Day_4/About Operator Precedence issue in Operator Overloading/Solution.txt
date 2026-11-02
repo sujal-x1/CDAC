@@ -1,0 +1,36 @@
+#include<iostream>
+using namespace std;
+class Number
+{
+private:
+	int num;
+public:
+	Number(int num)
+	{
+		this->num = num;
+	}
+	Number()
+	{
+
+	}
+	int getNum()
+	{
+		return num;
+	}
+	Number operator+(const Number& ref)
+	{
+		return Number(num + ref.num);
+	}
+	Number operator*(Number& ref)
+	{
+		return Number(num * ref.num);
+	}
+};
+int main()
+{
+	Number n1(10), n2(20), n3(6), n4;
+	n4 = n1 + n2 * n3;
+	cout << n4.getNum(); // We expect answer 130
+}
+
+

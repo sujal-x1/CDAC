@@ -1,13 +1,25 @@
-#include<iostream>
-using namespace std;
+//#include<iostream>
+//using namespace std;
 	/////////////////Day 2 assignments/////////////////////////
 //void swapper(int *a, int *b) {
 //	int t = *a;
 //	*a = *b;
 //	*b = t;
 //}
-void 
-int main() {
+//void minmaxargs(char a, char b, char c, char d = ' ', char e = ' ') {
+//	cout << a << b << c << d << e << endl;
+// }
+//void tresargfunc(int a , int *ptr,int &c) {
+//	a = 100;
+//	*ptr = 200;
+//	c = 300;
+//
+//	cout << "in function" << endl;
+//	cout << "\n variable a="<<a;
+//	cout << "\n pointer b="<<*ptr;
+//	cout << "\n reference c=" << c;
+//}
+//int main() {
 	/////////Q1.////////////////////
 	//string name;
 	//int age;
@@ -131,9 +143,25 @@ int main() {
 //cin >> name;
 //cout << name << endl;
 ////////////Q8////////////////////////////////////////////
+//minmaxargs('a','b','c');
+//minmaxargs('a','b','c','e');
+//minmaxargs('a','b','c','d','e');
+//int a = 10;
+//int b = 20;
+//int c = 30;
+//
+//cout << "Before function call:";
+//cout << "\na = " << a;
+//cout << "\nb = " << b;
+//cout << "\nc = " << c;
+//
+//tresargfunc(a, &b, c);
+//cout << "After function call:";
+//cout << "\na = " << a;
+//cout << "\nb = " << b;
+//cout << "\nc = " << c;
 
-
-}
+//}
 
 	
 	
