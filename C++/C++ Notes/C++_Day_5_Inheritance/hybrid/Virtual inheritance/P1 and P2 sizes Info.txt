@@ -1,0 +1,18 @@
+
+For P1 obj1:
+
+- vbptr = 8 bytes
+- Gp virtual base subobject (num1) = 4 bytes
+- P1's own data member (num2) = 4 bytes
+
+Total = 8 + 4 + 4 = 16 bytes.
+
+Similarly, for P2 obj2:
+
+- vbptr = 8 bytes
+- Gp virtual base subobject (num1) = 4 bytes
+- P2's own data member (num3) = 4 bytes
+
+Total = 8 + 4 + 4 = 16 bytes.
+
+This is consistent with the expected MSVC 64-bit layout for our example using #pragma pack(1).

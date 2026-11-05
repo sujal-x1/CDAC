@@ -1,7 +1,6 @@
 1) create a class with constructors and destructors.
 create array of instances and observe how program behaves.
 
-
 2) create a class with constructors and destructor.
 create 2 instances on stack and 1 instance on heap. observe the invocation of constructors and destructors.
 

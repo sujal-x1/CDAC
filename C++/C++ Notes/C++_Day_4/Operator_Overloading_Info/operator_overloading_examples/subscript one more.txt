@@ -1,0 +1,56 @@
+#include<iostream>
+using namespace std;
+
+#include<iostream>
+using namespace std;
+class MyClass
+{
+private:
+	char* name;
+public:
+	MyClass(const char* ptr)
+	{
+		name = new char[strlen(ptr) + 1];
+		strcpy_s(name, sizeof(name) - 1, ptr);
+	}
+	void disp()
+	{
+		cout << endl << name << endl;
+	}
+	char& operator[](int index)
+	{
+		if (index >= 0 && index < strlen(name))
+			return name[index];
+		/*
+		char &noname=name[index]
+		return noname;
+		*/
+		else
+			throw out_of_range("itna bhi aata nahi kya");
+	}
+};
+int main()
+{
+	MyClass m1("Sujeet");
+	m1.disp();
+	// what if we want to print "S"
+	//m1.charAt(1);
+	try
+	{
+		cout<<m1[0]<<endl;  // cout<<nonameref<<endl;
+	}
+	catch (out_of_range &o)
+	{
+		cout << "in catch\t" << o.what() << endl;
+	}
+	try
+	{
+		m1[0] = 'T'; // nonameref='T'
+	}
+	catch(out_of_range &o)
+	{
+		cout << "in catch\t" << o.what() << endl;
+	}
+	m1.disp();
+	cout << "done" << endl;
+}

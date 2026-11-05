@@ -139,8 +139,12 @@
     </Manifest>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="copyConstructor.cpp" />
     <ClCompile Include="First.cpp" />
+    <ClCompile Include="five.cpp" />
+    <ClCompile Include="operatorOverload.cpp" />
     <ClCompile Include="second.cpp" />
+    <ClCompile Include="third.cpp" />
     <ClCompile Include="try.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -33,7 +33,3 @@ Make sure that all the member functions of "Second" will access "a".
 
 
 
-
-
-
-

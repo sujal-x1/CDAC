@@ -1,0 +1,18 @@
+For our child object, the expected MSVC 64-bit layout with 
+
+#pragma pack(1) is:
+
+- P1 subobject = 12 bytes (vbptr 8 + num2 4)
+- P2 subobject = 12 bytes (vbptr 8 + num3 4)
+- Shared virtual base Gp = 4 bytes (num1)
+- Child's own member num4 = 4 bytes
+
+Total = 12 + 12 + 4 + 4 = 32 bytes.
+
+Why are P1 and P2 each 12 bytes inside child, instead of 16 bytes?
+
+When P1 and P2 are used as base subobjects of child, their virtual base Gp is not stored separately inside each of them. Instead, 
+
+"child contains one shared Gp subobject, common to both P1 and P2".
+
+Therefore, each base subobject contributes only its vbptr and its own data member, while the shared Gp is counted once.

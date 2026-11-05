@@ -21,7 +21,17 @@
     <ClCompile Include="second.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="try.cpp">
+    <ClCompile Include="third.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="try.cpp" />
+    <ClCompile Include="five.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="copyConstructor.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="operatorOverload.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
